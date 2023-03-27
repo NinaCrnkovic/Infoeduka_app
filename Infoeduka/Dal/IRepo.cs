@@ -9,7 +9,8 @@ namespace Infoeduka.Dal
 {
     public interface IRepo
     {
-        public void SaveData(IList<Person> persons, IList<Course> course);
+        public void SavePersonData(IList<Person> persons);
+        public void SaveCourseData(IList<Course> courses);
 
         public IList<Person> GetPersons();
         public IList<Course> GetCourses();

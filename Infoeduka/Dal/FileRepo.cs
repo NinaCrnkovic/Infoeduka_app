@@ -9,7 +9,9 @@ namespace Infoeduka.Dal
 {
     class FileRepo : IRepo
     {
-        private const string PATH = "podaci.txt";
+        private const string PATH_COURSES = "kolegiji.txt";
+        private const string PATH_PERSONS = "osobe.txt";
+        private const string PATH_NOTIFICATIONS = "obavijesti.txt";
 
         public FileRepo()
         {
@@ -19,9 +21,17 @@ namespace Infoeduka.Dal
 
         private void CreateFileIfNotExist()
         {
-            if (!File.Exists(PATH))
+            if (!File.Exists(PATH_COURSES))
             {
-                File.Create(PATH).Close();
+                File.Create(PATH_COURSES).Close();
+            }
+            if (!File.Exists(PATH_PERSONS))
+            {
+                File.Create(PATH_PERSONS).Close();
+            }
+            if (!File.Exists(PATH_NOTIFICATIONS))
+            {
+                File.Create(PATH_NOTIFICATIONS).Close();
             }
         }
 
@@ -31,26 +41,19 @@ namespace Infoeduka.Dal
         public IList<Person> GetPersons()
         {
             IList<Person> persons = new List<Person>();
-            string[] lines = File.ReadAllLines(PATH);
-
-            bool isLecturersSection = false;
-            foreach (string line in lines)
+            string[] data = File.ReadAllLines(PATH_PERSONS);
+                        
+            foreach (string line in data)
             {
-                if (line.StartsWith("Predavači:"))
-                {
-                    isLecturersSection = true;
-                    continue;
-                }
-                else if (line.StartsWith("Kolegiji:"))
-                {
-                    isLecturersSection = false;
-                    continue;
-                }
-
-                if (isLecturersSection)
-                {
-                    persons.Add(Person.ParseFromFile(line));
-                }
+                    try
+                    {
+                        persons.Add(Person.ParseFromFile(line));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("parser za osobu je puko"+ex.Message);
+                    }
+                                   
             }
 
             return persons;
@@ -59,26 +62,11 @@ namespace Infoeduka.Dal
         public IList<Course> GetCourses()
         {
             IList<Course> courses = new List<Course>();
-            string[] lines = File.ReadAllLines(PATH);
+            string[] data = File.ReadAllLines(PATH_COURSES);
 
-            bool isCoursesSection = false;
-            foreach (string line in lines)
+            foreach (string line in data)
             {
-                if (line.StartsWith("Kolegiji:"))
-                {
-                    isCoursesSection = true;
-                    continue;
-                }
-                else if (line.StartsWith("Predavači:"))
-                {
-                    isCoursesSection = false;
-                    continue;
-                }
-
-                if (isCoursesSection)
-                {
-                    courses.Add(Course.ParseFromFile(line));
-                }
+               courses.Add(Course.ParseFromFile(line));
             }
 
             return courses;
@@ -87,27 +75,33 @@ namespace Infoeduka.Dal
 
 
 
-        public void SaveData(IList<Person> persons, IList<Course> courses)
+        public void SavePersonData(IList<Person> persons)
         {
-            using (StreamWriter writer = new StreamWriter(PATH))
-            {
-                // Spremanje osoba
-                writer.WriteLine("Predavači:");
-                foreach (Person person in persons)
-                {
-                    string line = person.FormatForFile();
-                    writer.WriteLine(line);
-                }
-                writer.WriteLine();
+            List<string> lines = new List<string>();
 
-                // Spremanje kolegija
-                writer.WriteLine("Kolegiji:");
-                foreach (Course course in courses)
-                {
-                    string line = course.FormatForFile();
-                    writer.WriteLine(line);
-                }
-            };
+            foreach (Person person in persons)
+            {
+                lines.Add(person.FormatForFile());
+            }
+
+            File.WriteAllLines(PATH_PERSONS, lines);
+
+
+        }
+
+
+        public void SaveCourseData(IList<Course> courses)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Course person in courses)
+            {
+                lines.Add(person.FormatForFile());
+            }
+
+            File.WriteAllLines(PATH_PERSONS, lines);
+
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Infoeduka.Model
     {
         private const char DEL = '|';
 
-        public Guid Id { get; private set; }
+        public string Id { get;  set; } = "";
         public string FirstName { get; set; } = "";
         public string LastName { get; set; } = "";
 
@@ -22,9 +22,9 @@ namespace Infoeduka.Model
         {
 
         }
-        public Person(Guid id, string firstName, string lastName, string email, string password, bool isAdmin)
+        public Person( string firstName, string lastName, string email, string password, bool isAdmin)
         {
-            Id = id;
+            Id = email;
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -32,16 +32,7 @@ namespace Infoeduka.Model
             IsAdmin = isAdmin;
         }
 
-        public Person(string firstName, string lastName, string email, string password, bool isAdmin)
-        {
-            Id = Guid.NewGuid(); ;
-            FirstName = firstName;
-            LastName = lastName;
-            Email = email;
-            Password = password;
-            IsAdmin = isAdmin;
-        }
-
+        
 
 
         public override string ToString() => $"{Id}, {FirstName} {LastName}, {Email}, {Password}, {(IsAdmin ? "Administrator" : "Predavač")}";
@@ -53,19 +44,10 @@ namespace Infoeduka.Model
         public static Person ParseFromFile(string line)
         {
             string[] details = line.Split(DEL);
-
-            if (details.Length < 6)
-            {
-                throw new ArgumentException("Invalid line format: " + line);
-            }
-            if (!Guid.TryParse(details[0], out Guid id))
-            {
-                throw new ArgumentException("Invalid ID format: " + details[0]);
-
-            }
+                       
             return new Person
             {
-                Id = id,
+                Id = details[0],
                 FirstName = details[1],
                 LastName = details[2],
                 Email = details[3],

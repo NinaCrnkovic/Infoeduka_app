@@ -91,7 +91,9 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnViewAllLecturers":
+                    ListOfLecturers listOfLecturers = new ListOfLecturers(dataManager, "btnAddNewLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(listOfLecturers);
                     break;
                 case "btnAddNewLecturer":
                     LecturerMainForm formAddLecturer = new LecturerMainForm(dataManager, "btnAddNewLecturer");

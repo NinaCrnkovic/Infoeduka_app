@@ -22,10 +22,11 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"load person to dic" +e.Message);
             }
         }
 
+   
         public IDictionary<string, Course> LoadCoursesToDictionary()
         {
             try
@@ -35,8 +36,18 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"load courses to dic" + e.Message);
             }
+            return coursesDictionary;
+        }
+
+        public IDictionary<string, Person> GetPersonsDictionary()
+        {
+            return personsDictionary;
+        }
+
+        public IDictionary<string, Course> GetCoursesDictionary()
+        {
             return coursesDictionary;
         }
 
@@ -51,7 +62,7 @@ namespace Infoeduka.Model
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show($"fill courses dic" + e.Message);
                 }
             }
         }
@@ -67,7 +78,7 @@ namespace Infoeduka.Model
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show(e.Message);
+                    MessageBox.Show($"fill person dic" + e.Message);
                 }
             }
         }
@@ -87,11 +98,11 @@ namespace Infoeduka.Model
         {
             try
             {
-                repo.SaveData(persons, courses);
+                repo.SavePersonData(persons);
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"save person and course"+e.Message);
             }
         }
 
@@ -106,7 +117,7 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                MessageBox.Show($"save all" +e.Message);
             }
         }
     }

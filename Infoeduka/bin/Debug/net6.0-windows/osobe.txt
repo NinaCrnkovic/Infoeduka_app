@@ -1,0 +1,2 @@
+ana@anic.hr|Ana|Anic|ana@anic.hr||False
+maj@majic.hr|Maja|Majic|maj@majic.hr|589|True

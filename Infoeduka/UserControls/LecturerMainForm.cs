@@ -26,7 +26,8 @@ namespace Infoeduka.UserControls
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            var id = Guid.NewGuid().ToString();
+            
+            var id = tbEmail.Text;
             var firstName = tbFirstName.Text;
             var lastName = tbLastName.Text;
             var email = tbEmail.Text;
@@ -34,13 +35,24 @@ namespace Infoeduka.UserControls
             var isAdmin = GetChecked();
 
             // kreirajte novog Person objekta
-            Person newPerson = new Person(firstName, lastName, email, password, isAdmin);
+            Person newPerson = new Person( firstName, lastName, email, password, isAdmin);
+            try
+            {
+                // dodajte novog Person objekta u dictionary u DataManager klasi
+                _dataManager.AddNewPersonToDictionary(newPerson);
 
-            // dodajte novog Person objekta u dictionary u DataManager klasi
-            _dataManager.AddNewPersonToDictionary(newPerson);
 
-            // obavijestite korisnika da su podaci spremljeni
-            MessageBox.Show("Podaci su spremljeni");
+                // obavijestite korisnika da su podaci spremljeni
+                ClearForm();
+                MessageBox.Show("Podaci su spremljeni");
+                
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Došlo je do greške, podaci nisu spremljeni" + ex.Message);
+            }
+         
         }
 
         private bool GetChecked()
@@ -57,23 +69,28 @@ namespace Infoeduka.UserControls
         {
             if (callingButton == "btnAddNewLecturer")
             {
-                foreach(Control control in this.Controls)
-{
-                    if (control is TextBox)
-                    {
-                        ((TextBox)control).Text = string.Empty;
-                    }
-                    else if (control is ComboBox)
-                    {
-                        ((ComboBox)control).SelectedIndex = -1;
-                    }
-                    // Dodajte druge tipove kontrolera i postavite njihove vrijednosti na prazne ili nule, ako je potrebno.
-                }
+                ClearForm();
 
             }
             else if (callingButton == "btnEditLecturer")
             {
                 // kod koji se izvršava ako je drugi gumb pozvao ovu formu
+            }
+        }
+
+        private void ClearForm()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = string.Empty;
+                }
+                else if (control is ComboBox)
+                {
+                    ((ComboBox)control).SelectedIndex = -1;
+                }
+                // Dodajte druge tipove kontrolera i postavite njihove vrijednosti na prazne ili nule, ako je potrebno.
             }
         }
     }
