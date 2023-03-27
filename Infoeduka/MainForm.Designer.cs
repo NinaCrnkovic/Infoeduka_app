@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnUserLogedIn = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -121,7 +120,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImage = global::Infoeduka.Properties.Resources.AlgebraLogo;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -148,7 +147,7 @@
             // 
             // pbLinkedIn
             // 
-            this.pbLinkedIn.Image = ((System.Drawing.Image)(resources.GetObject("pbLinkedIn.Image")));
+            this.pbLinkedIn.Image = global::Infoeduka.Properties.Resources.Linkedin;
             this.pbLinkedIn.Location = new System.Drawing.Point(1004, 12);
             this.pbLinkedIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbLinkedIn.Name = "pbLinkedIn";
@@ -160,7 +159,7 @@
             // 
             // pbTikTok
             // 
-            this.pbTikTok.Image = ((System.Drawing.Image)(resources.GetObject("pbTikTok.Image")));
+            this.pbTikTok.Image = global::Infoeduka.Properties.Resources.TikTok;
             this.pbTikTok.Location = new System.Drawing.Point(1037, 12);
             this.pbTikTok.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbTikTok.Name = "pbTikTok";
@@ -172,7 +171,7 @@
             // 
             // pbFacebook
             // 
-            this.pbFacebook.Image = ((System.Drawing.Image)(resources.GetObject("pbFacebook.Image")));
+            this.pbFacebook.Image = global::Infoeduka.Properties.Resources.Facebook;
             this.pbFacebook.Location = new System.Drawing.Point(1070, 13);
             this.pbFacebook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbFacebook.Name = "pbFacebook";
@@ -184,7 +183,7 @@
             // 
             // pbYouTube
             // 
-            this.pbYouTube.Image = ((System.Drawing.Image)(resources.GetObject("pbYouTube.Image")));
+            this.pbYouTube.Image = global::Infoeduka.Properties.Resources.YouTube;
             this.pbYouTube.Location = new System.Drawing.Point(1148, 9);
             this.pbYouTube.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbYouTube.Name = "pbYouTube";
@@ -196,7 +195,7 @@
             // 
             // pbInstagram
             // 
-            this.pbInstagram.Image = ((System.Drawing.Image)(resources.GetObject("pbInstagram.Image")));
+            this.pbInstagram.Image = global::Infoeduka.Properties.Resources.Instagram;
             this.pbInstagram.Location = new System.Drawing.Point(1107, 9);
             this.pbInstagram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbInstagram.Name = "pbInstagram";
