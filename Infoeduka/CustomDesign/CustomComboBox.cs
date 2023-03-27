@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infoeduka.Dal
+namespace Infoeduka.CustomDesign
 {
-    public static class RepoFactory
+    internal class CustomComboBox
     {
-        public static IRepo GetRepo() => new FileRepo();
     }
 }
