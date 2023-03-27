@@ -1,3 +1,5 @@
+using Utilities;
+
 namespace Infoeduka
 {
     public partial class MainForm : Form
@@ -83,7 +85,7 @@ namespace Infoeduka
             if (form.Visible == false)
             {
                 //hide metoda zatvara prijašnjiu otvorenu formu
-                HideUserControlsForm();
+                //HideUserControlsForm();
                 form.Visible = true;
             }
             else
@@ -93,23 +95,7 @@ namespace Infoeduka
             }
 
         }
-        //postavlja visibiliti na user controls fromama na false
-        private void HideUserControlsForm()
-        {
-            if (formAddCourse.Visible)
-            {
-                formAddCourse.Visible = false;
-            }
-            if (formAddLecturer.Visible)
-            {
-                formAddLecturer.Visible = false;
-            }
-            if (formAddNotification.Visible)
-            {
-                formAddNotification.Visible = false;
-            }
-        }
-
+        
 
 
         //postavljamo visibility na panelima koji glume drop down i ukojima su ostali gumbi na false 

@@ -16,3 +16,6 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.pdb
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.genruntimeconfig.cache
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\ref\Infoeduka.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\bin\Debug\net6.0-windows\Utilities.dll
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\bin\Debug\net6.0-windows\Utilities.pdb
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.csproj.CopyComplete
