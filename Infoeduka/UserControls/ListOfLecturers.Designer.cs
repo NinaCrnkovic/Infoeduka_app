@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlList = new System.Windows.Forms.Panel();
+            this.lblNaslov = new System.Windows.Forms.Label();
             this.lvLecturers = new System.Windows.Forms.ListView();
             this.pnlList.SuspendLayout();
             this.SuspendLayout();
@@ -36,20 +37,36 @@
             // pnlList
             // 
             this.pnlList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.pnlList.Controls.Add(this.lblNaslov);
             this.pnlList.Controls.Add(this.lvLecturers);
             this.pnlList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlList.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.pnlList.Location = new System.Drawing.Point(0, 0);
             this.pnlList.Name = "pnlList";
             this.pnlList.Size = new System.Drawing.Size(982, 517);
             this.pnlList.TabIndex = 2;
             // 
+            // lblNaslov
+            // 
+            this.lblNaslov.AutoSize = true;
+            this.lblNaslov.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNaslov.Location = new System.Drawing.Point(433, 17);
+            this.lblNaslov.Name = "lblNaslov";
+            this.lblNaslov.Size = new System.Drawing.Size(170, 21);
+            this.lblNaslov.TabIndex = 1;
+            this.lblNaslov.Text = "Pregled svih predavača";
+            // 
             // lvLecturers
             // 
-            this.lvLecturers.Location = new System.Drawing.Point(235, 39);
+            this.lvLecturers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.lvLecturers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lvLecturers.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lvLecturers.Location = new System.Drawing.Point(209, 46);
             this.lvLecturers.Name = "lvLecturers";
-            this.lvLecturers.Size = new System.Drawing.Size(494, 315);
+            this.lvLecturers.Size = new System.Drawing.Size(565, 315);
             this.lvLecturers.TabIndex = 0;
             this.lvLecturers.UseCompatibleStateImageBehavior = false;
+            this.lvLecturers.View = System.Windows.Forms.View.Details;
             // 
             // ListOfLecturers
             // 
@@ -60,6 +77,7 @@
             this.Size = new System.Drawing.Size(982, 517);
             this.Load += new System.EventHandler(this.ListOfLecturers_Load);
             this.pnlList.ResumeLayout(false);
+            this.pnlList.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -68,5 +86,6 @@
 
         private Panel pnlList;
         private ListView lvLecturers;
+        private Label lblNaslov;
     }
 }

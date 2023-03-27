@@ -33,10 +33,16 @@ namespace Infoeduka.UserControls
         private void ShowData()
         {
             IDictionary <string, Person> persons = _dataManager.GetPersonsDictionary();
+            List<Person> list = new List<Person>();
             foreach(var person in persons.Values)
             {
-                AddListViewRow(person);
+                list.Add(person);
             }
+            foreach (var l in list)
+            {
+                AddListViewRow(l);
+            }
+            
         }
 
         private void AddListViewRow(Person person)
@@ -50,6 +56,7 @@ namespace Infoeduka.UserControls
                 person.IsAdmin ? "Administrator" : "Predavač"
             };
             ListViewItem row = new ListViewItem(rowData);
+            lvLecturers.Items.Add(row);
         }
         //postavljanje view propertisa na listi
         private void SetListViewProperties()
