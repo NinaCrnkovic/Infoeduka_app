@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.palLecturer = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.gbRoles = new System.Windows.Forms.GroupBox();
             this.rbtnAdmin = new Infoeduka.CustomDesign.CustomRadioButton();
@@ -42,12 +43,22 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.tbLastName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.palLecturer.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbRoles.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // palLecturer
+            // 
+            this.palLecturer.Controls.Add(this.groupBox1);
+            this.palLecturer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.palLecturer.Location = new System.Drawing.Point(0, 0);
+            this.palLecturer.Name = "palLecturer";
+            this.palLecturer.Size = new System.Drawing.Size(982, 517);
+            this.palLecturer.TabIndex = 0;
             // 
             // groupBox1
             // 
@@ -62,7 +73,7 @@
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.tbLastName);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.panel5);
             this.groupBox1.Controls.Add(this.tbFirstName);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -72,7 +83,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(528, 418);
-            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Predavač";
             // 
@@ -95,7 +106,7 @@
             this.rbtnAdmin.AccessibleDescription = "";
             this.rbtnAdmin.AutoSize = true;
             this.rbtnAdmin.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rbtnAdmin.Location = new System.Drawing.Point(189, 24);
+            this.rbtnAdmin.Location = new System.Drawing.Point(189, 23);
             this.rbtnAdmin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnAdmin.Name = "rbtnAdmin";
             this.rbtnAdmin.Size = new System.Drawing.Size(124, 25);
@@ -108,7 +119,7 @@
             // 
             this.rbtnLecturer.AutoSize = true;
             this.rbtnLecturer.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.rbtnLecturer.Location = new System.Drawing.Point(19, 24);
+            this.rbtnLecturer.Location = new System.Drawing.Point(19, 23);
             this.rbtnLecturer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbtnLecturer.Name = "rbtnLecturer";
             this.rbtnLecturer.Size = new System.Drawing.Size(91, 25);
@@ -162,7 +173,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(87, 193);
+            this.label4.Location = new System.Drawing.Point(87, 192);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 21);
             this.label4.TabIndex = 12;
@@ -195,7 +206,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(87, 145);
+            this.label2.Location = new System.Drawing.Point(87, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 21);
             this.label2.TabIndex = 9;
@@ -228,21 +239,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(87, 95);
+            this.label1.Location = new System.Drawing.Point(87, 94);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Prezime";
             // 
-            // panel1
+            // panel5
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Location = new System.Drawing.Point(166, 72);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 1);
-            this.panel1.TabIndex = 5;
+            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel5.Location = new System.Drawing.Point(166, 72);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(262, 1);
+            this.panel5.TabIndex = 5;
             // 
             // tbFirstName
             // 
@@ -261,7 +272,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(87, 51);
+            this.label3.Location = new System.Drawing.Point(87, 50);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 21);
             this.label3.TabIndex = 3;
@@ -272,9 +283,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.palLecturer);
             this.Name = "LecturerMainForm";
             this.Size = new System.Drawing.Size(982, 517);
+            this.palLecturer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gbRoles.ResumeLayout(false);
@@ -285,6 +297,7 @@
 
         #endregion
 
+        private Panel palLecturer;
         private GroupBox groupBox1;
         private GroupBox gbRoles;
         private CustomDesign.CustomRadioButton rbtnAdmin;
@@ -299,7 +312,7 @@
         private Panel panel2;
         private TextBox tbLastName;
         private Label label1;
-        private Panel panel1;
+        private Panel panel5;
         private TextBox tbFirstName;
         private Label label3;
     }

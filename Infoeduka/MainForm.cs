@@ -1,3 +1,4 @@
+using Infoeduka.UserControls;
 using Utilities;
 
 namespace Infoeduka
@@ -7,6 +8,7 @@ namespace Infoeduka
         public MainForm()
         {
             InitializeComponent();
+            SetPanelVisibilityToFalse();
         }
 
 
@@ -33,13 +35,74 @@ namespace Infoeduka
             }
         }
 
+        //Gumbi u padajuæem izborniku
+        private void ButtonsInDropDownMenu_Click(object sender, EventArgs e)
+        {
+            Button? dropdownButton = sender as Button;
+            if (dropdownButton is null)
+            {
+                return;
+            }
+            switch (dropdownButton.Name)
+            {
+                case "btnViewAllNotifications":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+                case "btnAddNewNotification":
+                    NotificationMainForm formAddNotification = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formAddNotification);
+                    break;
+                case "btnEditNotification":
+                    NotificationMainForm formEditNotification = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formEditNotification);
+                    break;
+                case "btnDeleteNotification":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+                case "btnViewAllCourses":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+                case "btnAddNewCourse":
+                    CoursesMainForm formAddCourse = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formAddCourse);
+                    break;
+                case "btnEditCourse":
+                    CoursesMainForm formEditCourse = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formEditCourse);
+                    break;
+                case "btnDeleteCourse":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+                case "btnViewAllLecturers":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+                case "btnAddNewLecturer":
+                    LecturerMainForm formAddLecturer = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formAddLecturer);
+                    break;
+                case "btnEditLecturer":
+                    LecturerMainForm formEditLecturer = new();
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
+                    break;
+                case "btnDeleteLecturer":
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    break;
+
+            }
+        }
+
 
         //Gumbi footer
         //akcije na gumbima u footeru - linkovi na stranice
 
-        private void LbAlgebraLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void LbAlgebraLink_LinkClicked(object sender, EventArgs e)
         {
-
             try
             {
                 Utility.VisitLink("https://www.algebra.hr/");
@@ -79,23 +142,8 @@ namespace Infoeduka
 
 
 
-        //prikazuje user controler forme
-        private void ShowUserControlsForm(UserControl form)
-        {
-            if (form.Visible == false)
-            {
-                //hide metoda zatvara prijašnjiu otvorenu formu
-                //HideUserControlsForm();
-                form.Visible = true;
-            }
-            else
-            {
+    
 
-                form.Visible = false;
-            }
-
-        }
-        
 
 
         //postavljamo visibility na panelima koji glume drop down i ukojima su ostali gumbi na false 
@@ -142,5 +190,7 @@ namespace Infoeduka
             }
         }
 
+        
+      
     }
 }

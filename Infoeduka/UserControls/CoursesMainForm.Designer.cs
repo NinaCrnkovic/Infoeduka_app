@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlCourse = new System.Windows.Forms.Panel();
             this.gbCourse = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -40,11 +41,21 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pnlCourse.SuspendLayout();
             this.gbCourse.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlCourse
+            // 
+            this.pnlCourse.Controls.Add(this.gbCourse);
+            this.pnlCourse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlCourse.Location = new System.Drawing.Point(0, 0);
+            this.pnlCourse.Name = "pnlCourse";
+            this.pnlCourse.Size = new System.Drawing.Size(982, 517);
+            this.pnlCourse.TabIndex = 0;
             // 
             // gbCourse
             // 
@@ -59,7 +70,7 @@
             this.gbCourse.Controls.Add(this.panel2);
             this.gbCourse.Controls.Add(this.textBox1);
             this.gbCourse.Controls.Add(this.label1);
-            this.gbCourse.Controls.Add(this.panel1);
+            this.gbCourse.Controls.Add(this.panel4);
             this.gbCourse.Controls.Add(this.tbEmail);
             this.gbCourse.Controls.Add(this.label3);
             this.gbCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -69,7 +80,7 @@
             this.gbCourse.Name = "gbCourse";
             this.gbCourse.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbCourse.Size = new System.Drawing.Size(811, 488);
-            this.gbCourse.TabIndex = 3;
+            this.gbCourse.TabIndex = 4;
             this.gbCourse.TabStop = false;
             this.gbCourse.Text = "Kolegij";
             // 
@@ -78,7 +89,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(483, 163);
+            this.label5.Location = new System.Drawing.Point(483, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 21);
             this.label5.TabIndex = 23;
@@ -89,7 +100,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(180, 163);
+            this.label4.Location = new System.Drawing.Point(180, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 21);
             this.label4.TabIndex = 22;
@@ -160,7 +171,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(194, 116);
+            this.label2.Location = new System.Drawing.Point(194, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 21);
             this.label2.TabIndex = 9;
@@ -193,21 +204,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(232, 67);
+            this.label1.Location = new System.Drawing.Point(232, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Šifra kolegija";
             // 
-            // panel1
+            // panel4
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Location = new System.Drawing.Point(354, 44);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(262, 1);
-            this.panel1.TabIndex = 5;
+            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel4.Location = new System.Drawing.Point(354, 44);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(262, 1);
+            this.panel4.TabIndex = 5;
             // 
             // tbEmail
             // 
@@ -226,7 +237,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(223, 24);
+            this.label3.Location = new System.Drawing.Point(223, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 21);
             this.label3.TabIndex = 3;
@@ -237,9 +248,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.Controls.Add(this.gbCourse);
+            this.Controls.Add(this.pnlCourse);
             this.Name = "CoursesMainForm";
             this.Size = new System.Drawing.Size(982, 517);
+            this.pnlCourse.ResumeLayout(false);
             this.gbCourse.ResumeLayout(false);
             this.gbCourse.PerformLayout();
             this.ResumeLayout(false);
@@ -248,6 +260,7 @@
 
         #endregion
 
+        private Panel pnlCourse;
         private GroupBox gbCourse;
         private Label label5;
         private Label label4;
@@ -260,7 +273,7 @@
         private Panel panel2;
         private TextBox textBox1;
         private Label label1;
-        private Panel panel1;
+        private Panel panel4;
         private TextBox tbEmail;
         private Label label3;
     }

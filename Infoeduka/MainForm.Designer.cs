@@ -60,6 +60,7 @@
             this.btnViewAllNotifications = new System.Windows.Forms.Button();
             this.btnMainNotifications = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
+            this.pnlHolderForOtherPanels = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlFooter.SuspendLayout();
@@ -89,6 +90,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Black;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBox1.Image = global::Infoeduka.Properties.Resources.AlgebraLogo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
@@ -158,6 +160,7 @@
             this.pbLinkedIn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLinkedIn.TabIndex = 5;
             this.pbLinkedIn.TabStop = false;
+            this.pbLinkedIn.Click += new System.EventHandler(this.LinkItems_Click);
             // 
             // pbTikTok
             // 
@@ -170,6 +173,7 @@
             this.pbTikTok.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTikTok.TabIndex = 4;
             this.pbTikTok.TabStop = false;
+            this.pbTikTok.Click += new System.EventHandler(this.LinkItems_Click);
             // 
             // pbFacebook
             // 
@@ -182,6 +186,7 @@
             this.pbFacebook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFacebook.TabIndex = 3;
             this.pbFacebook.TabStop = false;
+            this.pbFacebook.Click += new System.EventHandler(this.LinkItems_Click);
             // 
             // pbYouTube
             // 
@@ -194,6 +199,7 @@
             this.pbYouTube.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbYouTube.TabIndex = 2;
             this.pbYouTube.TabStop = false;
+            this.pbYouTube.Click += new System.EventHandler(this.LinkItems_Click);
             // 
             // pbInstagram
             // 
@@ -206,6 +212,7 @@
             this.pbInstagram.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbInstagram.TabIndex = 1;
             this.pbInstagram.TabStop = false;
+            this.pbInstagram.Click += new System.EventHandler(this.LinkItems_Click);
             // 
             // lbAlgebraLink
             // 
@@ -219,6 +226,7 @@
             this.lbAlgebraLink.TabIndex = 0;
             this.lbAlgebraLink.TabStop = true;
             this.lbAlgebraLink.Text = "Visoko učilište Algebra";
+            this.lbAlgebraLink.Click += new System.EventHandler(this.LbAlgebraLink_LinkClicked);
             // 
             // pnlSideMenu
             // 
@@ -269,6 +277,7 @@
             this.btnDeleteLecturer.Text = "Brisanje predavača";
             this.btnDeleteLecturer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteLecturer.UseVisualStyleBackColor = true;
+            this.btnDeleteLecturer.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnEditLecturer
             // 
@@ -287,6 +296,7 @@
             this.btnEditLecturer.Text = "Uređivanje predavača";
             this.btnEditLecturer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditLecturer.UseVisualStyleBackColor = true;
+            this.btnEditLecturer.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnAddNewLecturer
             // 
@@ -305,6 +315,7 @@
             this.btnAddNewLecturer.Text = "Unos novog predavača";
             this.btnAddNewLecturer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNewLecturer.UseVisualStyleBackColor = true;
+            this.btnAddNewLecturer.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnViewAllLecturers
             // 
@@ -323,6 +334,7 @@
             this.btnViewAllLecturers.Text = "Pregled svih predavača";
             this.btnViewAllLecturers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewAllLecturers.UseVisualStyleBackColor = true;
+            this.btnViewAllLecturers.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnMainLecturer
             // 
@@ -341,6 +353,7 @@
             this.btnMainLecturer.Text = "Predavači";
             this.btnMainLecturer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMainLecturer.UseVisualStyleBackColor = true;
+            this.btnMainLecturer.Click += new System.EventHandler(this.MainButtonsForDropDownMenu_Click);
             // 
             // pnlCourseDropDown
             // 
@@ -373,6 +386,7 @@
             this.btnDeleteCourse.Text = "Brisanje kolegija";
             this.btnDeleteCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteCourse.UseVisualStyleBackColor = true;
+            this.btnDeleteCourse.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnEditCourse
             // 
@@ -391,6 +405,7 @@
             this.btnEditCourse.Text = "Uređivanje kolegija";
             this.btnEditCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditCourse.UseVisualStyleBackColor = true;
+            this.btnEditCourse.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnAddNewCourse
             // 
@@ -409,6 +424,7 @@
             this.btnAddNewCourse.Text = "Unos novog kolegija";
             this.btnAddNewCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNewCourse.UseVisualStyleBackColor = true;
+            this.btnAddNewCourse.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnViewAllCourses
             // 
@@ -427,6 +443,7 @@
             this.btnViewAllCourses.Text = "Pregled svih kolegija";
             this.btnViewAllCourses.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewAllCourses.UseVisualStyleBackColor = true;
+            this.btnViewAllCourses.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnMainCourse
             // 
@@ -445,6 +462,7 @@
             this.btnMainCourse.Text = "Kolegiji";
             this.btnMainCourse.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMainCourse.UseVisualStyleBackColor = true;
+            this.btnMainCourse.Click += new System.EventHandler(this.MainButtonsForDropDownMenu_Click);
             // 
             // pnlNotificationsDropDown
             // 
@@ -477,6 +495,7 @@
             this.btnDeleteNotification.Text = "Brisanje obavijesti";
             this.btnDeleteNotification.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteNotification.UseVisualStyleBackColor = true;
+            this.btnDeleteNotification.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnEditNotification
             // 
@@ -495,6 +514,7 @@
             this.btnEditNotification.Text = "Uređivanje obavijesti";
             this.btnEditNotification.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditNotification.UseVisualStyleBackColor = true;
+            this.btnEditNotification.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnAddNewNotification
             // 
@@ -513,6 +533,7 @@
             this.btnAddNewNotification.Text = "Unos nove obavijesti";
             this.btnAddNewNotification.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddNewNotification.UseVisualStyleBackColor = true;
+            this.btnAddNewNotification.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnViewAllNotifications
             // 
@@ -531,6 +552,7 @@
             this.btnViewAllNotifications.Text = "Pregled svih obavijesti";
             this.btnViewAllNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnViewAllNotifications.UseVisualStyleBackColor = true;
+            this.btnViewAllNotifications.Click += new System.EventHandler(this.ButtonsInDropDownMenu_Click);
             // 
             // btnMainNotifications
             // 
@@ -549,6 +571,7 @@
             this.btnMainNotifications.Text = "Obavijesti";
             this.btnMainNotifications.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMainNotifications.UseVisualStyleBackColor = true;
+            this.btnMainNotifications.Click += new System.EventHandler(this.MainButtonsForDropDownMenu_Click);
             // 
             // pnlLogo
             // 
@@ -560,12 +583,21 @@
             this.pnlLogo.Size = new System.Drawing.Size(228, 20);
             this.pnlLogo.TabIndex = 0;
             // 
+            // pnlHolderForOtherPanels
+            // 
+            this.pnlHolderForOtherPanels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlHolderForOtherPanels.Location = new System.Drawing.Point(228, 61);
+            this.pnlHolderForOtherPanels.Name = "pnlHolderForOtherPanels";
+            this.pnlHolderForOtherPanels.Size = new System.Drawing.Size(981, 521);
+            this.pnlHolderForOtherPanels.TabIndex = 6;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1209, 625);
+            this.Controls.Add(this.pnlHolderForOtherPanels);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlHeader);
@@ -622,5 +654,6 @@
         private Button btnMainNotifications;
         private Panel pnlLogo;
         private PictureBox pictureBox1;
+        private Panel pnlHolderForOtherPanels;
     }
 }

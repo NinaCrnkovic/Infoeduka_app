@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlNotifications = new System.Windows.Forms.Panel();
             this.gbCourse = new System.Windows.Forms.GroupBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -39,11 +40,21 @@
             this.btnMainNotifications = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.pnlNotifications.SuspendLayout();
             this.gbCourse.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlNotifications
+            // 
+            this.pnlNotifications.Controls.Add(this.gbCourse);
+            this.pnlNotifications.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlNotifications.Location = new System.Drawing.Point(0, 0);
+            this.pnlNotifications.Name = "pnlNotifications";
+            this.pnlNotifications.Size = new System.Drawing.Size(982, 517);
+            this.pnlNotifications.TabIndex = 0;
             // 
             // gbCourse
             // 
@@ -57,7 +68,7 @@
             this.gbCourse.Controls.Add(this.btnMainNotifications);
             this.gbCourse.Controls.Add(this.label2);
             this.gbCourse.Controls.Add(this.label1);
-            this.gbCourse.Controls.Add(this.panel1);
+            this.gbCourse.Controls.Add(this.panel3);
             this.gbCourse.Controls.Add(this.tbEmail);
             this.gbCourse.Controls.Add(this.label3);
             this.gbCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -67,7 +78,7 @@
             this.gbCourse.Name = "gbCourse";
             this.gbCourse.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbCourse.Size = new System.Drawing.Size(811, 488);
-            this.gbCourse.TabIndex = 4;
+            this.gbCourse.TabIndex = 5;
             this.gbCourse.TabStop = false;
             this.gbCourse.Text = "Obavijest";
             // 
@@ -119,7 +130,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(180, 69);
+            this.label4.Location = new System.Drawing.Point(180, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 21);
             this.label4.TabIndex = 23;
@@ -180,7 +191,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(193, 225);
+            this.label2.Location = new System.Drawing.Point(193, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 9;
@@ -191,21 +202,21 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(193, 271);
+            this.label1.Location = new System.Drawing.Point(193, 270);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 21);
             this.label1.TabIndex = 6;
             this.label1.Text = "Datum isteka";
             // 
-            // panel1
+            // panel3
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Location = new System.Drawing.Point(324, 50);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(306, 1);
-            this.panel1.TabIndex = 5;
+            this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.panel3.Location = new System.Drawing.Point(324, 50);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(306, 1);
+            this.panel3.TabIndex = 5;
             // 
             // tbEmail
             // 
@@ -224,7 +235,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(180, 24);
+            this.label3.Location = new System.Drawing.Point(180, 23);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 3;
@@ -235,9 +246,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.Controls.Add(this.gbCourse);
+            this.Controls.Add(this.pnlNotifications);
             this.Name = "NotificationMainForm";
             this.Size = new System.Drawing.Size(982, 517);
+            this.pnlNotifications.ResumeLayout(false);
             this.gbCourse.ResumeLayout(false);
             this.gbCourse.PerformLayout();
             this.ResumeLayout(false);
@@ -246,6 +258,7 @@
 
         #endregion
 
+        private Panel pnlNotifications;
         private GroupBox gbCourse;
         private Panel panel2;
         private Panel panel5;
@@ -257,7 +270,7 @@
         private Button btnMainNotifications;
         private Label label2;
         private Label label1;
-        private Panel panel1;
+        private Panel panel3;
         private TextBox tbEmail;
         private Label label3;
     }
