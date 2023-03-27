@@ -1,3 +1,4 @@
+using Infoeduka.Model;
 using Infoeduka.UserControls;
 using Utilities;
 
@@ -5,12 +6,24 @@ namespace Infoeduka
 {
     public partial class MainForm : Form
     {
+        private DataManager dataManager = new DataManager();
         public MainForm()
         {
+            
             InitializeComponent();
             SetPanelVisibilityToFalse();
         }
-
+        //ponašanje tijekom pokretanja frome
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            dataManager.LoadPersonsToDictionary();
+            dataManager.LoadCoursesToDictionary();
+        }
+        //ponašanje tijekom zatvaranja forme
+        private void SaveAllOnClosing(object sender, FormClosingEventArgs e)
+        {
+            dataManager.SaveAllDataInFile();
+        }
 
         //glavni gumbi - koji otvaraju padajuæi izbornik
         private void MainButtonsForDropDownMenu_Click(object sender, EventArgs e)
@@ -81,12 +94,12 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnAddNewLecturer":
-                    LecturerMainForm formAddLecturer = new();
+                    LecturerMainForm formAddLecturer = new LecturerMainForm(dataManager, "btnAddNewLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formAddLecturer);
                     break;
                 case "btnEditLecturer":
-                    LecturerMainForm formEditLecturer = new();
+                    LecturerMainForm formEditLecturer = new(dataManager, "btnEditLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     break;
@@ -189,5 +202,7 @@ namespace Infoeduka
                 panel.Visible = false;
             }
         }
+
+    
     }
 }

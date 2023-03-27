@@ -1,0 +1,4 @@
+Predavači:
+92596a76-1278-45b7-87e2-90d2ccb4512a|Marko|Markić|marko@markic.com|123456|False
+
+Kolegiji:

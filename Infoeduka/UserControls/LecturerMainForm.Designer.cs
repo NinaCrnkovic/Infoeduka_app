@@ -145,6 +145,7 @@
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // panel4
             // 
@@ -286,6 +287,7 @@
             this.Controls.Add(this.palLecturer);
             this.Name = "LecturerMainForm";
             this.Size = new System.Drawing.Size(982, 517);
+            this.Load += new System.EventHandler(this.LecturerMainForm_Load);
             this.palLecturer.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

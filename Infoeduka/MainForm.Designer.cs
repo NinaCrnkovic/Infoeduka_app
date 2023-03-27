@@ -615,6 +615,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Infoeduka";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SaveAllOnClosing);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.pnlMainFormPanel.ResumeLayout(false);
             this.pnlSideMenu.ResumeLayout(false);
             this.pnlLecturerDropDown.ResumeLayout(false);
