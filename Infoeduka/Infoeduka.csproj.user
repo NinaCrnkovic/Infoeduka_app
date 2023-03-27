@@ -13,5 +13,11 @@
     <Compile Update="UserControls\CoursesMainForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\LecturerMainForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\NotificationMainForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

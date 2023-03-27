@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnUserLogedIn = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlFooter = new System.Windows.Forms.Panel();
             this.pbLinkedIn = new System.Windows.Forms.PictureBox();
             this.pbTikTok = new System.Windows.Forms.PictureBox();
@@ -61,6 +61,7 @@
             this.btnMainNotifications = new System.Windows.Forms.Button();
             this.pnlLogo = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlFooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinkedIn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTikTok)).BeginInit();
@@ -76,15 +77,26 @@
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.btnUserLogedIn);
             this.pnlHeader.Controls.Add(this.btnLogout);
-            this.pnlHeader.Controls.Add(this.panel2);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(1209, 61);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::Infoeduka.Properties.Resources.AlgebraLogo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(228, 61);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // btnUserLogedIn
             // 
@@ -118,17 +130,6 @@
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Odjavi se";
             this.btnLogout.UseVisualStyleBackColor = true;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = global::Infoeduka.Properties.Resources.AlgebraLogo;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(228, 61);
-            this.panel2.TabIndex = 1;
             // 
             // pnlFooter
             // 
@@ -563,6 +564,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.ClientSize = new System.Drawing.Size(1209, 625);
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.pnlFooter);
@@ -571,6 +573,7 @@
             this.Name = "MainForm";
             this.Text = "Infoeduka";
             this.pnlHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinkedIn)).EndInit();
@@ -591,7 +594,6 @@
         private Panel pnlHeader;
         private Button btnUserLogedIn;
         private Button btnLogout;
-        private Panel panel2;
         private Panel pnlFooter;
         private PictureBox pbLinkedIn;
         private PictureBox pbTikTok;
@@ -619,5 +621,6 @@
         private Button btnViewAllNotifications;
         private Button btnMainNotifications;
         private Panel pnlLogo;
+        private PictureBox pictureBox1;
     }
 }
