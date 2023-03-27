@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.btnUserLogedIn = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
@@ -566,8 +567,9 @@
             this.Controls.Add(this.pnlSideMenu);
             this.Controls.Add(this.pnlFooter);
             this.Controls.Add(this.pnlHeader);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Infoeduka";
             this.pnlHeader.ResumeLayout(false);
             this.pnlFooter.ResumeLayout(false);
             this.pnlFooter.PerformLayout();
