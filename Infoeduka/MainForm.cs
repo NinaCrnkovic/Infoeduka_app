@@ -189,8 +189,5 @@ namespace Infoeduka
                 panel.Visible = false;
             }
         }
-
-        
-      
     }
 }

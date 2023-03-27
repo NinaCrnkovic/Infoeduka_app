@@ -23,3 +23,4 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.LecturerMainForm.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.NotificationMainForm.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.CustomDesign.CustomComboBox.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.LoginForm.resources

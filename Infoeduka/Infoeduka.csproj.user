@@ -16,6 +16,9 @@
     <Compile Update="UserControls\LecturerMainForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\LoginForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\NotificationMainForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
