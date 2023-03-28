@@ -50,7 +50,7 @@ namespace Infoeduka.UserControls
             catch (Exception ex)
             {
 
-                MessageBox.Show("Došlo je do greške, podaci nisu spremljeni" + ex.Message);
+                MessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message);
             }
          
         }
@@ -80,17 +80,28 @@ namespace Infoeduka.UserControls
 
         private void ClearForm()
         {
-            foreach (Control control in this.Controls)
+            foreach (Control control in gbLecturer.Controls )
             {
                 if (control is TextBox)
                 {
-                    ((TextBox)control).Text = string.Empty;
+                    TextBox textBox = (TextBox)control;
+                    textBox.Text = string.Empty;
                 }
                 else if (control is ComboBox)
                 {
-                    ((ComboBox)control).SelectedIndex = -1;
+                    ComboBox comboBox = (ComboBox)control;
+                    comboBox.SelectedIndex = -1;
                 }
-                // Dodajte druge tipove kontrolera i postavite njihove vrijednosti na prazne ili nule, ako je potrebno.
+                else if (control is ListBox)
+                {
+                    ListBox listBox = (ListBox)control;
+                    listBox.Items.Clear();
+                }
+                else if (control is GroupBox)
+                {
+                    GroupBox groupBox = (GroupBox)control;
+                    groupBox.Controls.Clear();
+                }
             }
         }
     }

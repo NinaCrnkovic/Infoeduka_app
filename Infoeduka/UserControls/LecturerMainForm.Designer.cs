@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.palLecturer = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pnlLecturer = new System.Windows.Forms.Panel();
+            this.gbLecturer = new System.Windows.Forms.GroupBox();
             this.gbRoles = new System.Windows.Forms.GroupBox();
             this.rbtnAdmin = new Infoeduka.CustomDesign.CustomRadioButton();
             this.rbtnLecturer = new Infoeduka.CustomDesign.CustomRadioButton();
@@ -46,46 +46,46 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.palLecturer.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.pnlLecturer.SuspendLayout();
+            this.gbLecturer.SuspendLayout();
             this.gbRoles.SuspendLayout();
             this.SuspendLayout();
             // 
-            // palLecturer
+            // pnlLecturer
             // 
-            this.palLecturer.Controls.Add(this.groupBox1);
-            this.palLecturer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.palLecturer.Location = new System.Drawing.Point(0, 0);
-            this.palLecturer.Name = "palLecturer";
-            this.palLecturer.Size = new System.Drawing.Size(982, 517);
-            this.palLecturer.TabIndex = 0;
+            this.pnlLecturer.Controls.Add(this.gbLecturer);
+            this.pnlLecturer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlLecturer.Location = new System.Drawing.Point(0, 0);
+            this.pnlLecturer.Name = "pnlLecturer";
+            this.pnlLecturer.Size = new System.Drawing.Size(982, 517);
+            this.pnlLecturer.TabIndex = 0;
             // 
-            // groupBox1
+            // gbLecturer
             // 
-            this.groupBox1.Controls.Add(this.gbRoles);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.panel4);
-            this.groupBox1.Controls.Add(this.tbPassword);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.panel3);
-            this.groupBox1.Controls.Add(this.tbEmail);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.panel2);
-            this.groupBox1.Controls.Add(this.tbLastName);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.panel5);
-            this.groupBox1.Controls.Add(this.tbFirstName);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.groupBox1.Location = new System.Drawing.Point(227, 49);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(528, 418);
-            this.groupBox1.TabIndex = 3;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Predavač";
+            this.gbLecturer.Controls.Add(this.gbRoles);
+            this.gbLecturer.Controls.Add(this.btnSave);
+            this.gbLecturer.Controls.Add(this.panel4);
+            this.gbLecturer.Controls.Add(this.tbPassword);
+            this.gbLecturer.Controls.Add(this.label4);
+            this.gbLecturer.Controls.Add(this.panel3);
+            this.gbLecturer.Controls.Add(this.tbEmail);
+            this.gbLecturer.Controls.Add(this.label2);
+            this.gbLecturer.Controls.Add(this.panel2);
+            this.gbLecturer.Controls.Add(this.tbLastName);
+            this.gbLecturer.Controls.Add(this.label1);
+            this.gbLecturer.Controls.Add(this.panel5);
+            this.gbLecturer.Controls.Add(this.tbFirstName);
+            this.gbLecturer.Controls.Add(this.label3);
+            this.gbLecturer.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.gbLecturer.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.gbLecturer.Location = new System.Drawing.Point(227, 49);
+            this.gbLecturer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbLecturer.Name = "gbLecturer";
+            this.gbLecturer.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbLecturer.Size = new System.Drawing.Size(528, 418);
+            this.gbLecturer.TabIndex = 3;
+            this.gbLecturer.TabStop = false;
+            this.gbLecturer.Text = "Predavač";
             // 
             // gbRoles
             // 
@@ -284,13 +284,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.Controls.Add(this.palLecturer);
+            this.Controls.Add(this.pnlLecturer);
             this.Name = "LecturerMainForm";
             this.Size = new System.Drawing.Size(982, 517);
             this.Load += new System.EventHandler(this.LecturerMainForm_Load);
-            this.palLecturer.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.pnlLecturer.ResumeLayout(false);
+            this.gbLecturer.ResumeLayout(false);
+            this.gbLecturer.PerformLayout();
             this.gbRoles.ResumeLayout(false);
             this.gbRoles.PerformLayout();
             this.ResumeLayout(false);
@@ -299,8 +299,8 @@
 
         #endregion
 
-        private Panel palLecturer;
-        private GroupBox groupBox1;
+        private Panel pnlLecturer;
+        private GroupBox gbLecturer;
         private GroupBox gbRoles;
         private CustomDesign.CustomRadioButton rbtnAdmin;
         private CustomDesign.CustomRadioButton rbtnLecturer;

@@ -24,7 +24,8 @@ namespace Infoeduka.UserControls
 
         private void CoursesMainForm_Load(object sender, EventArgs e)
         {
-           
+            
+
             ShowData();
         }
 
@@ -179,8 +180,26 @@ namespace Infoeduka.UserControls
         //za drag and drop
         private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
         {
-            //var label = e.Data?.GetData(typeof(Label)) as Label;
-            //var id = label?.Tag.ToString();
+            Label addedlabel = (Label)e.Data.GetData("System.Windows.Forms.Label");
+
+            // Provjerite postoji li labela s istim imenom
+            string? labelTag = addedlabel.Tag.ToString();
+            bool labelAlreadyExists = false;
+            foreach (Control control in flpLecturersOnCourse.Controls)
+            {
+                if (control is Label && control.Tag.ToString() == labelTag)
+                {
+                    labelAlreadyExists = true;
+                    break;
+                }
+            }
+
+            // Ako labela već postoji, ne dodajte je ponovno
+            if (labelAlreadyExists)
+            {
+                return;
+            }
+
             Label draggedLabel = (Label)e.Data.GetData(typeof(Label));
 
             Label newLabel = new Label();
@@ -191,6 +210,8 @@ namespace Infoeduka.UserControls
             newLabel.Size = draggedLabel.Size;
             newLabel.TextAlign = draggedLabel.TextAlign;
             newLabel.Tag = draggedLabel.Tag;
+            newLabel.Margin = draggedLabel.Margin;
+            
 
             Point mouseLocation = MousePosition;
             mouseLocation = flpLecturersOnCourse.PointToClient(mouseLocation);
@@ -200,6 +221,8 @@ namespace Infoeduka.UserControls
 
 
         }
+
+      
 
         private void FlpLecturersOnCourse_DragEnter(object sender, DragEventArgs e)
         {
