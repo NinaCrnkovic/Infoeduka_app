@@ -2,3 +2,4 @@ ana@anic.hr|Ana|Anic|ana@anic.hr||False
 maj@majic.hr|Maja|Majic|maj@majic.hr|589|True
 maj@m.hr|Maja|Mimi|maj@m.hr|589|False
 jana@anic.hr|Jana|Anic|jana@anic.hr||False
+marko@dugackiemailza.com|Marko|Marković|marko@dugackiemailza.com|123456|False

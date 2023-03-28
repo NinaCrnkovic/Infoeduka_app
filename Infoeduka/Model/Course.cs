@@ -9,7 +9,7 @@ namespace Infoeduka.Model
     public class Course
     {
         private const char DEL = '#';
-        public Guid Id { get; private set; }
+        public string Id { get; private set; } = "";
         public string Name { get; set; } = "";
         public string Code { get; set; } = "";
         public int Ects { get; set; } = 0;
@@ -20,23 +20,16 @@ namespace Infoeduka.Model
 
         }
 
-        public Course(Guid id, string name, string code, int ects, List<Person> lecturers)
+        public Course( string name, string code, int ects, List<Person> lecturers)
         {
-            Id = id;
+            Id = code;
             Name = name;
             Code = code;
             Ects = ects;
             Lecturers = lecturers;
         }
 
-        public Course(string name, string code, int ects, List<Person> lecturers)
-        {
-            Id = new Guid();
-            Name = name;
-            Code = code;
-            Ects = ects;
-            Lecturers = lecturers;
-        }
+     
 
         public override string ToString() => $"{Id}, {Name}, {Code}, {Ects}, {Lecturers?.ToString()}";
 
@@ -56,19 +49,18 @@ namespace Infoeduka.Model
             if (parts.Length < 5)
                 throw new ArgumentException("Invalid line format: " + line);
 
-            if (!Guid.TryParse(parts[0], out Guid id))
-                throw new ArgumentException("Invalid ID format: " + parts[0]);
+         
 
             var course = new Course
             {
-                Id = id,
-                Name = parts[1],
-                Code = parts[2],
-                Ects = int.Parse(parts[3])
+            
+                Name = parts[0],
+                Code = parts[1],
+                Ects = int.Parse(parts[2])
             };
 
 
-            string[] peopleInfo = parts[4].Split(DEL);
+            string[] peopleInfo = parts[3].Split(DEL);
             foreach (string personInfo in peopleInfo)
             {
                 Person lecturer = Person.ParseFromFile(personInfo);

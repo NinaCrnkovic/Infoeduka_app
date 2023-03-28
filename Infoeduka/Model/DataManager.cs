@@ -88,10 +88,17 @@ namespace Infoeduka.Model
 
 
             // dodajte novog Person objekta u dictionary
-            personsDictionary.Add(newPerson.Id.ToString(), newPerson);
+            personsDictionary.Add(newPerson.Id, newPerson);
 
-            // spremite novu dictionary u DataManager klasi
-            // manager.SaveDataForPersons(personsDictionary.Values.ToList());
+        }
+
+        public void AddNewCourseToDictionary(Course newCourse)
+        {
+
+
+            // dodajte novog Course objekta u dictionary
+            coursesDictionary.Add(newCourse.Id, newCourse);
+
         }
 
         public void SaveDataForPersonsAndCourses(IList<Person> persons, IList<Course> courses)

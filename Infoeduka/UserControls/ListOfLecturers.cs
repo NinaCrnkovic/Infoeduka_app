@@ -68,11 +68,11 @@ namespace Infoeduka.UserControls
         //definiramo kako će nam izgledati hederi da stupcima
         private void DefineListViewColumnHeaders()
         {
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 100 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 100 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 100 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Pasword", Width = 100 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 100 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 150 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 350 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
         }
     }
 }

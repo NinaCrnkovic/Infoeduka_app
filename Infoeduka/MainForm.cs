@@ -78,12 +78,12 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnAddNewCourse":
-                    CoursesMainForm formAddCourse = new();
+                    CoursesMainForm formAddCourse = new(dataManager, "btnAddNewCourse");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formAddCourse);
                     break;
                 case "btnEditCourse":
-                    CoursesMainForm formEditCourse = new();
+                    CoursesMainForm formEditCourse = new(dataManager, "btnEditCourse");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     break;
