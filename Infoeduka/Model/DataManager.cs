@@ -12,6 +12,8 @@ namespace Infoeduka.Model
         private IRepo repo = RepoFactory.GetRepo();
         IDictionary<string, Person> personsDictionary = new Dictionary<string, Person>();
         IDictionary<string, Course> coursesDictionary = new Dictionary<string, Course>();
+
+        //metoda za napuniti osobe u dictionary iz fajle
         public void LoadPersonsToDictionary()
         {
 
@@ -26,7 +28,8 @@ namespace Infoeduka.Model
             }
         }
 
-   
+
+        //metoda za napuniti kolegije u dictionary iz fajle
         public IDictionary<string, Course> LoadCoursesToDictionary()
         {
             try
@@ -41,23 +44,25 @@ namespace Infoeduka.Model
             return coursesDictionary;
         }
 
+        //metoda za dohvati dicitionarya osoba
         public IDictionary<string, Person> GetPersonsDictionary()
         {
             return personsDictionary;
         }
-
+        //metoda za dohvati dicitionarya kolegija
         public IDictionary<string, Course> GetCoursesDictionary()
         {
             return coursesDictionary;
         }
 
+        //metoda za punjenje dicitonaria iz liste
         private void FillCoursesDictionary(IList<Course> courses)
         {
             foreach (Course course in courses)
             {
                 try
                 {
-                    coursesDictionary.Add(course.Id.ToString(), course);
+                    coursesDictionary.Add(course.Id, course);
 
                 }
                 catch (Exception e)
@@ -67,6 +72,7 @@ namespace Infoeduka.Model
             }
         }
 
+        //metoda za punjenje dicitonaria iz liste
         private void FillPersonsDictionary(IList<Person> persons)
         {
             foreach (Person person in persons)
@@ -83,6 +89,7 @@ namespace Infoeduka.Model
             }
         }
 
+        //doavanje osobe u dictyonary
         public void AddNewPersonToDictionary(Person newPerson)
         {
 
@@ -91,7 +98,7 @@ namespace Infoeduka.Model
             personsDictionary.Add(newPerson.Id, newPerson);
 
         }
-
+        //doavanje kolegija u dictyonary
         public void AddNewCourseToDictionary(Course newCourse)
         {
 
@@ -106,6 +113,7 @@ namespace Infoeduka.Model
             try
             {
                 repo.SavePersonData(persons);
+                repo.SaveCourseData(courses);
             }
             catch (Exception e)
             {

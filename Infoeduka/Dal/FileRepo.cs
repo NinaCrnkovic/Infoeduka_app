@@ -99,7 +99,7 @@ namespace Infoeduka.Dal
                 lines.Add(person.FormatForFile());
             }
 
-            File.WriteAllLines(PATH_PERSONS, lines);
+            File.WriteAllLines(PATH_COURSES, lines);
 
 
         }

@@ -29,20 +29,27 @@ namespace Infoeduka.UserControls
             ShowData();
             
         }
-
+        //metoda za prikaz podataka o osobama
         private void ShowData()
         {
-            IDictionary <string, Person> persons = _dataManager.GetPersonsDictionary();
+            List<Person> list = LoadData();
+            foreach (var item in list)
+            {
+                AddListViewRow(item);
+            }
+
+        }
+        //metoda za punjenje liste iz dictionarya osoba
+        private List<Person> LoadData()
+        {
+            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
             List<Person> list = new List<Person>();
-            foreach(var person in persons.Values)
+            foreach (var person in persons.Values)
             {
                 list.Add(person);
             }
-            foreach (var l in list)
-            {
-                AddListViewRow(l);
-            }
-            
+
+            return list;
         }
 
         private void AddListViewRow(Person person)
@@ -70,9 +77,9 @@ namespace Infoeduka.UserControls
         {
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 150 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 350 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 120 });
         }
     }
 }

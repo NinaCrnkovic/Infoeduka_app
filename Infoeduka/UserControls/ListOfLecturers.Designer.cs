@@ -51,7 +51,7 @@
             // 
             this.lblNaslov.AutoSize = true;
             this.lblNaslov.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNaslov.Location = new System.Drawing.Point(495, 23);
+            this.lblNaslov.Location = new System.Drawing.Point(455, 23);
             this.lblNaslov.Name = "lblNaslov";
             this.lblNaslov.Size = new System.Drawing.Size(213, 28);
             this.lblNaslov.TabIndex = 1;
@@ -67,7 +67,7 @@
             this.lvLecturers.Location = new System.Drawing.Point(71, 94);
             this.lvLecturers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.lvLecturers.Name = "lvLecturers";
-            this.lvLecturers.Size = new System.Drawing.Size(980, 550);
+            this.lvLecturers.Size = new System.Drawing.Size(980, 505);
             this.lvLecturers.TabIndex = 0;
             this.lvLecturers.UseCompatibleStateImageBehavior = false;
             this.lvLecturers.View = System.Windows.Forms.View.Details;
