@@ -32,9 +32,9 @@
             this.gbCourse = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpLecturersOnCourse = new System.Windows.Forms.FlowLayoutPanel();
             this.flpAllLecturers = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnMainNotifications = new System.Windows.Forms.Button();
+            this.btnSaveCourse = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tbEcts = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -61,9 +61,9 @@
             // 
             this.gbCourse.Controls.Add(this.label5);
             this.gbCourse.Controls.Add(this.label4);
-            this.gbCourse.Controls.Add(this.flowLayoutPanel2);
+            this.gbCourse.Controls.Add(this.flpLecturersOnCourse);
             this.gbCourse.Controls.Add(this.flpAllLecturers);
-            this.gbCourse.Controls.Add(this.btnMainNotifications);
+            this.gbCourse.Controls.Add(this.btnSaveCourse);
             this.gbCourse.Controls.Add(this.panel3);
             this.gbCourse.Controls.Add(this.tbEcts);
             this.gbCourse.Controls.Add(this.label2);
@@ -89,7 +89,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(483, 162);
+            this.label5.Location = new System.Drawing.Point(497, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 21);
             this.label5.TabIndex = 23;
@@ -100,51 +100,56 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(180, 162);
+            this.label4.Location = new System.Drawing.Point(194, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 21);
             this.label4.TabIndex = 22;
             this.label4.Text = "Svi predavači";
             // 
-            // flowLayoutPanel2
+            // flpLecturersOnCourse
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(458, 188);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(219, 225);
-            this.flowLayoutPanel2.TabIndex = 21;
+            this.flpLecturersOnCourse.AllowDrop = true;
+            this.flpLecturersOnCourse.AutoScroll = true;
+            this.flpLecturersOnCourse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpLecturersOnCourse.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpLecturersOnCourse.Location = new System.Drawing.Point(458, 188);
+            this.flpLecturersOnCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flpLecturersOnCourse.Name = "flpLecturersOnCourse";
+            this.flpLecturersOnCourse.Size = new System.Drawing.Size(240, 225);
+            this.flpLecturersOnCourse.TabIndex = 21;
+            this.flpLecturersOnCourse.DragDrop += new System.Windows.Forms.DragEventHandler(this.FlpLecturersOnCourse_DragDrop);
+            this.flpLecturersOnCourse.DragEnter += new System.Windows.Forms.DragEventHandler(this.FlpLecturersOnCourse_DragEnter);
             // 
             // flpAllLecturers
             // 
+            this.flpAllLecturers.AllowDrop = true;
             this.flpAllLecturers.AutoScroll = true;
             this.flpAllLecturers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpAllLecturers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpAllLecturers.Location = new System.Drawing.Point(134, 188);
             this.flpAllLecturers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpAllLecturers.Name = "flpAllLecturers";
-            this.flpAllLecturers.Size = new System.Drawing.Size(219, 225);
+            this.flpAllLecturers.Size = new System.Drawing.Size(240, 225);
             this.flpAllLecturers.TabIndex = 20;
             // 
-            // btnMainNotifications
+            // btnSaveCourse
             // 
-            this.btnMainNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(95)))), ((int)(((byte)(32)))));
-            this.btnMainNotifications.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMainNotifications.FlatAppearance.BorderSize = 0;
-            this.btnMainNotifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(35)))), ((int)(((byte)(80)))));
-            this.btnMainNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainNotifications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMainNotifications.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMainNotifications.Location = new System.Drawing.Point(234, 431);
-            this.btnMainNotifications.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMainNotifications.Name = "btnMainNotifications";
-            this.btnMainNotifications.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnMainNotifications.Size = new System.Drawing.Size(342, 34);
-            this.btnMainNotifications.TabIndex = 19;
-            this.btnMainNotifications.Text = "Spremi";
-            this.btnMainNotifications.UseVisualStyleBackColor = false;
+            this.btnSaveCourse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(95)))), ((int)(((byte)(32)))));
+            this.btnSaveCourse.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSaveCourse.FlatAppearance.BorderSize = 0;
+            this.btnSaveCourse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(35)))), ((int)(((byte)(80)))));
+            this.btnSaveCourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSaveCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSaveCourse.Location = new System.Drawing.Point(234, 431);
+            this.btnSaveCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSaveCourse.Name = "btnSaveCourse";
+            this.btnSaveCourse.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnSaveCourse.Size = new System.Drawing.Size(342, 34);
+            this.btnSaveCourse.TabIndex = 19;
+            this.btnSaveCourse.Text = "Spremi";
+            this.btnSaveCourse.UseVisualStyleBackColor = false;
+            this.btnSaveCourse.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // panel3
             // 
@@ -267,9 +272,9 @@
         private GroupBox gbCourse;
         private Label label5;
         private Label label4;
-        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel flpLecturersOnCourse;
         private FlowLayoutPanel flpAllLecturers;
-        private Button btnMainNotifications;
+        private Button btnSaveCourse;
         private Panel panel3;
         private TextBox tbEcts;
         private Label label2;
