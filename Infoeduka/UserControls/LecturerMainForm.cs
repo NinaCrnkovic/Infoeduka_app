@@ -20,8 +20,9 @@ namespace Infoeduka.UserControls
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
+            
             InitializeComponent();
-
+            
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -80,29 +81,22 @@ namespace Infoeduka.UserControls
 
         private void ClearForm()
         {
-            foreach (Control control in gbLecturer.Controls )
+            // Brišemo tekstualna polja unutar kontrola gbLecturers
+            foreach (Control control in gbLecturer.Controls)
             {
                 if (control is TextBox)
                 {
-                    TextBox textBox = (TextBox)control;
-                    textBox.Text = string.Empty;
-                }
-                else if (control is ComboBox)
-                {
-                    ComboBox comboBox = (ComboBox)control;
-                    comboBox.SelectedIndex = -1;
-                }
-                else if (control is ListBox)
-                {
-                    ListBox listBox = (ListBox)control;
-                    listBox.Items.Clear();
-                }
-                else if (control is GroupBox)
-                {
-                    GroupBox groupBox = (GroupBox)control;
-                    groupBox.Controls.Clear();
+                    ((TextBox)control).Clear();
                 }
             }
+                  
+          
+            rbtnAdmin.Checked = false;
+            rbtnLecturer.Checked = false;
+                    
+                   
+            
+
         }
     }
 }

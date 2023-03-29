@@ -71,7 +71,7 @@ namespace Infoeduka.Model
             return course;
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             return obj is Course course &&
                    Id.Equals(course.Id) &&

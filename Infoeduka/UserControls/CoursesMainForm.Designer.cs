@@ -59,6 +59,7 @@
             // 
             // gbCourse
             // 
+            this.gbCourse.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbCourse.Controls.Add(this.label5);
             this.gbCourse.Controls.Add(this.label4);
             this.gbCourse.Controls.Add(this.flpLecturersOnCourse);
@@ -89,7 +90,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(497, 162);
+            this.label5.Location = new System.Drawing.Point(504, 162);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(157, 21);
             this.label5.TabIndex = 23;
@@ -100,7 +101,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(194, 162);
+            this.label4.Location = new System.Drawing.Point(175, 162);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 21);
             this.label4.TabIndex = 22;
@@ -112,24 +113,23 @@
             this.flpLecturersOnCourse.AutoScroll = true;
             this.flpLecturersOnCourse.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpLecturersOnCourse.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpLecturersOnCourse.Location = new System.Drawing.Point(458, 188);
+            this.flpLecturersOnCourse.Location = new System.Drawing.Point(450, 188);
             this.flpLecturersOnCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpLecturersOnCourse.Name = "flpLecturersOnCourse";
-            this.flpLecturersOnCourse.Size = new System.Drawing.Size(240, 225);
+            this.flpLecturersOnCourse.Size = new System.Drawing.Size(270, 225);
             this.flpLecturersOnCourse.TabIndex = 21;
             this.flpLecturersOnCourse.DragDrop += new System.Windows.Forms.DragEventHandler(this.FlpLecturersOnCourse_DragDrop);
             this.flpLecturersOnCourse.DragEnter += new System.Windows.Forms.DragEventHandler(this.FlpLecturersOnCourse_DragEnter);
             // 
             // flpAllLecturers
             // 
-            this.flpAllLecturers.AllowDrop = true;
             this.flpAllLecturers.AutoScroll = true;
             this.flpAllLecturers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpAllLecturers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpAllLecturers.Location = new System.Drawing.Point(134, 188);
+            this.flpAllLecturers.Location = new System.Drawing.Point(91, 188);
             this.flpAllLecturers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flpAllLecturers.Name = "flpAllLecturers";
-            this.flpAllLecturers.Size = new System.Drawing.Size(240, 225);
+            this.flpAllLecturers.Size = new System.Drawing.Size(270, 225);
             this.flpAllLecturers.TabIndex = 20;
             // 
             // btnSaveCourse
@@ -254,6 +254,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.Controls.Add(this.pnlCourse);
             this.Name = "CoursesMainForm";

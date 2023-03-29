@@ -18,10 +18,10 @@ namespace Infoeduka.UserControls
         //definiranje master admina
         private readonly Person masterAdmin = new Person()
         {
-            Email = "master@admin.com",
+            Email = "a", //"master@admin.com",
             FirstName = "Master",
             LastName = "Admin",
-            Password = "1234",
+            Password = "a",
             IsAdmin = true
         };
 

@@ -470,6 +470,7 @@
             // 
             // pbLinkedIn
             // 
+            this.pbLinkedIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbLinkedIn.Image = global::Infoeduka.Properties.Resources.Linkedin;
             this.pbLinkedIn.Location = new System.Drawing.Point(1004, 12);
             this.pbLinkedIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -483,6 +484,7 @@
             // 
             // pbTikTok
             // 
+            this.pbTikTok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbTikTok.Image = global::Infoeduka.Properties.Resources.TikTok;
             this.pbTikTok.Location = new System.Drawing.Point(1037, 12);
             this.pbTikTok.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -496,6 +498,7 @@
             // 
             // pbFacebook
             // 
+            this.pbFacebook.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbFacebook.Image = global::Infoeduka.Properties.Resources.Facebook;
             this.pbFacebook.Location = new System.Drawing.Point(1070, 13);
             this.pbFacebook.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -509,6 +512,7 @@
             // 
             // pbYouTube
             // 
+            this.pbYouTube.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbYouTube.Image = global::Infoeduka.Properties.Resources.YouTube;
             this.pbYouTube.Location = new System.Drawing.Point(1148, 9);
             this.pbYouTube.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -522,6 +526,7 @@
             // 
             // pbInstagram
             // 
+            this.pbInstagram.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pbInstagram.Image = global::Infoeduka.Properties.Resources.Instagram;
             this.pbInstagram.Location = new System.Drawing.Point(1107, 9);
             this.pbInstagram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -535,6 +540,7 @@
             // 
             // lbAlgebraLink
             // 
+            this.lbAlgebraLink.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbAlgebraLink.AutoSize = true;
             this.lbAlgebraLink.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbAlgebraLink.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
@@ -545,6 +551,7 @@
             this.lbAlgebraLink.TabIndex = 0;
             this.lbAlgebraLink.TabStop = true;
             this.lbAlgebraLink.Text = "Visoko učilište Algebra";
+            this.lbAlgebraLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lbAlgebraLink.Click += new System.EventHandler(this.LbAlgebraLink_LinkClicked);
             // 
             // pnlHeader
@@ -613,7 +620,10 @@
             this.ClientSize = new System.Drawing.Size(1209, 625);
             this.Controls.Add(this.pnlMainFormPanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(1225, 664);
+            this.MinimumSize = new System.Drawing.Size(1225, 664);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Infoeduka";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SaveAllOnClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);

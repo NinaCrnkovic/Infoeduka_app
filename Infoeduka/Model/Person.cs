@@ -10,12 +10,12 @@ namespace Infoeduka.Model
     {
         private const char DEL = '|';
 
-        public string Id { get;  set; } = "";
-        public string FirstName { get; set; } = "";
-        public string LastName { get; set; } = "";
+        public string Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
 
-        public string Email { get; set; } = "";
-        public string Password { get; set; } = "";
+        public string Email { get; set; } 
+        public string Password { get; set; } 
 
         public bool IsAdmin { get; set; } = false;
         public Person()
@@ -56,7 +56,7 @@ namespace Infoeduka.Model
             };
         }
 
-        public override bool Equals(object? obj)
+        public override bool Equals(object obj)
         {
             return obj is Person person &&
                    Id.Equals(person.Id) &&

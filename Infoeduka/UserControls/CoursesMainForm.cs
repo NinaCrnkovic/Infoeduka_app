@@ -19,13 +19,15 @@ namespace Infoeduka.UserControls
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
+           
             InitializeComponent();
+            flpAllLecturers.WrapContents = false;
+            flpLecturersOnCourse.WrapContents = false;
         }
 
         private void CoursesMainForm_Load(object sender, EventArgs e)
         {
             
-
             ShowData();
         }
 
@@ -41,31 +43,20 @@ namespace Infoeduka.UserControls
             }
 
         }
-
-        private void Lbl_MouseMove(object? sender, MouseEventArgs e)
+        // Metoda koja se poziva kada korisnik pomjera mišem preko labele.
+        private void Lbl_MouseMove(object sender, MouseEventArgs e)
         {
-            Label? lbl = sender as Label;
+            // Konverzija sender-a u Label tip.
+            Label lbl = sender as Label;
+            // Provjera da li je lbl null, u slučaju da sender nije tipa Label.
+            // Ako je lbl null, DoDragDrop() se neće pozvati.
             lbl?.DoDragDrop(lbl, DragDropEffects.Move);
-
-
         }
 
-        //metoda za punjenje liste iz dictionarya osoba
-        private List<Person> LoadData()
-        {
-            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
-            List<Person> list = new List<Person>();
-            foreach (var person in persons.Values)
-            {
-                list.Add(person);
-            }
 
-            return list;
-        }
         //metoda za stvaranje nove labele u koje će se dodavati osobe
         public  Label GetPersonLabel(Person o, Size size)
         {
-
             var label = new Label
             {
                 Text = $"{o.FirstName} {o.LastName}",
@@ -76,9 +67,8 @@ namespace Infoeduka.UserControls
                 TextAlign = ContentAlignment.MiddleCenter,
                 Margin = new Padding(3),
                 Tag = o.Id
-               
-                
             };
+
             label.MouseEnter += (sender, e) =>
             {
                 // Promijeni boju pozadine kada miš uđe na labelu
@@ -93,6 +83,133 @@ namespace Infoeduka.UserControls
             return label;
         }
 
+        //Metoda koja iz flow layout pnaela vraća listu predavača 
+        private List<Person> GetLecturersFromLecturersOnCourse()
+        {
+            List<Person> lecturers = new();
+
+            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
+
+            // prolazak kroz sve kontrole u FlowLayoutPanelu
+            foreach (Control control in flpLecturersOnCourse.Controls)
+            {
+                // provjera da li je kontrola tipa Label
+                if (control is Label label)
+                {
+                    // dohvaćanje podataka o Person objektu iz teksta labele
+
+                    string personId = label.Tag.ToString();
+                    foreach (var key in persons.Keys)
+                    {
+                        if (key == personId)
+                        {
+                            lecturers.Add(persons[personId]);
+                        }
+                    }
+
+                }
+            }
+
+            return lecturers;
+        }
+
+
+        
+       
+
+        //Eventi za drag and drop
+        private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
+        {
+            Label addedlabel =(Label)e.Data.GetData("System.Windows.Forms.Label");
+
+            // Provjerite postoji li labela s istim imenom
+            string labelTag = addedlabel.Tag.ToString();
+            bool labelAlreadyExists = false;
+            foreach (Control control in flpLecturersOnCourse.Controls)
+            {
+                if (control is Label && control.Tag.ToString() == labelTag)
+                {
+                    labelAlreadyExists = true;
+                    break;
+                }
+            }
+
+            // Ako labela već postoji, ne dodajte je ponovno
+            if (labelAlreadyExists)
+            {
+                return;
+            }
+
+            Label draggedLabel = e.Data?.GetData(typeof(Label)) as Label;
+
+            Label newLabel = new Label();
+            newLabel.Text = draggedLabel.Text;
+            newLabel.Font = draggedLabel.Font;
+            newLabel.BackColor = draggedLabel.BackColor;
+            newLabel.ForeColor = draggedLabel.ForeColor;
+            newLabel.Size = draggedLabel.Size;
+            newLabel.TextAlign = draggedLabel.TextAlign;
+            newLabel.Tag = draggedLabel.Tag;
+            newLabel.Margin = draggedLabel.Margin;
+                      
+
+            Point mouseLocation = MousePosition;
+            mouseLocation = flpLecturersOnCourse.PointToClient(mouseLocation);
+            newLabel.Location = mouseLocation;
+
+            flpLecturersOnCourse.Controls.Add(newLabel);
+
+
+        }
+             
+
+        private void FlpLecturersOnCourse_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        //metoda za punjenje liste iz dictionarya osoba
+        private List<Person> LoadData()
+        {
+            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
+            List<Person> list = new List<Person>();
+            foreach (var person in persons.Values)
+            {
+                list.Add(person);
+            }
+
+            return list;
+        }
+
+        //provjera koji gumb ga zove (za add ili edit)
+        private void LecturerMainForm_Load(object sender, EventArgs e)
+        {
+            if (callingButton == "btnAddNewLecturer")
+            {
+                ClearForm();
+
+            }
+            else if (callingButton == "btnEditLecturer")
+            {
+                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
+            }
+        }
+
+        //metoda za brisanje unesenog iz forme
+        private void ClearForm()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    ((TextBox)control).Text = string.Empty;
+                }
+                flpLecturersOnCourse.Controls.Clear();
+
+            }
+        }
+
+        //Metoda za gumb spremi
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
@@ -110,7 +227,7 @@ namespace Infoeduka.UserControls
 
                 // obavijestite korisnika da su podaci spremljeni
                 ClearForm();
-                MessageBox.Show("Podaci su spremljeni");
+                MessageBox.Show("Uspješno spremljeno.");
 
             }
             catch (Exception ex)
@@ -119,114 +236,6 @@ namespace Infoeduka.UserControls
                 MessageBox.Show("Došlo je do greške, podaci nisu spremljeni" + ex.Message);
             }
 
-        }
-        //iz flp u kojem je lista dodanih predavača vraća tu listu
-        private List<Person> GetLecturersFromLecturersOnCourse()
-        {
-            List<Person> lecturers = new();
-
-            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
-
-            // prolazak kroz sve kontrole u FlowLayoutPanelu
-            foreach (Control control in flpLecturersOnCourse.Controls)
-            {
-                // provjera da li je kontrola tipa Label
-                if (control is Label label)
-                {
-                    // dohvaćanje podataka o Person objektu iz teksta labele
-
-                    string? personId = label.Tag.ToString();
-                    foreach (var key in persons.Keys)
-                    {
-                        if (key == personId)
-                        {
-                            lecturers.Add(persons[personId]);
-                        }
-                    }
-
-                }
-            }
-
-            return lecturers;
-        }
-
-
-        //provjera koji gumb ga zove (za add ili edit)
-        private void LecturerMainForm_Load(object sender, EventArgs e)
-        {
-            if (callingButton == "btnAddNewLecturer")
-            {
-                ClearForm();
-
-            }
-            else if (callingButton == "btnEditLecturer")
-            {
-                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
-            }
-        }
-
-        private void ClearForm()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is TextBox)
-                {
-                    ((TextBox)control).Text = string.Empty;
-                }
-              
-                // Dodajte druge tipove kontrolera i postavite njihove vrijednosti na prazne ili nule, ako je potrebno.
-            }
-        }
-        //za drag and drop
-        private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
-        {
-            Label addedlabel = (Label)e.Data.GetData("System.Windows.Forms.Label");
-
-            // Provjerite postoji li labela s istim imenom
-            string? labelTag = addedlabel.Tag.ToString();
-            bool labelAlreadyExists = false;
-            foreach (Control control in flpLecturersOnCourse.Controls)
-            {
-                if (control is Label && control.Tag.ToString() == labelTag)
-                {
-                    labelAlreadyExists = true;
-                    break;
-                }
-            }
-
-            // Ako labela već postoji, ne dodajte je ponovno
-            if (labelAlreadyExists)
-            {
-                return;
-            }
-
-            Label draggedLabel = (Label)e.Data.GetData(typeof(Label));
-
-            Label newLabel = new Label();
-            newLabel.Text = draggedLabel.Text;
-            newLabel.Font = draggedLabel.Font;
-            newLabel.BackColor = draggedLabel.BackColor;
-            newLabel.ForeColor = draggedLabel.ForeColor;
-            newLabel.Size = draggedLabel.Size;
-            newLabel.TextAlign = draggedLabel.TextAlign;
-            newLabel.Tag = draggedLabel.Tag;
-            newLabel.Margin = draggedLabel.Margin;
-            
-
-            Point mouseLocation = MousePosition;
-            mouseLocation = flpLecturersOnCourse.PointToClient(mouseLocation);
-            newLabel.Location = mouseLocation;
-
-            flpLecturersOnCourse.Controls.Add(newLabel);
-
-
-        }
-
-      
-
-        private void FlpLecturersOnCourse_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
         }
     }
 }

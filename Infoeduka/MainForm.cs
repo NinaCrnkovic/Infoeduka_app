@@ -28,7 +28,7 @@ namespace Infoeduka
         //glavni gumbi - koji otvaraju padajuæi izbornik
         private void MainButtonsForDropDownMenu_Click(object sender, EventArgs e)
         {
-            Button? mainButton = sender as Button;
+            Button mainButton = sender as Button;
             if (mainButton is null)
             {
                 return;
@@ -51,7 +51,7 @@ namespace Infoeduka
         //Gumbi u padajuæem izborniku
         private void ButtonsInDropDownMenu_Click(object sender, EventArgs e)
         {
-            Button? dropdownButton = sender as Button;
+            Button dropdownButton = sender as Button;
             if (dropdownButton is null)
             {
                 return;
@@ -130,7 +130,7 @@ namespace Infoeduka
 
         private void LinkItems_Click(object sender, EventArgs e)
         {
-            PictureBox? linkItem = sender as PictureBox;
+            PictureBox linkItem = sender as PictureBox;
             if (linkItem is null)
             {
                 return;

@@ -62,6 +62,7 @@
             // 
             // gbLecturer
             // 
+            this.gbLecturer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.gbLecturer.Controls.Add(this.gbRoles);
             this.gbLecturer.Controls.Add(this.btnSave);
             this.gbLecturer.Controls.Add(this.panel4);

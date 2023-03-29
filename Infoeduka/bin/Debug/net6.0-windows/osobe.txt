@@ -4,3 +4,5 @@ doroteja@kucak.hr|Doroteja|Kucak|doroteja@kucak.hr|789|True
 nina@crnkovic.com|Nina|Crnković|nina@crnkovic.com|1234|True
 maja@majic.com|Maja|Majic|maja@majic.com|1234|False
 ana@ana.com|Ana|Anić|ana@ana.com|12358|False
+ivan@ivanic.com|Ivan|Ivanić|ivan@ivanic.com|753|False
+patar@petrić.hr|Petar|Petrić|patar@petrić.hr|159753|False
