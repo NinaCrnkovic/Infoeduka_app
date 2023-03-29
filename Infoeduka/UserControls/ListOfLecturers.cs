@@ -42,7 +42,7 @@ namespace Infoeduka.UserControls
         //metoda za punjenje liste iz dictionarya osoba
         private List<Person> LoadData()
         {
-            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
+            IDictionary<int, Person> persons = _dataManager.GetPersonsDictionary();
             List<Person> list = new List<Person>();
             foreach (var person in persons.Values)
             {

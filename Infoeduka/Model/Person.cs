@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities;
 
 namespace Infoeduka.Model
 {
     public class Person
     {
         private const char DEL = '|';
+              
 
-        public string Id { get; set; }
+        public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
 
@@ -22,9 +24,9 @@ namespace Infoeduka.Model
         {
 
         }
-        public Person( string firstName, string lastName, string email, string password, bool isAdmin)
+        public Person(string firstName, string lastName, string email, string password, bool isAdmin)
         {
-            Id = email;
+            Id = Utility.GenerateRandomId();
             FirstName = firstName;
             LastName = lastName;
             Email = email;
@@ -47,7 +49,7 @@ namespace Infoeduka.Model
                        
             return new Person
             {
-                Id = details[0],
+                Id = int.Parse(details[0]),
                 FirstName = details[1],
                 LastName = details[2],
                 Email = details[3],
@@ -59,7 +61,7 @@ namespace Infoeduka.Model
         public override bool Equals(object obj)
         {
             return obj is Person person &&
-                   Id.Equals(person.Id) &&
+                   Id == person.Id &&
                    FirstName == person.FirstName &&
                    LastName == person.LastName &&
                    Email == person.Email &&
@@ -71,8 +73,5 @@ namespace Infoeduka.Model
         {
             return HashCode.Combine(Id, FirstName, LastName, Email, Password, IsAdmin);
         }
-
-
-
     }
 }

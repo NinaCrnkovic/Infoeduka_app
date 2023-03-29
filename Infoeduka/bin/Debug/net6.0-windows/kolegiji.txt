@@ -1,0 +1,3 @@
+418683#Matematika#1#6#503272|Sonja|Vresk|sonja@vresk.com|123|False
+187626#Vjerojatnost i statistika#2#5#503272|Sonja|Vresk|sonja@vresk.com|123|False
+896671#Objektno orijentirano programiranje#3#6#184879|Doroteja|Kučak|doroteja@kučak.com|12356|False#189900|Ileana|Kurtovic|ileana@kurtovic.com|357|True#503272|Sonja|Vresk|sonja@vresk.com|123|False

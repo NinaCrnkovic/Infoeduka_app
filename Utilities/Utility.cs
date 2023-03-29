@@ -2,6 +2,10 @@
 {
     public class Utility
     {
+
+        private static Random random = new();
+
+
         //poziv za otvarenje linka algebre
         public static void VisitLink(string url)
         {
@@ -18,6 +22,14 @@
 
 
         }
+
+        public static int GenerateRandomId()
+        {
+           
+            int id = random.Next(100000, 999999);
+            return id;
+        }
+
         //Metoda za provjeru upisanog emaila / username na loginu
         public static bool IsUsernameValid(string username)
         {

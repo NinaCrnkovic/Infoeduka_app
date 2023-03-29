@@ -28,7 +28,7 @@ namespace Infoeduka.UserControls
         private void BtnSave_Click(object sender, EventArgs e)
         {
             
-            var id = tbEmail.Text;
+            
             var firstName = tbFirstName.Text;
             var lastName = tbLastName.Text;
             var email = tbEmail.Text;

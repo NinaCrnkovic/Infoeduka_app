@@ -1,8 +1,3 @@
-sonja@vresk.hr|Sonja|Vresk|sonja@vresk.hr|123|False
-ileana@kurovic.hr|Ileana|Kurtovic|ileana@kurovic.hr|456|False
-doroteja@kucak.hr|Doroteja|Kucak|doroteja@kucak.hr|789|True
-nina@crnkovic.com|Nina|Crnković|nina@crnkovic.com|1234|True
-maja@majic.com|Maja|Majic|maja@majic.com|1234|False
-ana@ana.com|Ana|Anić|ana@ana.com|12358|False
-ivan@ivanic.com|Ivan|Ivanić|ivan@ivanic.com|753|False
-patar@petrić.hr|Petar|Petrić|patar@petrić.hr|159753|False
+503272|Sonja|Vresk|sonja@vresk.com|123|False
+189900|Ileana|Kurtovic|ileana@kurtovic.com|357|True
+184879|Doroteja|Kučak|doroteja@kučak.com|12356|False

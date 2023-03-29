@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Utilities;
 
 namespace Infoeduka.Model
 {
     public class Course
     {
+       
         private const char DEL = '#';
-        public string Id { get; private set; } = "";
-        public string Name { get; set; } = "";
-        public string Code { get; set; } = "";
-        public int Ects { get; set; } = 0;
+
+        public int Id { get;  set; }
+        public string Name { get; set; } 
+        public string Code { get; set; } 
+        public int Ects { get; set; } 
         public List<Person> Lecturers { get; set; } = new List<Person>();
 
         public Course()
@@ -22,7 +25,7 @@ namespace Infoeduka.Model
 
         public Course( string name, string code, int ects, List<Person> lecturers)
         {
-            Id = code;
+            Id = Utility.GenerateRandomId();
             Name = name;
             Code = code;
             Ects = ects;
@@ -46,21 +49,21 @@ namespace Infoeduka.Model
         public static Course ParseFromFile(string line)
         {
             string[] parts = line.Split(DEL);
-            if (parts.Length < 5)
-                throw new ArgumentException("Invalid line format: " + line);
+            //if (parts.Length < 5)
+            //    throw new ArgumentException("Invalid line format: " + line);
 
          
 
             var course = new Course
             {
-            
-                Name = parts[0],
-                Code = parts[1],
-                Ects = int.Parse(parts[2])
+                Id = int.Parse(parts[0]),
+                Name = parts[1],
+                Code = parts[2],
+                Ects = int.Parse(parts[3])
             };
 
 
-            string[] peopleInfo = parts[3].Split(DEL);
+            string[] peopleInfo = parts[4].Split(DEL);
             foreach (string personInfo in peopleInfo)
             {
                 Person lecturer = Person.ParseFromFile(personInfo);

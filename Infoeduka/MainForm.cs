@@ -75,7 +75,9 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnViewAllCourses":
+                    ListOfCourses listOfCourses = new(dataManager, "btnViewAllCourses");
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(listOfCourses);
                     break;
                 case "btnAddNewCourse":
                     CoursesMainForm formAddCourse = new(dataManager, "btnAddNewCourse");

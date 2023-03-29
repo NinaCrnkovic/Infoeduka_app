@@ -10,8 +10,8 @@ namespace Infoeduka.Model
     public class DataManager
     {
         private IRepo repo = RepoFactory.GetRepo();
-        IDictionary<string, Person> personsDictionary = new Dictionary<string, Person>();
-        IDictionary<string, Course> coursesDictionary = new Dictionary<string, Course>();
+        IDictionary<int, Person> personsDictionary = new Dictionary<int, Person>();
+        IDictionary<int, Course> coursesDictionary = new Dictionary<int, Course>();
 
         //metoda za napuniti osobe u dictionary iz fajle
         public void LoadPersonsToDictionary()
@@ -30,7 +30,7 @@ namespace Infoeduka.Model
 
 
         //metoda za napuniti kolegije u dictionary iz fajle
-        public IDictionary<string, Course> LoadCoursesToDictionary()
+        public IDictionary<int, Course> LoadCoursesToDictionary()
         {
             try
             {
@@ -45,12 +45,12 @@ namespace Infoeduka.Model
         }
 
         //metoda za dohvati dicitionarya osoba
-        public IDictionary<string, Person> GetPersonsDictionary()
+        public IDictionary<int, Person> GetPersonsDictionary()
         {
             return personsDictionary;
         }
         //metoda za dohvati dicitionarya kolegija
-        public IDictionary<string, Course> GetCoursesDictionary()
+        public IDictionary<int, Course> GetCoursesDictionary()
         {
             return coursesDictionary;
         }
@@ -79,7 +79,7 @@ namespace Infoeduka.Model
             {
                 try
                 {
-                    personsDictionary.Add(person.Id.ToString(), person);
+                    personsDictionary.Add(person.Id, person);
 
                 }
                 catch (Exception e)
@@ -98,6 +98,43 @@ namespace Infoeduka.Model
             personsDictionary.Add(newPerson.Id, newPerson);
 
         }
+
+        public void DeletePersonFromDictionary(int id)
+        {
+            personsDictionary.Remove(id);
+        }
+
+        public void DeleteCourseFromDictionary(int id)
+        {
+            coursesDictionary.Remove(id);
+        }
+
+        public void UpdatePersonFromDictionari(Person updatedPerson)
+        {
+            //provjeravamo da li osoba postoji u dictionaryu
+            if (personsDictionary.ContainsKey(updatedPerson.Id))
+            {
+                //dohvaćamo osobu
+                Person person = personsDictionary[updatedPerson.Id];
+                //postavljamo nove vrijednosti
+                person.FirstName = updatedPerson.FirstName;
+                person.LastName = updatedPerson.LastName;
+                person.Email = updatedPerson.Email;
+                person.Password = updatedPerson.Password;
+                person.IsAdmin = updatedPerson.IsAdmin;
+
+                //update osobe
+                personsDictionary[updatedPerson.Id] = person;
+            }
+            else
+            {
+                // ako osoba s ID-om ne postoji u rječniku, izbacite iznimku ili 
+                // napravite neku drugu vrstu manipulacije podacima
+                throw new KeyNotFoundException("Osoba s ID-om " + updatedPerson.Id + " ne postoji u rječniku.");
+            }
+
+        }
+
         //doavanje kolegija u dictyonary
         public void AddNewCourseToDictionary(Course newCourse)
         {

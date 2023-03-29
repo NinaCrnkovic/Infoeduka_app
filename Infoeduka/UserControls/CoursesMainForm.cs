@@ -19,10 +19,11 @@ namespace Infoeduka.UserControls
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
-           
+
             InitializeComponent();
             flpAllLecturers.WrapContents = false;
             flpLecturersOnCourse.WrapContents = false;
+
         }
 
         private void CoursesMainForm_Load(object sender, EventArgs e)
@@ -43,15 +44,7 @@ namespace Infoeduka.UserControls
             }
 
         }
-        // Metoda koja se poziva kada korisnik pomjera mišem preko labele.
-        private void Lbl_MouseMove(object sender, MouseEventArgs e)
-        {
-            // Konverzija sender-a u Label tip.
-            Label lbl = sender as Label;
-            // Provjera da li je lbl null, u slučaju da sender nije tipa Label.
-            // Ako je lbl null, DoDragDrop() se neće pozvati.
-            lbl?.DoDragDrop(lbl, DragDropEffects.Move);
-        }
+       
 
 
         //metoda za stvaranje nove labele u koje će se dodavati osobe
@@ -66,6 +59,7 @@ namespace Infoeduka.UserControls
                 ForeColor = Color.WhiteSmoke,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Margin = new Padding(3),
+                    
                 Tag = o.Id
             };
 
@@ -88,7 +82,7 @@ namespace Infoeduka.UserControls
         {
             List<Person> lecturers = new();
 
-            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
+            IDictionary<int, Person> persons = _dataManager.GetPersonsDictionary();
 
             // prolazak kroz sve kontrole u FlowLayoutPanelu
             foreach (Control control in flpLecturersOnCourse.Controls)
@@ -98,7 +92,8 @@ namespace Infoeduka.UserControls
                 {
                     // dohvaćanje podataka o Person objektu iz teksta labele
 
-                    string personId = label.Tag.ToString();
+                    int personId = Convert.ToInt32(label.Tag);
+                   
                     foreach (var key in persons.Keys)
                     {
                         if (key == personId)
@@ -114,13 +109,21 @@ namespace Infoeduka.UserControls
         }
 
 
-        
-       
+        // Metoda koja se poziva kada korisnik pomjera mišem preko labele - za drag and drop
+        private void Lbl_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Konverzija sender-a u Label tip.
+            Label lbl = sender as Label;
+            // Provjera da li je lbl null, u slučaju da sender nije tipa Label.
+            // Ako je lbl null, DoDragDrop() se neće pozvati.
+            lbl?.DoDragDrop(lbl, DragDropEffects.Move);
+        }
+
 
         //Eventi za drag and drop
         private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
         {
-            Label addedlabel =(Label)e.Data.GetData("System.Windows.Forms.Label");
+            var addedlabel = e.Data.GetData(typeof(Label)) as Label;
 
             // Provjerite postoji li labela s istim imenom
             string labelTag = addedlabel.Tag.ToString();
@@ -151,6 +154,8 @@ namespace Infoeduka.UserControls
             newLabel.TextAlign = draggedLabel.TextAlign;
             newLabel.Tag = draggedLabel.Tag;
             newLabel.Margin = draggedLabel.Margin;
+
+        
                       
 
             Point mouseLocation = MousePosition;
@@ -171,7 +176,7 @@ namespace Infoeduka.UserControls
         //metoda za punjenje liste iz dictionarya osoba
         private List<Person> LoadData()
         {
-            IDictionary<string, Person> persons = _dataManager.GetPersonsDictionary();
+            IDictionary<int, Person> persons = _dataManager.GetPersonsDictionary();
             List<Person> list = new List<Person>();
             foreach (var person in persons.Values)
             {
