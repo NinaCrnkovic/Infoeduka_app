@@ -90,10 +90,12 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     break;
                 case "btnDeleteCourse":
+                    ListOfCourses formDeleteCourse = new(dataManager, "btnDeleteCourse");
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formDeleteCourse);
                     break;
                 case "btnViewAllLecturers":
-                    ListOfLecturers listOfLecturers = new ListOfLecturers(dataManager, "btnViewAllLecturers");
+                    ListOfLecturers listOfLecturers = new (dataManager, "btnViewAllLecturers", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(listOfLecturers);
                     break;
@@ -103,12 +105,12 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formAddLecturer);
                     break;
                 case "btnEditLecturer":
-                    LecturerMainForm formEditLecturer = new(dataManager, "btnEditLecturer");
+                    ListOfLecturers formEditLecturer = new(dataManager, "btnEditLecturer", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     break;
                 case "btnDeleteLecturer":
-                    ListOfLecturers fromDeleteLecturer = new ListOfLecturers(dataManager, "btnDeleteLecturer");
+                    ListOfLecturers fromDeleteLecturer = new(dataManager, "btnDeleteLecturer", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(fromDeleteLecturer);
                     break;

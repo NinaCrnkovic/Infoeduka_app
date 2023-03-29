@@ -17,10 +17,12 @@ namespace Infoeduka.UserControls
     {
         private readonly DataManager _dataManager;
         private string callingButton;
-        public ListOfLecturers(DataManager dataManager, string callingButton)
+        private Panel pnlHolderForOtherPanels;
+        public ListOfLecturers(DataManager dataManager, string callingButton, Panel holderPanel)
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
+            pnlHolderForOtherPanels = holderPanel;
             InitializeComponent();
         }
 
@@ -31,6 +33,7 @@ namespace Infoeduka.UserControls
             SetListViewProperties();
             ShowData();
             lvLecturers.MouseClick += lvLecturers_MouseClick;
+            //lvLecturers.MouseClick += lvLecturersEdit_MouseClick;
 
         }
 
@@ -57,9 +60,7 @@ namespace Infoeduka.UserControls
                     var person = item.Tag as Person;
                     if (person != null)
                     {
-                        // prikaži message box sa upozorenjem i zatraži korisničku potvrdu
-                        /*var result = MessageBox.Show($"Jeste li sigurni da želite izbrisati predavača {person.FirstName} {person.LastName}, {person.Email}, password: {person.Password}?", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);*/
-
+                        
                         var result = CustomMessageBox.Show($"Jeste li sigurni da želite izbrisati predavača {person.FirstName} {person.LastName}, {person.Email}, password: {person.Password}?", "Upozorenje", MessageBoxButtons.OKCancel);
 
                         if (result == DialogResult.Yes)
@@ -68,6 +69,12 @@ namespace Infoeduka.UserControls
                             lvLecturers.Items.Remove(item);
                         }
                     }
+                }
+                else if (subItem != null && subItem.Text == "Uredi predavača")
+                {
+                    CoursesMainForm formEditCourse = new(_dataManager, "btnEditCourse");
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                 }
             }
         }
@@ -122,10 +129,23 @@ namespace Infoeduka.UserControls
                 };
               
             }
+            else if (callingButton == "btnEditLecturer")
+            {
+                rowData = new string[]
+                {
+                person.FirstName,
+                person.LastName,
+                person.Email,
+                //person.Password,
+                //person.IsAdmin ? "Administrator" : "Predavač",
+                "Uredi predavača"
+                };
+
+            }
             ListViewItem row = new ListViewItem(rowData);
             row.Tag = person;
             // Postavljanje boje teksta za ćeliju sa natpisom "Delete"
-            if (rowData.Contains("Izbriši predavača"))
+            if (rowData.Contains("Izbriši predavača" ) || rowData.Contains("Uredi predavača"))
             {
                 row.UseItemStyleForSubItems = false;
                 row.SubItems[rowData.Length - 1].ForeColor = Color.Red;
@@ -162,6 +182,15 @@ namespace Infoeduka.UserControls
                 //lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
                 //lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 250 });
+            }
+            else if (callingButton == "btnEditLecturer")
+            {
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
+                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
+                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Uređivanje predavača", Width = 250 });
             }
 
 

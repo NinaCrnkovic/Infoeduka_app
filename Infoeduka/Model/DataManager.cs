@@ -92,7 +92,6 @@ namespace Infoeduka.Model
         //dodavanje osobe u dictyonary
         public void AddNewPersonToDictionary(Person newPerson)
         {
-
             // dodajte novog Person objekta u dictionary
             personsDictionary.Add(newPerson.Id, newPerson);
         }
@@ -136,11 +135,8 @@ namespace Infoeduka.Model
         //doavanje kolegija u dictyonary
         public void AddNewCourseToDictionary(Course newCourse)
         {
-
-
             // dodajte novog Course objekta u dictionary
             coursesDictionary.Add(newCourse.Id, newCourse);
-
         }
 
         public void SaveDataForPersonsAndCourses(IList<Person> persons, IList<Course> courses)
