@@ -1,4 +1,5 @@
-﻿using Infoeduka.Model;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,18 @@ namespace Infoeduka.UserControls
         //u pozivu kreiranja ove komponente će se poslati data manager i postaviti ćemo ga ovdje u konstruktoru kako bi mogli pristupiti metodama
         private readonly DataManager _dataManager;
         private string callingButton;
+        private Person personEdit;
         public LecturerMainForm(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
-            
             InitializeComponent();
-            
+        }
+
+        // Konstruktor s dodatnim parametrom 
+        public LecturerMainForm(DataManager dataManager, string callingButton, Person personEdit) : this(dataManager, callingButton)
+        {
+            this.personEdit = personEdit;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -36,23 +42,49 @@ namespace Infoeduka.UserControls
             var isAdmin = GetChecked();
 
             // kreirajte novog Person objekta
-            Person newPerson = new Person( firstName, lastName, email, password, isAdmin);
-            try
-            {
-                // dodajte novog Person objekta u dictionary u DataManager klasi
-                _dataManager.AddNewPersonToDictionary(newPerson);
+            
+           
+                if (callingButton == "btnAddNewLecturer")
+                {
+                    Person newPerson = new Person(firstName, lastName, email, password, isAdmin);
+                    try
+                    {
+                    // dodajte novog Person objekta u dictionary u DataManager klasi
+                    _dataManager.AddNewPersonToDictionary(newPerson);
 
+                    // obavijestite korisnika da su podaci spremljeni
+                    CustomMessageBox.Show("Uspješno spremljeno", "", MessageBoxButtons.OK);
+                    ClearForm();
+                    }
+                    catch (Exception ex)
+                    {
 
-                // obavijestite korisnika da su podaci spremljeni
-                ClearForm();
-                MessageBox.Show("Podaci su spremljeni");
+                     CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message, "Greška", MessageBoxButtons.OK);
+                    }   
+                }
+                else if (callingButton == "btnEditLecturer")
+                {
+                    personEdit.FirstName = firstName;
+                    personEdit.LastName = lastName;
+                    personEdit.Email = email;
+                    personEdit.Password = password;
+                    personEdit.IsAdmin = isAdmin;
+                    try
+                    {
+                    _dataManager.UpdatePersonFromDictionari(personEdit);
+                    CustomMessageBox.Show("Uspješno spremljeno", "", MessageBoxButtons.OK);
+                    Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+
+                    CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message, "Greška", MessageBoxButtons.OK);
+                }
+
                 
-            }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message);
-            }
+                               
+                }
+          
          
         }
 
@@ -75,7 +107,22 @@ namespace Infoeduka.UserControls
             }
             else if (callingButton == "btnEditLecturer")
             {
-                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
+                if (personEdit != null)
+                {
+                    tbFirstName.Text = personEdit.FirstName;
+                    tbLastName.Text = personEdit.LastName;
+                    tbEmail.Text = personEdit.Email;
+                    tbPassword.Text = personEdit.Password;
+
+                    if (personEdit.IsAdmin)
+                    {
+                        rbtnAdmin.Checked = true;
+                    }
+                    else
+                    {
+                        rbtnLecturer.Checked = true;
+                    }
+                }
             }
         }
 

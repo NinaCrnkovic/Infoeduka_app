@@ -47,6 +47,10 @@ namespace Infoeduka.UserControls
             {
                 lblTitleForListOfLecturers.Text = "Brisanje predavača";
             }
+            else if (callingButton == "btnEditLecturer")
+            {
+                lblTitleForListOfLecturers.Text = "Uređivanje predavača";
+            }
         }
 
         private void lvLecturers_MouseClick(object sender, MouseEventArgs e)
@@ -72,9 +76,12 @@ namespace Infoeduka.UserControls
                 }
                 else if (subItem != null && subItem.Text == "Uredi predavača")
                 {
-                    CoursesMainForm formEditCourse = new(_dataManager, "btnEditCourse");
+                    //Pitanje za chat gpt - da li mi ovdje ispravono šalje personEdit sa svim podacima u formEditLecturer - Žnači treba poslati Persnon sa svim parametrima
+                    var personEdit = item.Tag as Person;
+                    LecturerMainForm formEditLecturer = new(_dataManager, "btnEditLecturer", personEdit);
+
                     pnlHolderForOtherPanels.Controls.Clear();
-                    pnlHolderForOtherPanels.Controls.Add(formEditCourse);
+                    pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                 }
             }
         }
