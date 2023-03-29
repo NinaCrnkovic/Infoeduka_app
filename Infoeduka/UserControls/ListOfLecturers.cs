@@ -1,14 +1,15 @@
-﻿using Infoeduka.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.ListViewItem;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Model;
+//using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+//using System.Windows.Forms;
+//using static System.Windows.Forms.ListViewItem;
 
 namespace Infoeduka.UserControls
 {
@@ -57,7 +58,10 @@ namespace Infoeduka.UserControls
                     if (person != null)
                     {
                         // prikaži message box sa upozorenjem i zatraži korisničku potvrdu
-                        var result = MessageBox.Show($"Jeste li sigurni da želite izbrisati predavača {person.FirstName} {person.LastName}, {person.Email}, password: {person.Password}?", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        /*var result = MessageBox.Show($"Jeste li sigurni da želite izbrisati predavača {person.FirstName} {person.LastName}, {person.Email}, password: {person.Password}?", "Upozorenje", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);*/
+
+                        var result = CustomMessageBox.Show($"Jeste li sigurni da želite izbrisati predavača {person.FirstName} {person.LastName}, {person.Email}, password: {person.Password}?", "Upozorenje", MessageBoxButtons.OKCancel);
+
                         if (result == DialogResult.Yes)
                         {
                             _dataManager.DeletePersonFromDictionary(person.Id);
