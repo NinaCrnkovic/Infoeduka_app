@@ -93,7 +93,7 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnViewAllLecturers":
-                    ListOfLecturers listOfLecturers = new ListOfLecturers(dataManager, "btnAddNewLecturer");
+                    ListOfLecturers listOfLecturers = new ListOfLecturers(dataManager, "btnViewAllLecturers");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(listOfLecturers);
                     break;
@@ -108,7 +108,9 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     break;
                 case "btnDeleteLecturer":
+                    ListOfLecturers fromDeleteLecturer = new ListOfLecturers(dataManager, "btnDeleteLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(fromDeleteLecturer);
                     break;
 
             }

@@ -203,16 +203,18 @@ namespace Infoeduka.UserControls
         //metoda za brisanje unesenog iz forme
         private void ClearForm()
         {
-            foreach (Control control in this.Controls)
+            // Brišemo tekstualna polja unutar kontrola gbLecturers
+            foreach (Control control in gbCourse.Controls)
             {
                 if (control is TextBox)
                 {
-                    ((TextBox)control).Text = string.Empty;
+                    ((TextBox)control).Clear();
                 }
-                flpLecturersOnCourse.Controls.Clear();
-
             }
+            flpLecturersOnCourse.Controls.Clear();
+
         }
+     
 
         //Metoda za gumb spremi
         private void BtnSave_Click(object sender, EventArgs e)

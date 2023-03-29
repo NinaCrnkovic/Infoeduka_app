@@ -89,14 +89,12 @@ namespace Infoeduka.Model
             }
         }
 
-        //doavanje osobe u dictyonary
+        //dodavanje osobe u dictyonary
         public void AddNewPersonToDictionary(Person newPerson)
         {
 
-
             // dodajte novog Person objekta u dictionary
             personsDictionary.Add(newPerson.Id, newPerson);
-
         }
 
         public void DeletePersonFromDictionary(int id)

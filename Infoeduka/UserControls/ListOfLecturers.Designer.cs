@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlList = new System.Windows.Forms.Panel();
-            this.lblNaslov = new System.Windows.Forms.Label();
+            this.lblTitleForListOfLecturers = new System.Windows.Forms.Label();
             this.lvLecturers = new System.Windows.Forms.ListView();
             this.pnlList.SuspendLayout();
             this.SuspendLayout();
@@ -37,7 +37,7 @@
             // pnlList
             // 
             this.pnlList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.pnlList.Controls.Add(this.lblNaslov);
+            this.pnlList.Controls.Add(this.lblTitleForListOfLecturers);
             this.pnlList.Controls.Add(this.lvLecturers);
             this.pnlList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlList.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -46,15 +46,15 @@
             this.pnlList.Size = new System.Drawing.Size(982, 517);
             this.pnlList.TabIndex = 2;
             // 
-            // lblNaslov
+            // lblTitleForListOfLecturers
             // 
-            this.lblNaslov.AutoSize = true;
-            this.lblNaslov.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNaslov.Location = new System.Drawing.Point(398, 17);
-            this.lblNaslov.Name = "lblNaslov";
-            this.lblNaslov.Size = new System.Drawing.Size(170, 21);
-            this.lblNaslov.TabIndex = 1;
-            this.lblNaslov.Text = "Pregled svih predavača";
+            this.lblTitleForListOfLecturers.AutoSize = true;
+            this.lblTitleForListOfLecturers.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitleForListOfLecturers.Location = new System.Drawing.Point(62, 27);
+            this.lblTitleForListOfLecturers.Name = "lblTitleForListOfLecturers";
+            this.lblTitleForListOfLecturers.Size = new System.Drawing.Size(170, 21);
+            this.lblTitleForListOfLecturers.TabIndex = 1;
+            this.lblTitleForListOfLecturers.Text = "Pregled svih predavača";
             // 
             // lvLecturers
             // 
@@ -88,6 +88,6 @@
 
         private Panel pnlList;
         private ListView lvLecturers;
-        private Label lblNaslov;
+        private Label lblTitleForListOfLecturers;
     }
 }
