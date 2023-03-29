@@ -1,3 +1,4 @@
 503272|Sonja|Vresk|sonja@vresk.com|123|False
 189900|Ileana|Kurtovic|ileana@kurtovic.com|357|True
 184879|Doroteja|Kučak|doroteja@kučak.com|12356|False
+365747|Maja|Majić|maja@majic.com|152|False

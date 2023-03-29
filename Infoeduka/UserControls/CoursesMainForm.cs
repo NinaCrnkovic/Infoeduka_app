@@ -38,7 +38,7 @@ namespace Infoeduka.UserControls
             List<Person> list = LoadData();
             foreach (var item in list)
             {
-                Label lbl = GetPersonLabel(item, new Size(flpAllLecturers.Width, 40));
+                Label lbl = GetPersonLabel(item, new Size(flpAllLecturers.Width-8, 40));
                 lbl.MouseMove += Lbl_MouseMove;
                 flpAllLecturers.Controls.Add(lbl);
             }
@@ -59,7 +59,7 @@ namespace Infoeduka.UserControls
                 ForeColor = Color.WhiteSmoke,
                 TextAlign = ContentAlignment.MiddleCenter,
                 Margin = new Padding(3),
-                    
+                Anchor = AnchorStyles.None,
                 Tag = o.Id
             };
 

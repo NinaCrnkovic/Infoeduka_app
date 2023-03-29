@@ -40,7 +40,7 @@ namespace Infoeduka.Model
 
         public string FormatForFile()
         {
-            string lecturers = Lecturers.Any() ? string.Join(DEL, Lecturers.Select(l => l.FormatForFile())) : "";
+            string lecturers = Lecturers.Any() ? string.Join("%", Lecturers.Select(l => l.FormatForFile())) : "";
 
             return $"{Id}{DEL}{Name}{DEL}{Code}{DEL}{Ects}{DEL}{lecturers}";
 
@@ -62,11 +62,11 @@ namespace Infoeduka.Model
                 Ects = int.Parse(parts[3])
             };
 
-
-            string[] peopleInfo = parts[4].Split(DEL);
-            foreach (string personInfo in peopleInfo)
+            
+            string[] peopleInfo = parts[4].Split("%");
+            for (int i = 0; i < peopleInfo.Length; i++)
             {
-                Person lecturer = Person.ParseFromFile(personInfo);
+                Person lecturer = Person.ParseFromFile(peopleInfo[i]);
                 if (lecturer != null)
                     course.Lecturers.Add(lecturer);
             }

@@ -78,9 +78,9 @@ namespace Infoeduka.UserControls
         //definiramo kako će nam izgledati hederi da stupcima
         private void DefineListViewColumnHeaders()
         {
-            lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 150 });
-            lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 150 });
-            lvCourses.Columns.Add(new ColumnHeader { Text = "Br.ECTS bodova", Width = 250 });
+            lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 300 });
+            lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
+            lvCourses.Columns.Add(new ColumnHeader { Text = "Br.ECTS bodova", Width = 150 });
             lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 650 });
 
         }

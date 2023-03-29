@@ -76,10 +76,10 @@ namespace Infoeduka.UserControls
         private void DefineListViewColumnHeaders()
         {
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 150 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
             lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
-            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 120 });
+            lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
         }
     }
 }
