@@ -60,7 +60,7 @@
             this.lbAlgebraLink = new System.Windows.Forms.LinkLabel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnUserLogedIn = new System.Windows.Forms.Button();
+            this.btnUserLoggedIn = new System.Windows.Forms.Button();
             this.btnLogout = new System.Windows.Forms.Button();
             this.pnlMainFormPanel.SuspendLayout();
             this.pnlSideMenu.SuspendLayout();
@@ -558,7 +558,7 @@
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
             this.pnlHeader.Controls.Add(this.pictureBox1);
-            this.pnlHeader.Controls.Add(this.btnUserLogedIn);
+            this.pnlHeader.Controls.Add(this.btnUserLoggedIn);
             this.pnlHeader.Controls.Add(this.btnLogout);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
@@ -581,19 +581,19 @@
             // 
             // btnUserLogedIn
             // 
-            this.btnUserLogedIn.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnUserLogedIn.FlatAppearance.BorderSize = 0;
-            this.btnUserLogedIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUserLogedIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnUserLogedIn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnUserLogedIn.Location = new System.Drawing.Point(871, 0);
-            this.btnUserLogedIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUserLogedIn.Name = "btnUserLogedIn";
-            this.btnUserLogedIn.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnUserLogedIn.Size = new System.Drawing.Size(204, 61);
-            this.btnUserLogedIn.TabIndex = 3;
-            this.btnUserLogedIn.Text = "Ime Prezime";
-            this.btnUserLogedIn.UseVisualStyleBackColor = true;
+            this.btnUserLoggedIn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnUserLoggedIn.FlatAppearance.BorderSize = 0;
+            this.btnUserLoggedIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUserLoggedIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnUserLoggedIn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnUserLoggedIn.Location = new System.Drawing.Point(871, 0);
+            this.btnUserLoggedIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUserLoggedIn.Name = "btnUserLogedIn";
+            this.btnUserLoggedIn.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnUserLoggedIn.Size = new System.Drawing.Size(204, 61);
+            this.btnUserLoggedIn.TabIndex = 3;
+            this.btnUserLoggedIn.Text = "Ime Prezime";
+            this.btnUserLoggedIn.UseVisualStyleBackColor = true;
             // 
             // btnLogout
             // 
@@ -611,6 +611,7 @@
             this.btnLogout.TabIndex = 2;
             this.btnLogout.Text = "Odjavi se";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // MainForm
             // 
@@ -676,7 +677,7 @@
         private LinkLabel lbAlgebraLink;
         private Panel pnlHeader;
         private PictureBox pictureBox1;
-        private Button btnUserLogedIn;
+        private Button btnUserLoggedIn;
         private Button btnLogout;
         private Panel pnlHolderForOtherPanels;
     }

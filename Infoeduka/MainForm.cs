@@ -17,25 +17,6 @@ namespace Infoeduka
             }
         }
 
-        private void SetViewForUser()
-        {
-            if (_authenticatedPerson != null)
-            {
-                this.btnUserLogedIn.Text = $"{_authenticatedPerson.FirstName}  {_authenticatedPerson.LastName}";
-            }
-            else
-            {
-                this.btnUserLogedIn.Text = "";
-            }
-            if (!_authenticatedPerson.IsAdmin)
-            {
-                this.btnMainLecturer.Visible = false;
-                this.btnAddNewCourse.Visible = false;
-                this.btnEditCourse.Visible = false;
-                this.btnDeleteCourse.Visible = false;
-
-            }
-        }
 
         private Person _authenticatedPerson;
         public MainForm()
@@ -242,6 +223,41 @@ namespace Infoeduka
             }
         }
 
-    
+        private void SetViewForUser()
+        {
+            if (_authenticatedPerson != null)
+            {
+                this.btnUserLoggedIn.Text = $"{_authenticatedPerson.FirstName} {_authenticatedPerson.LastName}";
+
+                if (!_authenticatedPerson.IsAdmin)
+                {
+                    this.btnMainLecturer.Visible = false;
+                    this.btnAddNewCourse.Visible = false;
+                    this.btnEditCourse.Visible = false;
+                    this.btnDeleteCourse.Visible = false;
+                }
+            }
+            else
+            {
+                this.btnUserLoggedIn.Text = "";
+                this.btnMainLecturer.Visible = true;
+                this.btnAddNewCourse.Visible = true;
+                this.btnEditCourse.Visible = true;
+                this.btnDeleteCourse.Visible = true;
+            }
+        }
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            // postavite authenticated person na null kako biste oznaèili da nitko nije prijavljen
+            AuthenticatedPerson = null;
+            // Ponovo prikažite LoginForm
+           
+            LoginForm loginForm = new LoginForm(_dataManager);
+            this.Controls.Add(loginForm);
+            loginForm.BringToFront();
+            SetPanelVisibilityToFalse();
+        }
+
+
     }
 }
