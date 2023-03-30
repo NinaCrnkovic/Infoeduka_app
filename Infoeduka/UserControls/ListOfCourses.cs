@@ -16,11 +16,18 @@ namespace Infoeduka.UserControls
     {
         private readonly DataManager _dataManager;
         private string callingButton;
+        private Panel pnlHolderForOtherPanels;
         public ListOfCourses(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
             InitializeComponent();
+        }
+
+        public ListOfCourses(DataManager dataManager, string callingButton, Panel holderPanel) : this(dataManager, callingButton)
+        {
+            pnlHolderForOtherPanels = holderPanel;
+
         }
 
         private void ListOfCourses_Load(object sender, EventArgs e)
@@ -57,6 +64,18 @@ namespace Infoeduka.UserControls
                         }
                     }
                 }
+                else if (subItem != null && subItem.Text == "Uredi kolegij")
+                {
+                    var course = item.Tag as Course;
+                    if (course != null)
+                    {
+                        var courseEdit = item.Tag as Course;
+                        CoursesMainForm formEditCourse = new(_dataManager, "btnEditCourse", courseEdit);
+
+                        pnlHolderForOtherPanels.Controls.Clear();
+                        pnlHolderForOtherPanels.Controls.Add(formEditCourse);
+                    }
+                }
             }
         }
 
@@ -70,6 +89,10 @@ namespace Infoeduka.UserControls
             else if (callingButton == "btnDeleteCourse")
             {
                 lblTitleForCollegeView.Text = "Brisanje kolegija";
+            }
+            else if (callingButton == "btnEditCourse")
+            {
+                lblTitleForCollegeView.Text = "Uređivanje kolegija";
             }
         }
 
@@ -123,11 +146,22 @@ namespace Infoeduka.UserControls
                 "Izbriši kolegij"
                 };
             }
+            else if (callingButton == "btnEditCourse")
+            {
+                rowData = new string[]
+                {
+                course.Code,
+                course.Name,
+                course.Ects.ToString(),
+                //string.Join(", ", lecturers),
+                "Uredi kolegij"
+                };
+            }
 
             ListViewItem row = new ListViewItem(rowData);
             row.Tag = course;
-            // Postavljanje boje teksta za ćeliju sa natpisom "Delete"
-            if (rowData.Contains("Izbriši kolegij"))
+            // Postavljanje boje teksta za ćeliju sa natpisom Izbriši ili Uredi
+            if (rowData.Contains("Izbriši kolegij") || rowData.Contains("Uredi kolegij"))
             {
                 row.UseItemStyleForSubItems = false;
                 row.SubItems[rowData.Length - 1].ForeColor = Color.Red;
@@ -141,7 +175,6 @@ namespace Infoeduka.UserControls
         {
             lvCourses.GridLines = true;
             lvCourses.FullRowSelect = true;
-        
             lvCourses.MultiSelect = false;
         }
         //definiramo kako će nam izgledati hederi da stupcima
@@ -163,6 +196,15 @@ namespace Infoeduka.UserControls
                 lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
                 //lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 450 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Brisanje kolegija", Width = 228 });
+
+            }
+            else if (callingButton == "btnEditCourse")
+            {
+                lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
+                lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 500 });
+                lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
+                //lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 450 });
+                lvCourses.Columns.Add(new ColumnHeader { Text = "Uređivanje kolegija", Width = 228 });
 
             }
 

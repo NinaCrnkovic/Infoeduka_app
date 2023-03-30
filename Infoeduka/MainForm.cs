@@ -57,7 +57,7 @@ namespace Infoeduka
                 return;
             }
             switch (dropdownButton.Name)
-            {
+            {   //Notifications
                 case "btnViewAllNotifications":
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
@@ -74,6 +74,7 @@ namespace Infoeduka
                 case "btnDeleteNotification":
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
+                //Courses
                 case "btnViewAllCourses":
                     ListOfCourses listOfCourses = new(dataManager, "btnViewAllCourses");
                     pnlHolderForOtherPanels.Controls.Clear();
@@ -85,7 +86,7 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formAddCourse);
                     break;
                 case "btnEditCourse":
-                    CoursesMainForm formEditCourse = new(dataManager, "btnEditCourse");
+                    ListOfCourses formEditCourse = new(dataManager, "btnEditCourse", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     break;
@@ -94,8 +95,9 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formDeleteCourse);
                     break;
+                //Lecturers
                 case "btnViewAllLecturers":
-                    ListOfLecturers listOfLecturers = new (dataManager, "btnViewAllLecturers", pnlHolderForOtherPanels);
+                    ListOfLecturers listOfLecturers = new (dataManager, "btnViewAllLecturers");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(listOfLecturers);
                     break;
@@ -110,7 +112,7 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     break;
                 case "btnDeleteLecturer":
-                    ListOfLecturers fromDeleteLecturer = new(dataManager, "btnDeleteLecturer", pnlHolderForOtherPanels);
+                    ListOfLecturers fromDeleteLecturer = new(dataManager, "btnDeleteLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(fromDeleteLecturer);
                     break;

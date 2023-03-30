@@ -18,12 +18,18 @@ namespace Infoeduka.UserControls
         private readonly DataManager _dataManager;
         private string callingButton;
         private Panel pnlHolderForOtherPanels;
-        public ListOfLecturers(DataManager dataManager, string callingButton, Panel holderPanel)
+        public ListOfLecturers(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
             this.callingButton = callingButton;
-            pnlHolderForOtherPanels = holderPanel;
+          
             InitializeComponent();
+        }
+
+        public ListOfLecturers(DataManager dataManager, string callingButton, Panel holderPanel) : this(dataManager, callingButton)
+        {
+            pnlHolderForOtherPanels = holderPanel;
+          
         }
 
         private void ListOfLecturers_Load(object sender, EventArgs e)
@@ -76,12 +82,15 @@ namespace Infoeduka.UserControls
                 }
                 else if (subItem != null && subItem.Text == "Uredi predavača")
                 {
-                    //Pitanje za chat gpt - da li mi ovdje ispravono šalje personEdit sa svim podacima u formEditLecturer - Žnači treba poslati Persnon sa svim parametrima
+                    
                     var personEdit = item.Tag as Person;
-                    LecturerMainForm formEditLecturer = new(_dataManager, "btnEditLecturer", personEdit);
+                    if (personEdit != null)
+                    {                    
+                        LecturerMainForm formEditLecturer = new(_dataManager, "btnEditLecturer", personEdit);
 
-                    pnlHolderForOtherPanels.Controls.Clear();
-                    pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
+                        pnlHolderForOtherPanels.Controls.Clear();
+                        pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
+                    }
                 }
             }
         }

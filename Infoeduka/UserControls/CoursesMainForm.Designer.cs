@@ -123,6 +123,7 @@
             // 
             // flpAllLecturers
             // 
+            this.flpAllLecturers.AllowDrop = true;
             this.flpAllLecturers.AutoScroll = true;
             this.flpAllLecturers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flpAllLecturers.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;

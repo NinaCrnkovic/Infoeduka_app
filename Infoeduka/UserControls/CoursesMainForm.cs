@@ -14,26 +14,49 @@ namespace Infoeduka.UserControls
     public partial class CoursesMainForm : UserControl
     {
         private readonly DataManager _dataManager;
-        private string callingButton;
+        private readonly string _callingButton;
+        private readonly Course _editCourse;
         public CoursesMainForm(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
-            this.callingButton = callingButton;
-
+            _callingButton = callingButton;
+       
             InitializeComponent();
             flpAllLecturers.WrapContents = false;
             flpLecturersOnCourse.WrapContents = false;
+            // Dohvaćanje događaja DragEnter i DragDrop za flpAllLecturers i flpLecturersOnCourse
+            //flpAllLecturers.DragEnter += FlpAllLecturers_DragEnter;
+            //flpAllLecturers.DragDrop += FlpAllLecturers_DragDrop;
+            //flpLecturersOnCourse.DragEnter += FlpLecturersOnCourse_DragEnter;
+            //flpLecturersOnCourse.DragDrop += FlpLecturersOnCourse_DragDrop;
+
+        }
+
+        public CoursesMainForm(DataManager dataManager, string callingButton, Course editCourse) : this(dataManager, callingButton)
+        {
+            _editCourse = editCourse;
 
         }
 
         private void CoursesMainForm_Load(object sender, EventArgs e)
         {
-            
-            ShowData();
+            if (_callingButton == "btnAddNewCuorse")
+            {
+                ClearForm();
+
+            }
+            else if (_callingButton == "btnEditCuorse")
+            {
+                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
+            }
+            ShowDataOnLoad();
+          
         }
 
+       
+
         //metoda za prikaz podataka o osobama
-        private void ShowData()
+        private void ShowDataOnLoad()
         {
             List<Person> list = LoadData();
             foreach (var item in list)
@@ -41,14 +64,121 @@ namespace Infoeduka.UserControls
                 Label lbl = GetPersonLabel(item, new Size(flpAllLecturers.Width-8, 40));
                 lbl.MouseMove += Lbl_MouseMove;
                 flpAllLecturers.Controls.Add(lbl);
+               
             }
+            
 
         }
-       
+        
+        //-----------------------------------Eventi za drag and drop i metode
 
+        // Metoda koja se poziva kada se prođe mišem preko labele - za drag and drop
+          private void Lbl_MouseMove(object sender, MouseEventArgs e)
+        {
+            // Konverzija sender-a u Label tip.
+            Label lbl = sender as Label;
+            // Provjera da li je lbl null, u slučaju da sender nije tipa Label.
+            // Ako je lbl null, DoDragDrop() se neće pozvati.
+            lbl?.DoDragDrop(lbl, DragDropEffects.Move);
+        }
+
+        private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
+        {
+     
+            var addedlabel = e.Data.GetData(typeof(Label)) as Label;
+            // Provjerite postoji li labela s istim imenom
+            string labelTag = addedlabel.Tag.ToString();
+            bool labelFound = false;
+            foreach (Control control in flpLecturersOnCourse.Controls)
+            {
+                if (control is Label && control.Tag.ToString() == labelTag)
+                {
+                    labelFound = true;
+                    break;
+                }
+            }
+            if (labelFound) return;
+
+            Label draggedLabel = e.Data?.GetData(typeof(Label)) as Label;
+            Label newLabel = AddNewLabelToList(draggedLabel);
+
+            Point mouseLocation = MousePosition;
+            mouseLocation = flpLecturersOnCourse.PointToClient(mouseLocation);
+            newLabel.Location = mouseLocation;
+            flpLecturersOnCourse.Controls.Add(newLabel);
+
+            // Omogućite brisanje labela
+            newLabel.MouseDown += NewLabel_MouseDown;
+
+            flpAllLecturers.Controls.Remove(draggedLabel);
+
+        }        
+
+        private void FlpLecturersOnCourse_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void NewLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+          
+            if (e.Button == MouseButtons.Right)
+            {
+                Label selectedLabel = sender as Label;
+                ContextMenuStrip menu = new ContextMenuStrip();
+                ToolStripMenuItem deleteItem = new ToolStripMenuItem("Obriši");
+                deleteItem.Click += (s, args) => {
+                    flpLecturersOnCourse.Controls.Remove(selectedLabel);
+                    flpAllLecturers.Controls.Add(selectedLabel);
+                };
+                menu.Items.Add(deleteItem);
+                menu.Show(selectedLabel, new Point(e.X, e.Y));
+                //selectedLabel.MouseDown += FlpAllLecturers_MouseDown;
+            }
+            
+        }
+
+        private void FlpAllLecturers_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Label selectedLabel = sender as Label;
+            
+            }
+        }
+
+        //-----------------------------Metode za liste i labele
+
+        //Metoda za dodavanje nove labele na listu
+        private static Label AddNewLabelToList(Label draggedLabel)
+        {
+            Label newLabel = new Label();
+            newLabel.Text = draggedLabel.Text;
+            newLabel.Font = draggedLabel.Font;
+            newLabel.BackColor = draggedLabel.BackColor;
+            newLabel.ForeColor = draggedLabel.ForeColor;
+            newLabel.Size = draggedLabel.Size;
+            newLabel.TextAlign = draggedLabel.TextAlign;
+            newLabel.Tag = draggedLabel.Tag;
+            newLabel.Margin = draggedLabel.Margin;
+            return newLabel;
+        }
+
+        //metoda za punjenje liste iz dictionarya osoba
+        private List<Person> LoadData()
+        {
+            IDictionary<int, Person> persons = _dataManager.GetPersonsDictionary();
+            List<Person> list = new List<Person>();
+            foreach (var person in persons.Values)
+            {
+                list.Add(person);
+            }
+
+            return list;
+        }
 
         //metoda za stvaranje nove labele u koje će se dodavati osobe
-        public  Label GetPersonLabel(Person o, Size size)
+        public Label GetPersonLabel(Person o, Size size)
         {
             var label = new Label
             {
@@ -72,7 +202,7 @@ namespace Infoeduka.UserControls
             label.MouseLeave += (sender, e) =>
             {
                 // Vrati početnu boju pozadine kada miš izađe sa labele
-                label.BackColor = Color.FromArgb(11,7,17);
+                label.BackColor = Color.FromArgb(11, 7, 17);
             };
             return label;
         }
@@ -93,7 +223,7 @@ namespace Infoeduka.UserControls
                     // dohvaćanje podataka o Person objektu iz teksta labele
 
                     int personId = Convert.ToInt32(label.Tag);
-                   
+
                     foreach (var key in persons.Keys)
                     {
                         if (key == personId)
@@ -109,97 +239,7 @@ namespace Infoeduka.UserControls
         }
 
 
-        // Metoda koja se poziva kada korisnik pomjera mišem preko labele - za drag and drop
-        private void Lbl_MouseMove(object sender, MouseEventArgs e)
-        {
-            // Konverzija sender-a u Label tip.
-            Label lbl = sender as Label;
-            // Provjera da li je lbl null, u slučaju da sender nije tipa Label.
-            // Ako je lbl null, DoDragDrop() se neće pozvati.
-            lbl?.DoDragDrop(lbl, DragDropEffects.Move);
-        }
-
-
-        //Eventi za drag and drop
-        private void FlpLecturersOnCourse_DragDrop(object sender, DragEventArgs e)
-        {
-            var addedlabel = e.Data.GetData(typeof(Label)) as Label;
-
-            // Provjerite postoji li labela s istim imenom
-            string labelTag = addedlabel.Tag.ToString();
-            bool labelAlreadyExists = false;
-            foreach (Control control in flpLecturersOnCourse.Controls)
-            {
-                if (control is Label && control.Tag.ToString() == labelTag)
-                {
-                    labelAlreadyExists = true;
-                    break;
-                }
-            }
-
-            // Ako labela već postoji, ne dodajte je ponovno
-            if (labelAlreadyExists)
-            {
-                return;
-            }
-
-            Label draggedLabel = e.Data?.GetData(typeof(Label)) as Label;
-
-            Label newLabel = new Label();
-            newLabel.Text = draggedLabel.Text;
-            newLabel.Font = draggedLabel.Font;
-            newLabel.BackColor = draggedLabel.BackColor;
-            newLabel.ForeColor = draggedLabel.ForeColor;
-            newLabel.Size = draggedLabel.Size;
-            newLabel.TextAlign = draggedLabel.TextAlign;
-            newLabel.Tag = draggedLabel.Tag;
-            newLabel.Margin = draggedLabel.Margin;
-
-        
-                      
-
-            Point mouseLocation = MousePosition;
-            mouseLocation = flpLecturersOnCourse.PointToClient(mouseLocation);
-            newLabel.Location = mouseLocation;
-
-            flpLecturersOnCourse.Controls.Add(newLabel);
-
-
-        }
-             
-
-        private void FlpLecturersOnCourse_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Move;
-        }
-
-        //metoda za punjenje liste iz dictionarya osoba
-        private List<Person> LoadData()
-        {
-            IDictionary<int, Person> persons = _dataManager.GetPersonsDictionary();
-            List<Person> list = new List<Person>();
-            foreach (var person in persons.Values)
-            {
-                list.Add(person);
-            }
-
-            return list;
-        }
-
-        //provjera koji gumb ga zove (za add ili edit)
-        private void LecturerMainForm_Load(object sender, EventArgs e)
-        {
-            if (callingButton == "btnAddNewLecturer")
-            {
-                ClearForm();
-
-            }
-            else if (callingButton == "btnEditLecturer")
-            {
-                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
-            }
-        }
-
+        //----------------------------Brisanje
         //metoda za brisanje unesenog iz forme
         private void ClearForm()
         {
@@ -215,7 +255,7 @@ namespace Infoeduka.UserControls
 
         }
      
-
+        //-----------------------------Spremanje
         //Metoda za gumb spremi
         private void BtnSave_Click(object sender, EventArgs e)
         {
@@ -244,5 +284,7 @@ namespace Infoeduka.UserControls
             }
 
         }
+        
+       
     }
 }

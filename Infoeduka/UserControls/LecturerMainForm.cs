@@ -79,13 +79,9 @@ namespace Infoeduka.UserControls
                     {
 
                     CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message, "Greška", MessageBoxButtons.OK);
+                    }
                 }
-
-                
-                               
-                }
-          
-         
+           
         }
 
         private bool GetChecked()
@@ -137,13 +133,9 @@ namespace Infoeduka.UserControls
                 }
             }
                   
-          
             rbtnAdmin.Checked = false;
             rbtnLecturer.Checked = false;
-                    
-                   
-            
-
+               
         }
     }
 }
