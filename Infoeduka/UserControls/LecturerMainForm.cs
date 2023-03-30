@@ -16,19 +16,19 @@ namespace Infoeduka.UserControls
     {
         //u pozivu kreiranja ove komponente će se poslati data manager i postaviti ćemo ga ovdje u konstruktoru kako bi mogli pristupiti metodama
         private readonly DataManager _dataManager;
-        private string callingButton;
-        private Person personEdit;
+        private readonly string _callingButton;
+        private readonly Person _personEdit;
         public LecturerMainForm(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
-            this.callingButton = callingButton;
+            _callingButton = callingButton;
             InitializeComponent();
         }
 
         // Konstruktor s dodatnim parametrom 
         public LecturerMainForm(DataManager dataManager, string callingButton, Person personEdit) : this(dataManager, callingButton)
         {
-            this.personEdit = personEdit;
+            _personEdit = personEdit;
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Infoeduka.UserControls
             // kreirajte novog Person objekta
             
            
-                if (callingButton == "btnAddNewLecturer")
+                if (_callingButton == "btnAddNewLecturer")
                 {
                     Person newPerson = new Person(firstName, lastName, email, password, isAdmin);
                     try
@@ -62,16 +62,16 @@ namespace Infoeduka.UserControls
                      CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message, "Greška", MessageBoxButtons.OK);
                     }   
                 }
-                else if (callingButton == "btnEditLecturer")
+                else if (_callingButton == "btnEditLecturer")
                 {
-                    personEdit.FirstName = firstName;
-                    personEdit.LastName = lastName;
-                    personEdit.Email = email;
-                    personEdit.Password = password;
-                    personEdit.IsAdmin = isAdmin;
+                    _personEdit.FirstName = firstName;
+                    _personEdit.LastName = lastName;
+                    _personEdit.Email = email;
+                    _personEdit.Password = password;
+                    _personEdit.IsAdmin = isAdmin;
                     try
                     {
-                    _dataManager.UpdatePersonFromDictionari(personEdit);
+                    _dataManager.UpdatePersonToDictionary(_personEdit);
                     CustomMessageBox.Show("Uspješno spremljeno", "", MessageBoxButtons.OK);
                     Dispose();
                     }
@@ -96,21 +96,21 @@ namespace Infoeduka.UserControls
         //provjera koji gumb ga zove (za add ili edit)
         private void LecturerMainForm_Load(object sender, EventArgs e)
         {
-            if (callingButton == "btnAddNewLecturer")
+            if (_callingButton == "btnAddNewLecturer")
             {
                 ClearForm();
 
             }
-            else if (callingButton == "btnEditLecturer")
+            else if (_callingButton == "btnEditLecturer")
             {
-                if (personEdit != null)
+                if (_personEdit != null)
                 {
-                    tbFirstName.Text = personEdit.FirstName;
-                    tbLastName.Text = personEdit.LastName;
-                    tbEmail.Text = personEdit.Email;
-                    tbPassword.Text = personEdit.Password;
+                    tbFirstName.Text = _personEdit.FirstName;
+                    tbLastName.Text = _personEdit.LastName;
+                    tbEmail.Text = _personEdit.Email;
+                    tbPassword.Text = _personEdit.Password;
 
-                    if (personEdit.IsAdmin)
+                    if (_personEdit.IsAdmin)
                     {
                         rbtnAdmin.Checked = true;
                     }

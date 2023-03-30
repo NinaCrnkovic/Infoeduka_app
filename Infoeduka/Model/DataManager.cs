@@ -106,7 +106,7 @@ namespace Infoeduka.Model
             coursesDictionary.Remove(id);
         }
 
-        public void UpdatePersonFromDictionari(Person updatedPerson)
+        public void UpdatePersonToDictionary(Person updatedPerson)
         {
             //provjeravamo da li osoba postoji u dictionaryu
             if (personsDictionary.ContainsKey(updatedPerson.Id))
@@ -128,6 +128,32 @@ namespace Infoeduka.Model
                 // ako osoba s ID-om ne postoji u rječniku, izbacite iznimku ili 
                 // napravite neku drugu vrstu manipulacije podacima
                 throw new KeyNotFoundException("Osoba s ID-om " + updatedPerson.Id + " ne postoji u rječniku.");
+            }
+
+        }
+
+        public void UpdateCourseToDictionary(Course updatedCourse)
+        {
+            //provjeravamo da li osoba postoji u dictionaryu
+            
+            if (coursesDictionary.ContainsKey(updatedCourse.Id))
+            {
+                //dohvaćamo osobu
+                Course course = coursesDictionary[updatedCourse.Id];
+                //postavljamo nove vrijednosti
+                course.Name = updatedCourse.Name;
+                course.Code = updatedCourse.Code;
+                course.Ects = updatedCourse.Ects;
+                course.Lecturers = updatedCourse.Lecturers;
+
+                //update kolegija
+                coursesDictionary[updatedCourse.Id] = course;
+            }
+            else
+            {
+                // ako osoba s ID-om ne postoji u rječniku, izbacite iznimku ili 
+                // napravite neku drugu vrstu manipulacije podacima
+                throw new KeyNotFoundException("Kolegij s ID-om " + updatedCourse.Id + " ne postoji u rječniku.");
             }
 
         }

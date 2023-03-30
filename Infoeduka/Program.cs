@@ -16,12 +16,6 @@ namespace Infoeduka
             // Stvori novu instancu MainForm - a
             MainForm mainForm = new MainForm();
             
-            // Stvori novu instancu LoginPanel-a
-         
-            LoginForm loginForm = new LoginForm();
-            // Dodaj LoginPanel u Panel kontrolu na MainForm-u
-            mainForm.Controls.Add(loginForm);
-            loginForm.BringToFront();
 
             // Postavi LoginPanel kao vidljivog
             Application.Run(mainForm);

@@ -6,23 +6,58 @@ namespace Infoeduka
 {
     public partial class MainForm : Form
     {
-        private DataManager dataManager = new DataManager();
+        private DataManager _dataManager = new DataManager();
+        public Person AuthenticatedPerson
+        {
+            get { return _authenticatedPerson; }
+            set
+            {
+                _authenticatedPerson = value;
+                SetViewForUser();
+            }
+        }
+
+        private void SetViewForUser()
+        {
+            if (_authenticatedPerson != null)
+            {
+                this.btnUserLogedIn.Text = $"{_authenticatedPerson.FirstName}  {_authenticatedPerson.LastName}";
+            }
+            else
+            {
+                this.btnUserLogedIn.Text = "";
+            }
+            if (!_authenticatedPerson.IsAdmin)
+            {
+                this.btnMainLecturer.Visible = false;
+                this.btnAddNewCourse.Visible = false;
+                this.btnEditCourse.Visible = false;
+                this.btnDeleteCourse.Visible = false;
+
+            }
+        }
+
+        private Person _authenticatedPerson;
         public MainForm()
         {
-            
+            // Stvori novu instancu LoginPanel-a
+            LoginForm loginForm = new LoginForm(_dataManager);
+            // Dodaj LoginPanel u Panel kontrolu na MainForm-u
+            this.Controls.Add(loginForm);
+            loginForm.BringToFront();
             InitializeComponent();
             SetPanelVisibilityToFalse();
         }
         //ponašanje tijekom pokretanja frome
         private void MainForm_Load(object sender, EventArgs e)
         {
-            dataManager.LoadPersonsToDictionary();
-            dataManager.LoadCoursesToDictionary();
+            _dataManager.LoadPersonsToDictionary();
+            _dataManager.LoadCoursesToDictionary();
         }
         //ponašanje tijekom zatvaranja forme
         private void SaveAllOnClosing(object sender, FormClosingEventArgs e)
         {
-            dataManager.SaveAllDataInFile();
+            _dataManager.SaveAllDataInFile();
         }
 
         //glavni gumbi - koji otvaraju padajuæi izbornik
@@ -76,43 +111,43 @@ namespace Infoeduka
                     break;
                 //Courses
                 case "btnViewAllCourses":
-                    ListOfCourses listOfCourses = new(dataManager, "btnViewAllCourses");
+                    ListOfCourses listOfCourses = new(_dataManager, "btnViewAllCourses");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(listOfCourses);
                     break;
                 case "btnAddNewCourse":
-                    CoursesMainForm formAddCourse = new(dataManager, "btnAddNewCourse");
+                    CoursesMainForm formAddCourse = new(_dataManager, "btnAddNewCourse");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formAddCourse);
                     break;
                 case "btnEditCourse":
-                    ListOfCourses formEditCourse = new(dataManager, "btnEditCourse", pnlHolderForOtherPanels);
+                    ListOfCourses formEditCourse = new(_dataManager, "btnEditCourse", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     break;
                 case "btnDeleteCourse":
-                    ListOfCourses formDeleteCourse = new(dataManager, "btnDeleteCourse");
+                    ListOfCourses formDeleteCourse = new(_dataManager, "btnDeleteCourse");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formDeleteCourse);
                     break;
                 //Lecturers
                 case "btnViewAllLecturers":
-                    ListOfLecturers listOfLecturers = new (dataManager, "btnViewAllLecturers");
+                    ListOfLecturers listOfLecturers = new (_dataManager, "btnViewAllLecturers");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(listOfLecturers);
                     break;
                 case "btnAddNewLecturer":
-                    LecturerMainForm formAddLecturer = new LecturerMainForm(dataManager, "btnAddNewLecturer");
+                    LecturerMainForm formAddLecturer = new LecturerMainForm(_dataManager, "btnAddNewLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formAddLecturer);
                     break;
                 case "btnEditLecturer":
-                    ListOfLecturers formEditLecturer = new(dataManager, "btnEditLecturer", pnlHolderForOtherPanels);
+                    ListOfLecturers formEditLecturer = new(_dataManager, "btnEditLecturer", pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     break;
                 case "btnDeleteLecturer":
-                    ListOfLecturers fromDeleteLecturer = new(dataManager, "btnDeleteLecturer");
+                    ListOfLecturers fromDeleteLecturer = new(_dataManager, "btnDeleteLecturer");
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(fromDeleteLecturer);
                     break;
@@ -162,13 +197,7 @@ namespace Infoeduka
                     break;
             }
         }
-
-
-
-    
-
-
-
+        
         //postavljamo visibility na panelima koji glume drop down i ukojima su ostali gumbi na false 
         private void SetPanelVisibilityToFalse()
         {

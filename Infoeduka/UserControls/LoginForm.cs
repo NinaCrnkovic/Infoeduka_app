@@ -1,4 +1,5 @@
-﻿using Infoeduka.Model;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,24 +16,28 @@ namespace Infoeduka.UserControls
  
     public partial class LoginForm : UserControl
     {
+        private readonly DataManager _dataManager;
         //definiranje master admina
         private readonly Person masterAdmin = new Person()
         {
-            Email = "a", //"master@admin.com",
+            Email = "master@admin.com",
             FirstName = "Master",
             LastName = "Admin",
-            Password = "a",
+            Password = "123",
             IsAdmin = true
         };
+
+        public LoginForm(DataManager dataManager)
+        {
+            _dataManager = dataManager;
+            InitializeComponent();
+        }
 
         //definiranje tekstualnih polja
         string username = "";
         string password = "";
-        public LoginForm()
-        {
-            InitializeComponent();
-        }
-
+      
+    
         private void TbEmail_TextChanged(object sender, EventArgs e)
         {
             username = tbEmail.Text;
@@ -48,19 +53,36 @@ namespace Infoeduka.UserControls
 
         }
 
-        private void BtnMainNotifications_Click(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
-            if (password != masterAdmin.Password)
+           
+
+            // dohvaćanje svih osoba iz baze podataka
+            var persons = _dataManager.GetPersonsDictionary().Values;
+
+            // pronalazak osobe s zadanim korisničkim imenom i lozinkom
+            var authenticatedPerson =  persons.FirstOrDefault(person => person.Email == username && person.Password == password);
+            if (authenticatedPerson is null &&  (password == masterAdmin.Password && username == masterAdmin.Email))
+                {
+                    authenticatedPerson = masterAdmin;
+                } 
+
+            // provjera da li postoji autenticirana osoba
+            if (authenticatedPerson is not null)
             {
-                MessageBox.Show($"Pogrešno unesen password {password}", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            if (username != masterAdmin.Email)
-            {
-                MessageBox.Show($"Pogrešno uneseno korisničko ime {username}", "Upozorenje!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            if (username == masterAdmin.Email && password == masterAdmin.Password)
-            {
+                
+           
+                // ako postoji, prikaži poruku o uspješnoj autentifikaciji
+                CustomMessageBox.Show("Uspješno ste se autentificirali!", "Uspjeh", MessageBoxButtons.OK);
+                this.SendToBack();
                 this.Visible = false;
+                // postavljanje vrijednosti AuthenticatedPerson propertyja na autentificiranu osobu
+                ((MainForm)this.ParentForm).AuthenticatedPerson = authenticatedPerson;
+            }
+            else
+            {
+                // ako ne postoji, prikaži poruku o neuspješnoj autentifikaciji
+                CustomMessageBox.Show("Pogrešno uneseno korisničko ime ili lozinka!", "Upozorenje!", MessageBoxButtons.OK);
             }
         }
     }

@@ -102,7 +102,7 @@
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Prijava";
             this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.BtnMainNotifications_Click);
+            this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
             // 
             // panel2
             // 

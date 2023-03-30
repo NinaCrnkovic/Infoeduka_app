@@ -39,7 +39,7 @@ namespace Infoeduka.UserControls
             lvCourses.MouseClick += lvCourses_MouseClick;
 
         }
-
+        // brisanje ili uređivanje kolegija na klik
         private void lvCourses_MouseClick(object sender, MouseEventArgs e)
         {
             var item = lvCourses.GetItemAt(e.X, e.Y);
@@ -54,8 +54,6 @@ namespace Infoeduka.UserControls
                         var lecturerNames = string.Join(", ", course.Lecturers.Select(l => $"{l.FirstName} {l.LastName}"));
                         var result = CustomMessageBox.Show($"Jeste li sigurni da želite izbrisati kolegij Šifra: {course.Code}, {course.Name}, {course.Ects}, Predavači: {lecturerNames}?", "Upozorenje", MessageBoxButtons.OKCancel);
 
-
-                        //var result = CustomMessageBox.Show($"Jeste li sigurni da želite izbrisati kolegij Šifra: {course.Code}, {course.Name}, {course.Ects}, Predavači: {course.Lecturers} ?", "Upozorenje", MessageBoxButtons.OKCancel);
 
                         if (result == DialogResult.Yes)
                         {
@@ -73,6 +71,7 @@ namespace Infoeduka.UserControls
                         CoursesMainForm formEditCourse = new(_dataManager, "btnEditCourse", courseEdit);
 
                         pnlHolderForOtherPanels.Controls.Clear();
+                        
                         pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     }
                 }
@@ -194,7 +193,6 @@ namespace Infoeduka.UserControls
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 500 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
-                //lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 450 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Brisanje kolegija", Width = 228 });
 
             }
@@ -203,7 +201,6 @@ namespace Infoeduka.UserControls
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 500 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
-                //lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 450 });
                 lvCourses.Columns.Add(new ColumnHeader { Text = "Uređivanje kolegija", Width = 228 });
 
             }

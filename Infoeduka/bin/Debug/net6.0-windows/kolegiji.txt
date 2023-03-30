@@ -1,3 +1,3 @@
-891153#Vjerojatnost i statisitka#2#6#184879|Doroteja|Kučak|doroteja@kučak.com|12356|False
-992206#Ekonomija#5#4#189900|Ileana|Kurtovic|ileana@kurtovic.com|357|True
-569626#Sigurnost informacijskih sustava#8#5#503272|Sonja|Vresk|sonja@vresk.com|123|False%189900|Ileana|Kurtovic|ileana@kurtovic.com|357|True
+113269#Matematika#1#5#304584|Doroteja|Kučak|doroteja@kucak.hr|456|False
+729584#VIS#2#6#265452|Nina|Crnkovic|nina@crnkovic.hr|123|False%347385|Ileana|Kurtovic|ileana@kurtovic..hr|789|False%243184|Sonja|Vresk|sonja@vresk.com|852|False
+236669#Java#3#6#347385|Ileana|Kurtovic|ileana@kurtovic.hr|789|False%304584|Doroteja|Kučak|doroteja@kucak.hr|456|False

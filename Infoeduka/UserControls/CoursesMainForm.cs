@@ -1,4 +1,5 @@
-﻿using Infoeduka.Model;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +25,7 @@ namespace Infoeduka.UserControls
             InitializeComponent();
             flpAllLecturers.WrapContents = false;
             flpLecturersOnCourse.WrapContents = false;
-            // Dohvaćanje događaja DragEnter i DragDrop za flpAllLecturers i flpLecturersOnCourse
-            //flpAllLecturers.DragEnter += FlpAllLecturers_DragEnter;
-            //flpAllLecturers.DragDrop += FlpAllLecturers_DragDrop;
-            //flpLecturersOnCourse.DragEnter += FlpLecturersOnCourse_DragEnter;
-            //flpLecturersOnCourse.DragDrop += FlpLecturersOnCourse_DragDrop;
-
+      
         }
 
         public CoursesMainForm(DataManager dataManager, string callingButton, Course editCourse) : this(dataManager, callingButton)
@@ -40,16 +36,44 @@ namespace Infoeduka.UserControls
 
         private void CoursesMainForm_Load(object sender, EventArgs e)
         {
-            if (_callingButton == "btnAddNewCuorse")
+            if (_callingButton == "btnAddNewCourse")
             {
                 ClearForm();
-
+                ShowDataOnLoad();
             }
-            else if (_callingButton == "btnEditCuorse")
+            else if (_callingButton == "btnEditCourse")
             {
-                // kod koji se izvršava ako je drugi gumb pozvao ovu formu
+                if (_editCourse != null)
+                {
+                    tbCourseName.Text = _editCourse.Name;
+                    tbCode.Text = _editCourse.Code;
+                    tbEcts.Text = _editCourse.Ects.ToString();
+                    List<Person> lecturersOnCourse = _editCourse.Lecturers.ToList();
+                    foreach (var item in lecturersOnCourse)
+                    {
+                        Label lbl = GetPersonLabel(item, new Size(flpLecturersOnCourse.Width - 8, 40));
+                        //lbl.MouseMove += Lbl_MouseMove;
+                        flpLecturersOnCourse.Controls.Add(lbl);
+                        lbl.MouseDown += NewLabel_MouseDown;
+
+                    }
+                  
+                    List<Person> allLecturers = LoadData();
+                    foreach (var item in allLecturers)
+                    {
+                        // Provjera je li item prisutan u listi lecturersOnCourse
+                        if (!lecturersOnCourse.Contains(item))
+                        {
+                            Label lbl = GetPersonLabel(item, new Size(flpLecturersOnCourse.Width - 8, 40));
+                            //lbl.MouseDown += NewLabel_MouseDown;
+                            lbl.MouseMove += Lbl_MouseMove;
+                            flpAllLecturers.Controls.Add(lbl);
+                        }
+                    }
+
+                }
             }
-            ShowDataOnLoad();
+            
           
         }
 
@@ -129,23 +153,17 @@ namespace Infoeduka.UserControls
                 ToolStripMenuItem deleteItem = new ToolStripMenuItem("Obriši");
                 deleteItem.Click += (s, args) => {
                     flpLecturersOnCourse.Controls.Remove(selectedLabel);
+                    selectedLabel.MouseDown -= NewLabel_MouseDown;
+                    selectedLabel.MouseDown += Lbl_MouseMove;
                     flpAllLecturers.Controls.Add(selectedLabel);
                 };
                 menu.Items.Add(deleteItem);
                 menu.Show(selectedLabel, new Point(e.X, e.Y));
-                //selectedLabel.MouseDown += FlpAllLecturers_MouseDown;
+         
             }
             
         }
 
-        private void FlpAllLecturers_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                Label selectedLabel = sender as Label;
-            
-            }
-        }
 
         //-----------------------------Metode za liste i labele
 
@@ -193,17 +211,17 @@ namespace Infoeduka.UserControls
                 Tag = o.Id
             };
 
-            label.MouseEnter += (sender, e) =>
-            {
-                // Promijeni boju pozadine kada miš uđe na labelu
-                label.BackColor = Color.FromArgb(183, 35, 69);
-            };
+            //label.MouseEnter += (sender, e) =>
+            //{
+            //    // Promijeni boju pozadine kada miš uđe na labelu
+            //    label.BackColor = Color.FromArgb(183, 35, 69);
+            //};
 
-            label.MouseLeave += (sender, e) =>
-            {
-                // Vrati početnu boju pozadine kada miš izađe sa labele
-                label.BackColor = Color.FromArgb(11, 7, 17);
-            };
+            //label.MouseLeave += (sender, e) =>
+            //{
+            //    // Vrati početnu boju pozadine kada miš izađe sa labele
+            //    label.BackColor = Color.FromArgb(11, 7, 17);
+            //};
             return label;
         }
 
@@ -264,27 +282,84 @@ namespace Infoeduka.UserControls
             var code = tbCode.Text;
             var ects = int.Parse(tbEcts.Text);
             List<Person> lecturers = GetLecturersFromLecturersOnCourse();
-
-            // kreirajte novog Person objekta
-            Course newCourse = new Course(name, code, ects, lecturers);
-            try
+            if (_callingButton == "btnAddNewCourse")
             {
-                // dodajte novog Person objekta u dictionary u DataManager klasi
-                _dataManager.AddNewCourseToDictionary(newCourse);
+               
 
-                // obavijestite korisnika da su podaci spremljeni
-                ClearForm();
-                MessageBox.Show("Uspješno spremljeno.");
+                // kreirajte novog Person objekta
+                Course newCourse = new Course(name, code, ects, lecturers);
+                try
+                {
+                    // dodajte novog Person objekta u dictionary u DataManager klasi
+                    _dataManager.AddNewCourseToDictionary(newCourse);
 
+                    // obavijestite korisnika da su podaci spremljeni
+                    ClearForm();
+                    
+                    CustomMessageBox.Show("Uspješno spremljeno.", "", MessageBoxButtons.OK);
+                }
+                catch (Exception ex)
+                {
+                    CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni" + ex.Message, "Greška!", MessageBoxButtons.OK);
+                }
             }
-            catch (Exception ex)
+            else if (_callingButton == "btnEditCourse")
             {
+                _editCourse.Name = name;
+                _editCourse.Code = code;
+                _editCourse.Ects = ects;
+                _editCourse.Lecturers = lecturers;
+                try
+                {
+                    _dataManager.UpdateCourseToDictionary(_editCourse);
+                    CustomMessageBox.Show("Uspješno spremljeno", "", MessageBoxButtons.OK);
+                    Dispose();
+                }
+                catch (Exception ex)
+                {
 
-                MessageBox.Show("Došlo je do greške, podaci nisu spremljeni" + ex.Message);
+                    CustomMessageBox.Show("Došlo je do greške, podaci nisu spremljeni! - " + ex.Message, "Greška", MessageBoxButtons.OK);
+                }
             }
 
         }
-        
-       
+
+
+        //-------------promjena boje labelama u panelima za predavače
+        private void FlpAllLecturers_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (e.Control is Label label)
+            {
+                label.MouseEnter += Label_MouseEnter;
+                label.MouseLeave += Label_MouseLeave;
+            }
+        }
+
+        private void FlpLecturersOnCourse_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (e.Control is Label label)
+            {
+                label.MouseEnter += Label_MouseEnter;
+                label.MouseLeave += Label_MouseLeave;
+            }
+        }
+
+        private void Label_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Label label)
+            {
+                label.BackColor = Color.Red;
+            }
+        }
+
+        private void Label_MouseLeave(object sender, EventArgs e)
+        {
+            if (sender is Label label)
+            {
+                label.BackColor = Color.White;
+            }
+        }
+
+
     }
 }
