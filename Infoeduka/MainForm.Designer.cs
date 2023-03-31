@@ -100,7 +100,7 @@
             // pnlSideMenu
             // 
             this.pnlSideMenu.AutoScroll = true;
-            this.pnlSideMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pnlSideMenu.BackColor = System.Drawing.Color.Black;
             this.pnlSideMenu.Controls.Add(this.pnlLecturerDropDown);
             this.pnlSideMenu.Controls.Add(this.btnMainLecturer);
             this.pnlSideMenu.Controls.Add(this.pnlCourseDropDown);
@@ -454,7 +454,7 @@
             // 
             // pnlFooter
             // 
-            this.pnlFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pnlFooter.BackColor = System.Drawing.Color.Black;
             this.pnlFooter.Controls.Add(this.pbLinkedIn);
             this.pnlFooter.Controls.Add(this.pbTikTok);
             this.pnlFooter.Controls.Add(this.pbFacebook);
@@ -556,7 +556,7 @@
             // 
             // pnlHeader
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(7)))), ((int)(((byte)(17)))));
+            this.pnlHeader.BackColor = System.Drawing.Color.Black;
             this.pnlHeader.Controls.Add(this.pictureBox1);
             this.pnlHeader.Controls.Add(this.btnUserLoggedIn);
             this.pnlHeader.Controls.Add(this.btnLogout);
@@ -579,7 +579,7 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
-            // btnUserLogedIn
+            // btnUserLoggedIn
             // 
             this.btnUserLoggedIn.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnUserLoggedIn.FlatAppearance.BorderSize = 0;
@@ -588,7 +588,7 @@
             this.btnUserLoggedIn.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.btnUserLoggedIn.Location = new System.Drawing.Point(871, 0);
             this.btnUserLoggedIn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUserLoggedIn.Name = "btnUserLogedIn";
+            this.btnUserLoggedIn.Name = "btnUserLoggedIn";
             this.btnUserLoggedIn.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
             this.btnUserLoggedIn.Size = new System.Drawing.Size(204, 61);
             this.btnUserLoggedIn.TabIndex = 3;
