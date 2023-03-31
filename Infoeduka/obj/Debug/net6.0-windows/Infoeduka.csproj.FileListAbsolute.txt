@@ -26,3 +26,5 @@ C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.LoginForm.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.ListOfLecturers.resources
 C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.ListOfCourses.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.ListOfNotifications.resources
+C:\Users\38598\Documents\Faks\4.semestar 2022-23\PRA\Infoeduka_app\Infoeduka\obj\Debug\net6.0-windows\Infoeduka.UserControls.NotificatonPanel.resources
