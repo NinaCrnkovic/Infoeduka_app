@@ -43,7 +43,7 @@
             this.lblCreated.Name = "lblCreated";
             this.lblCreated.Size = new System.Drawing.Size(128, 34);
             this.lblCreated.TabIndex = 1;
-            this.lblCreated.Text = "Kreirano: 21.01.2023. 17:20";
+            this.lblCreated.Text = "lblCreated";
             this.lblCreated.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblChange
@@ -54,7 +54,7 @@
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(133, 34);
             this.lblChange.TabIndex = 2;
-            this.lblChange.Text = "Promijenjeno: 21.01.2023. 17:20";
+            this.lblChange.Text = "lblChanged";
             this.lblChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTitle

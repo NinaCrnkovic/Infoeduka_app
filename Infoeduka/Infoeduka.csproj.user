@@ -37,8 +37,5 @@
     <Compile Update="UserControls\NotificatonPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UserControls\NotificationEditOrDeletePanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

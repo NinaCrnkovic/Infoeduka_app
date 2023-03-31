@@ -71,14 +71,14 @@ namespace Infoeduka.UserControls
 
                 // Pronađite labelu lblCreated unutar panela
                 Label createdLabel = panel.Controls.Find("lblCreated", true).FirstOrDefault() as Label;
-                createdLabel.Text = $"Promijenjeno:{notification.DateOfCreation.ToString()}";
+                createdLabel.Text = $"Kreirano:\n{notification.DateOfCreation.ToString()}";
 
                 // Pronađite labelu lblChange unutar panela
                 Label changeLabel = panel.Controls.Find("lblChange", true).FirstOrDefault() as Label;
                 if (notification.DateOfChange > notification.DateOfCreation)
                 {
                     
-                    changeLabel.Text = $"Promijenjeno: {notification.DateOfChange.ToString()}";
+                    changeLabel.Text = $"Promijenjeno:\n{notification.DateOfChange.ToString()}";
                 }
                 
 
@@ -114,14 +114,14 @@ namespace Infoeduka.UserControls
 
                 // Pronađite labelu lblCreated unutar panela
                 Label createdLabel = panel.Controls.Find("lblCreated", true).FirstOrDefault() as Label;
-                createdLabel.Text = $"Promijenjeno:{notification.DateOfCreation.ToString()}";
+                createdLabel.Text = $"Kreirano:\n{notification.DateOfCreation.ToString()}";
 
                 // Pronađite labelu lblChange unutar panela
                 Label changeLabel = panel.Controls.Find("lblChange", true).FirstOrDefault() as Label;
                 if (notification.DateOfChange > notification.DateOfCreation)
                 {
 
-                    changeLabel.Text = $"Promijenjeno: {notification.DateOfChange.ToString()}";
+                    changeLabel.Text = $"Promijenjeno:\n{notification.DateOfChange.ToString()}";
                 }
 
 

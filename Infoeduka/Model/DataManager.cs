@@ -271,7 +271,7 @@ namespace Infoeduka.Model
             {
                 // ako osoba s ID-om ne postoji u rječniku, izbacite iznimku ili 
                 // napravite neku drugu vrstu manipulacije podacima
-                throw new KeyNotFoundException("Kolegij s ID-om " + updatedNotification.Id + " ne postoji u rječniku.");
+                throw new KeyNotFoundException("Obavijest s ID-om " + updatedNotification.Id + " ne postoji u rječniku.");
             }
 
         }

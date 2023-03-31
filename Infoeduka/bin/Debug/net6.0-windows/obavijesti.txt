@@ -1,9 +1,4 @@
-593652$Najnoviji test$dfdsadsfa$VIS$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:06$31.03.2023. 04:06$08.04.2023. 04:05
-597860$Odgoda$evo odgoda$Matematika$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:42$31.03.2023. 04:42$06.04.2023. 04:42
-602198$Odgoda jave$nema jave$Java$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:43$31.03.2023. 04:43$07.04.2023. 04:42
-521513$Nadoknada vježbi$Nadoknada vježbi biti će 21.4. u 14 sati, dvorana c12$Programiranje u Javi 2$243184|Sonja|Vresk|sonja@vresk.com|123|False$31.03.2023. 05:28$31.03.2023. 05:28$01.04.2023. 12:00
-268133$Test za datum$Treba se vidjeti na svima, ali ne na početnom zaslonu gdje su aktualne$Programiranje u Javi 2$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 07:14$31.03.2023. 07:14$31.03.2023. 12:00
-853288$Odgoda predavanja Građa računala$Poštovani,
-obaviještavam vas da je predavanje iz Građe računla za grupu 1IP1 otkazano zbog bolesti profesora.
-Naknada predavanja biti će održana u subotu, a promjena je vidljiva u rasporedu.
-$Građa računala$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 09:57$31.03.2023. 09:57$03.04.2023. 12:00
+551275$Zadaća Java$Poštovani kolege,
+rok za predaju prve zadaće je do 10.04.2023. u 23:59.$VIS$243184|Sonja|Vresk|sonja@vresk.hr|123|False$31.03.2023. 10:31$31.03.2023. 10:33$13.03.2023. 12:00
+640207$Nadoknada predavanja OS$Poštovani kolega,
+nadoknada predavanja iz OS biti će u utorak, a promjena je već vidljiva u rasporedu.$Operacijski sustavi$243184|Sonja|Vresk|sonja@vresk.hr|123|False$31.03.2023. 10:32$31.03.2023. 10:32$12.04.2023. 12:00

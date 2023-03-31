@@ -50,9 +50,14 @@ namespace Infoeduka.UserControls
             }
             else if (_callingButton == "btnEditNotification")
             {
+                LoadComboBox();
                 if (_notificationEdit != null)
                 {
-                    
+                    tbName.Text = _notificationEdit.Name;
+                    tbDescription.Text = _notificationEdit.Description;
+                    //ccbCourses.SelectedValue = _notificationEdit.Course;
+                    dtDate.Value = _notificationEdit.ExpirationDate;
+                        
                 }
             }
         }
