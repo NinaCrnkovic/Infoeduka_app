@@ -18,7 +18,7 @@ namespace Infoeduka.Model
             Description = description;
             Course = course;
             Creator = creator;
-            DateOfChange = DateOfCreation;
+            DateOfChange = DateTime.Now;
             ExpirationDate = expirationDate;
         }
 
@@ -27,8 +27,8 @@ namespace Infoeduka.Model
         public string Description { get; set; }
         public Course Course { get; set; }
         public Person Creator { get; set; }
-        public DateTime DateOfCreation { get; set; } = DateTime.Now;
-        
+        public DateTime DateOfCreation { get; private set; } = DateTime.Now;
+
         private DateTime _dateOfChange;
 
         public DateTime DateOfChange
@@ -40,14 +40,18 @@ namespace Infoeduka.Model
                 {
                     _dateOfChange = value;
                 }
+                else
+                {
+                    _dateOfChange = DateOfCreation;
+                }
             }
         }
         public DateTime ExpirationDate { get; set; }
 
 
         public string FormatForFile() => $"{Id}{DEL}{Name}{DEL}{Description}{DEL}{Course.FormatForFile}{DEL}{Creator.FormatForFile}{DEL}{DateOfCreation.ToString(DATEFORMAT)}{DEL}{DateOfChange.ToString(DATEFORMAT)}{DEL}{ExpirationDate.ToString(DATEFORMAT)}";
-           
-       
+
+
 
 
         public override string ToString()
@@ -94,3 +98,4 @@ namespace Infoeduka.Model
         }
     }
 }
+
