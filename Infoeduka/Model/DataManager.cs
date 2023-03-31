@@ -142,8 +142,17 @@ namespace Infoeduka.Model
         }
         public void AddNewNotificationToDictionary(Notification newNotification)
         {
-            // dodajte novog Course objekta u dictionary
-            notificationDictionary.Add(newNotification.Id, newNotification);
+            try
+            {
+                // dodajte novog Course objekta u dictionary
+                notificationDictionary.Add(newNotification.Id, newNotification);
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Add new to puko");
+            }
+          
         }
 
 
@@ -279,13 +288,14 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                CustomMessageBox.Show($"Nije moguće spremanje podataka", "Upozorenje!", MessageBoxButtons.OK);
+                MessageBox.Show(e.Message);
             }
+           
         }
 
 
         //metaoda koja sprema sve podatke prije zatvaranja aplikacije
-        public void SaveAllDataInFile()
+            public void SaveAllDataInFile()
         {
             try
             {

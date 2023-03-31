@@ -34,6 +34,7 @@ namespace Infoeduka
         {
             _dataManager.LoadPersonsToDictionary();
             _dataManager.LoadCoursesToDictionary();
+            _dataManager.LoadNotificationsToDictionary();
         }
         //ponašanje tijekom zatvaranja forme
         private void SaveAllOnClosing(object sender, FormClosingEventArgs e)
@@ -78,14 +79,14 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Clear();
                     break;
                 case "btnAddNewNotification":
-                    NotificationMainForm formAddNotification = new();
+                    NotificationMainForm formAddNotification = new(_dataManager, "btnAddNewNotification", _authenticatedPerson);
                     pnlHolderForOtherPanels.Controls.Clear();
                     pnlHolderForOtherPanels.Controls.Add(formAddNotification);
                     break;
                 case "btnEditNotification":
-                    NotificationMainForm formEditNotification = new();
-                    pnlHolderForOtherPanels.Controls.Clear();
-                    pnlHolderForOtherPanels.Controls.Add(formEditNotification);
+                    //NotificationMainForm formEditNotification = new();
+                    //pnlHolderForOtherPanels.Controls.Clear();
+                    //pnlHolderForOtherPanels.Controls.Add(formEditNotification);
                     break;
                 case "btnDeleteNotification":
                     pnlHolderForOtherPanels.Controls.Clear();

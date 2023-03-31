@@ -211,17 +211,7 @@ namespace Infoeduka.UserControls
                 Tag = o.Id
             };
 
-            //label.MouseEnter += (sender, e) =>
-            //{
-            //    // Promijeni boju pozadine kada miš uđe na labelu
-            //    label.BackColor = Color.FromArgb(183, 35, 69);
-            //};
-
-            //label.MouseLeave += (sender, e) =>
-            //{
-            //    // Vrati početnu boju pozadine kada miš izađe sa labele
-            //    label.BackColor = Color.FromArgb(11, 7, 17);
-            //};
+            
             return label;
         }
 

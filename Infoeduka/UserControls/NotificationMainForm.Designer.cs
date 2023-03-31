@@ -33,15 +33,15 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ccbCourses = new Infoeduka.CustomDesign.CustomComboBox();
             this.dtDate = new System.Windows.Forms.DateTimePicker();
-            this.btnMainNotifications = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlNotifications.SuspendLayout();
             this.gbCourse.SuspendLayout();
@@ -61,15 +61,15 @@
             this.gbCourse.Controls.Add(this.panel2);
             this.gbCourse.Controls.Add(this.panel5);
             this.gbCourse.Controls.Add(this.panel4);
-            this.gbCourse.Controls.Add(this.textBox1);
+            this.gbCourse.Controls.Add(this.tbDescription);
             this.gbCourse.Controls.Add(this.label4);
             this.gbCourse.Controls.Add(this.ccbCourses);
             this.gbCourse.Controls.Add(this.dtDate);
-            this.gbCourse.Controls.Add(this.btnMainNotifications);
+            this.gbCourse.Controls.Add(this.btnSave);
             this.gbCourse.Controls.Add(this.label2);
             this.gbCourse.Controls.Add(this.label1);
             this.gbCourse.Controls.Add(this.panel3);
-            this.gbCourse.Controls.Add(this.tbEmail);
+            this.gbCourse.Controls.Add(this.tbName);
             this.gbCourse.Controls.Add(this.label3);
             this.gbCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gbCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -112,18 +112,18 @@
             this.panel4.Size = new System.Drawing.Size(306, 1);
             this.panel4.TabIndex = 25;
             // 
-            // textBox1
+            // tbDescription
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Location = new System.Drawing.Point(324, 70);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 130);
-            this.textBox1.TabIndex = 24;
+            this.tbDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tbDescription.Location = new System.Drawing.Point(324, 70);
+            this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDescription.Multiline = true;
+            this.tbDescription.Name = "tbDescription";
+            this.tbDescription.Size = new System.Drawing.Size(306, 130);
+            this.tbDescription.TabIndex = 24;
             // 
             // label4
             // 
@@ -168,23 +168,24 @@
             this.dtDate.Size = new System.Drawing.Size(307, 29);
             this.dtDate.TabIndex = 21;
             // 
-            // btnMainNotifications
+            // btnSave
             // 
-            this.btnMainNotifications.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(95)))), ((int)(((byte)(32)))));
-            this.btnMainNotifications.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnMainNotifications.FlatAppearance.BorderSize = 0;
-            this.btnMainNotifications.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(35)))), ((int)(((byte)(80)))));
-            this.btnMainNotifications.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMainNotifications.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnMainNotifications.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnMainNotifications.Location = new System.Drawing.Point(234, 431);
-            this.btnMainNotifications.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnMainNotifications.Name = "btnMainNotifications";
-            this.btnMainNotifications.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnMainNotifications.Size = new System.Drawing.Size(342, 34);
-            this.btnMainNotifications.TabIndex = 19;
-            this.btnMainNotifications.Text = "Spremi";
-            this.btnMainNotifications.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(95)))), ((int)(((byte)(32)))));
+            this.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(35)))), ((int)(((byte)(80)))));
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSave.Location = new System.Drawing.Point(234, 431);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(342, 34);
+            this.btnSave.TabIndex = 19;
+            this.btnSave.Text = "Spremi";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // label2
             // 
@@ -218,17 +219,17 @@
             this.panel3.Size = new System.Drawing.Size(306, 1);
             this.panel3.TabIndex = 5;
             // 
-            // tbEmail
+            // tbName
             // 
-            this.tbEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.tbEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.tbEmail.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbEmail.Location = new System.Drawing.Point(324, 25);
-            this.tbEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(262, 22);
-            this.tbEmail.TabIndex = 4;
+            this.tbName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.tbName.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.tbName.Location = new System.Drawing.Point(324, 25);
+            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(262, 22);
+            this.tbName.TabIndex = 4;
             // 
             // label3
             // 
@@ -249,6 +250,7 @@
             this.Controls.Add(this.pnlNotifications);
             this.Name = "NotificationMainForm";
             this.Size = new System.Drawing.Size(982, 517);
+            this.Load += new System.EventHandler(this.NotificationMainForm_Load);
             this.pnlNotifications.ResumeLayout(false);
             this.gbCourse.ResumeLayout(false);
             this.gbCourse.PerformLayout();
@@ -263,15 +265,15 @@
         private Panel panel2;
         private Panel panel5;
         private Panel panel4;
-        private TextBox textBox1;
+        private TextBox tbDescription;
         private Label label4;
         private CustomDesign.CustomComboBox ccbCourses;
         private DateTimePicker dtDate;
-        private Button btnMainNotifications;
+        private Button btnSave;
         private Label label2;
         private Label label1;
         private Panel panel3;
-        private TextBox tbEmail;
+        private TextBox tbName;
         private Label label3;
     }
 }

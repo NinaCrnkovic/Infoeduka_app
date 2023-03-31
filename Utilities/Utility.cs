@@ -4,6 +4,7 @@
     {
 
         private static Random random = new();
+        private const string DATE_FORMAT = "dd.MM.yyyy. hh:mm";
 
 
         //poziv za otvarenje linka algebre
@@ -29,6 +30,14 @@
             int id = random.Next(100000, 999999);
             return id;
         }
+        public static DateTime GetDateTime(string dateTime)
+        {
+
+            DateTime input = DateTime.ParseExact(dateTime, DATE_FORMAT, null);
+            return input;
+
+        }
+
 
         //Metoda za provjeru upisanog emaila / username na loginu
         public static bool IsUsernameValid(string username)
