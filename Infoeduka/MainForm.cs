@@ -35,7 +35,17 @@ namespace Infoeduka
             _dataManager.LoadPersonsToDictionary();
             _dataManager.LoadCoursesToDictionary();
             _dataManager.LoadNotificationsToDictionary();
+            //poziv panela za prikaz aktualnih obavijesti
+            CallCurrentNotifications();
         }
+
+        private void CallCurrentNotifications()
+        {
+            ListOfNotifications listOfNotifications = new(_dataManager, "");
+            pnlHolderForOtherPanels.Controls.Clear();
+            pnlHolderForOtherPanels.Controls.Add(listOfNotifications);
+        }
+
         //ponašanje tijekom zatvaranja forme
         private void SaveAllOnClosing(object sender, FormClosingEventArgs e)
         {
@@ -76,7 +86,9 @@ namespace Infoeduka
             switch (dropdownButton.Name)
             {   //Notifications
                 case "btnViewAllNotifications":
+                    ListOfNotifications listOfNotifications = new(_dataManager, "btnViewAllNotifications");
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(listOfNotifications);
                     break;
                 case "btnAddNewNotification":
                     NotificationMainForm formAddNotification = new(_dataManager, "btnAddNewNotification", _authenticatedPerson);
@@ -221,6 +233,7 @@ namespace Infoeduka
             else
             {
                 panel.Visible = false;
+                CallCurrentNotifications();
             }
         }
 
@@ -259,6 +272,9 @@ namespace Infoeduka
             SetPanelVisibilityToFalse();
         }
 
-
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            CallCurrentNotifications();
+        }
     }
 }
