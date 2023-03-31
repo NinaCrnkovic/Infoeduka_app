@@ -125,11 +125,34 @@ namespace Infoeduka.UserControls
 
         private void LoadComboBox()
         {
-            
             IDictionary<int, Course> courseDictionary = _dataManager.GetCoursesDictionary();
-            List<string> courseNames = courseDictionary.Select(c => c.Value.Name).ToList();
-            ccbCourses.DataSource = courseNames;
+            List<string> courseNames = new List<string>();
+
+            if (_authenticatedPerson.IsAdmin)
+            {
+                courseNames = courseDictionary.Select(c => c.Value.Name).ToList();
+            }
+            else
+            {
+                foreach (var course in courseDictionary.Values)
+                {
+                    if (course.Lecturers.Any(l => l.Id == _authenticatedPerson.Id))
+                    {
+                        courseNames.Add(course.Name);
+                    }
+                }
+            }
+
+            if (courseNames.Count == 0)
+            {
+                CustomMessageBox.Show("Ne možete dodavati obavijesti jer niste predavač niti na jednom kolegiju", "Upozorenje", MessageBoxButtons.OK);
+            }
+            else
+            {
+                ccbCourses.DataSource = courseNames;
+            }
         }
+
 
         private void ClearForm()
         {
@@ -143,6 +166,11 @@ namespace Infoeduka.UserControls
             }
 
           
+
+        }
+
+        private void GbCourse_Enter(object sender, EventArgs e)
+        {
 
         }
     }

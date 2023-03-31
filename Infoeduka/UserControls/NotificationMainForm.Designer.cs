@@ -30,9 +30,6 @@
         {
             this.pnlNotifications = new System.Windows.Forms.Panel();
             this.gbCourse = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ccbCourses = new Infoeduka.CustomDesign.CustomComboBox();
@@ -58,9 +55,6 @@
             // 
             // gbCourse
             // 
-            this.gbCourse.Controls.Add(this.panel2);
-            this.gbCourse.Controls.Add(this.panel5);
-            this.gbCourse.Controls.Add(this.panel4);
             this.gbCourse.Controls.Add(this.tbDescription);
             this.gbCourse.Controls.Add(this.label4);
             this.gbCourse.Controls.Add(this.ccbCourses);
@@ -73,56 +67,27 @@
             this.gbCourse.Controls.Add(this.label3);
             this.gbCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gbCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.gbCourse.Location = new System.Drawing.Point(86, 14);
+            this.gbCourse.Location = new System.Drawing.Point(75, 14);
             this.gbCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbCourse.Name = "gbCourse";
             this.gbCourse.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbCourse.Size = new System.Drawing.Size(811, 488);
+            this.gbCourse.Size = new System.Drawing.Size(832, 488);
             this.gbCourse.TabIndex = 5;
             this.gbCourse.TabStop = false;
             this.gbCourse.Text = "Obavijest";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Location = new System.Drawing.Point(325, 292);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(306, 1);
-            this.panel2.TabIndex = 27;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel5.Location = new System.Drawing.Point(325, 246);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(306, 1);
-            this.panel5.TabIndex = 26;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel4.Location = new System.Drawing.Point(325, 210);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(306, 1);
-            this.panel4.TabIndex = 25;
+            this.gbCourse.Enter += new System.EventHandler(this.GbCourse_Enter);
             // 
             // tbDescription
             // 
             this.tbDescription.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
-            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbDescription.Location = new System.Drawing.Point(324, 70);
+            this.tbDescription.Location = new System.Drawing.Point(170, 89);
             this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(306, 130);
+            this.tbDescription.Size = new System.Drawing.Size(614, 130);
             this.tbDescription.TabIndex = 24;
             // 
             // label4
@@ -130,7 +95,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(180, 68);
+            this.label4.Location = new System.Drawing.Point(119, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 21);
             this.label4.TabIndex = 23;
@@ -144,14 +109,10 @@
             this.ccbCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ccbCourses.ForeColor = System.Drawing.Color.White;
             this.ccbCourses.FormattingEnabled = true;
-            this.ccbCourses.Items.AddRange(new object[] {
-            "Objektro orjentirano programiranje",
-            "Programiranje u Javi",
-            "Matematika"});
-            this.ccbCourses.Location = new System.Drawing.Point(325, 215);
+            this.ccbCourses.Location = new System.Drawing.Point(170, 257);
             this.ccbCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ccbCourses.Name = "ccbCourses";
-            this.ccbCourses.Size = new System.Drawing.Size(306, 30);
+            this.ccbCourses.Size = new System.Drawing.Size(270, 30);
             this.ccbCourses.TabIndex = 22;
             // 
             // dtDate
@@ -162,10 +123,10 @@
             this.dtDate.CalendarTitleBackColor = System.Drawing.Color.Black;
             this.dtDate.CalendarTitleForeColor = System.Drawing.Color.Black;
             this.dtDate.CalendarTrailingForeColor = System.Drawing.Color.Black;
-            this.dtDate.Location = new System.Drawing.Point(324, 262);
+            this.dtDate.Location = new System.Drawing.Point(591, 258);
             this.dtDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(307, 29);
+            this.dtDate.Size = new System.Drawing.Size(193, 29);
             this.dtDate.TabIndex = 21;
             // 
             // btnSave
@@ -192,7 +153,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(193, 224);
+            this.label2.Location = new System.Drawing.Point(54, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 9;
@@ -203,7 +164,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(193, 270);
+            this.label1.Location = new System.Drawing.Point(466, 266);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 21);
             this.label1.TabIndex = 6;
@@ -213,10 +174,10 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Location = new System.Drawing.Point(324, 50);
+            this.panel3.Location = new System.Drawing.Point(170, 67);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(306, 1);
+            this.panel3.Size = new System.Drawing.Size(614, 1);
             this.panel3.TabIndex = 5;
             // 
             // tbName
@@ -225,10 +186,10 @@
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbName.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbName.Location = new System.Drawing.Point(324, 25);
+            this.tbName.Location = new System.Drawing.Point(170, 41);
             this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(262, 22);
+            this.tbName.Size = new System.Drawing.Size(614, 22);
             this.tbName.TabIndex = 4;
             // 
             // label3
@@ -236,7 +197,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(180, 23);
+            this.label3.Location = new System.Drawing.Point(42, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 21);
             this.label3.TabIndex = 3;
@@ -262,9 +223,6 @@
 
         private Panel pnlNotifications;
         private GroupBox gbCourse;
-        private Panel panel2;
-        private Panel panel5;
-        private Panel panel4;
         private TextBox tbDescription;
         private Label label4;
         private CustomDesign.CustomComboBox ccbCourses;

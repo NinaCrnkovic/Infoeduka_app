@@ -70,10 +70,6 @@ namespace Infoeduka.UserControls
             // provjera da li postoji autenticirana osoba
             if (authenticatedPerson is not null)
             {
-                
-           
-                // ako postoji, prikaži poruku o uspješnoj autentifikaciji
-                CustomMessageBox.Show("Uspješno ste se autentificirali!", "Uspjeh", MessageBoxButtons.OK);
                 this.SendToBack();
                 this.Visible = false;
                 // postavljanje vrijednosti AuthenticatedPerson propertyja na autentificiranu osobu
