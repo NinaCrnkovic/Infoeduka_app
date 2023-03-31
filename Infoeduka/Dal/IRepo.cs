@@ -14,7 +14,7 @@ namespace Infoeduka.Dal
 
         public void SaveNotificationData(IList<Notification> notifications);
 
-        public IList<Notification> GetAllNotifications();
+        public IList<Notification> GetNotifications();
         public IList<Person> GetPersons();
         public IList<Course> GetCourses();
     }

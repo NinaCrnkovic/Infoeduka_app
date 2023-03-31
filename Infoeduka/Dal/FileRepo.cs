@@ -67,7 +67,7 @@ namespace Infoeduka.Dal
             return courses;
         }
 
-        public IList<Notification> GetAllNotifications()
+        public IList<Notification> GetNotifications()
         {
             IList<Notification> notifications = new List<Notification>();
             string[] data = File.ReadAllLines(PATH_NOTIFICATIONS);

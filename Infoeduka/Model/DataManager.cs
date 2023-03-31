@@ -1,4 +1,5 @@
-﻿using Infoeduka.Dal;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Dal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Infoeduka.Model
         private IRepo repo = RepoFactory.GetRepo();
         IDictionary<int, Person> personsDictionary = new Dictionary<int, Person>();
         IDictionary<int, Course> coursesDictionary = new Dictionary<int, Course>();
+        IDictionary<int, Notification> notificationDictionary = new Dictionary<int, Notification>();
 
         //metoda za napuniti osobe u dictionary iz fajle
         public void LoadPersonsToDictionary()
@@ -44,6 +46,21 @@ namespace Infoeduka.Model
             return coursesDictionary;
         }
 
+        public void LoadNotificationsToDictionary()
+        {
+
+            try
+            {
+                IList<Notification> notifications = repo.GetNotifications();
+                FillNotificationsDictionary(notifications);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"load person to dic" + e.Message);
+            }
+        }
+
+
         //metoda za dohvati dicitionarya osoba
         public IDictionary<int, Person> GetPersonsDictionary()
         {
@@ -54,6 +71,11 @@ namespace Infoeduka.Model
         {
             return coursesDictionary;
         }
+        public IDictionary<int, Notification> GetNotificationDictionary()
+        {
+            return notificationDictionary;
+        }
+
 
         //metoda za punjenje dicitonaria iz liste
         private void FillCoursesDictionary(IList<Course> courses)
@@ -89,12 +111,41 @@ namespace Infoeduka.Model
             }
         }
 
+        private void FillNotificationsDictionary(IList<Notification> notifications)
+        {
+            foreach (Notification notification in notifications)
+            {
+                try
+                {
+                    notificationDictionary.Add(notification.Id, notification);
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show($"fill pers dic" + e.Message);
+                }
+            }
+        }
+
+
         //dodavanje osobe u dictyonary
         public void AddNewPersonToDictionary(Person newPerson)
         {
             // dodajte novog Person objekta u dictionary
             personsDictionary.Add(newPerson.Id, newPerson);
         }
+        //doavanje kolegija u dictyonary
+        public void AddNewCourseToDictionary(Course newCourse)
+        {
+            // dodajte novog Course objekta u dictionary
+            coursesDictionary.Add(newCourse.Id, newCourse);
+        }
+        public void AddNewNotificationToDictionary(Notification newNotification)
+        {
+            // dodajte novog Course objekta u dictionary
+            notificationDictionary.Add(newNotification.Id, newNotification);
+        }
+
 
         public void DeletePersonFromDictionary(int id)
         {
@@ -105,6 +156,12 @@ namespace Infoeduka.Model
         {
             coursesDictionary.Remove(id);
         }
+
+        public void DeleteNotificationFromDictionary(int id)
+        {
+            notificationDictionary.Remove(id);
+        }
+
 
         public void UpdatePersonToDictionary(Person updatedPerson)
         {
@@ -158,25 +215,49 @@ namespace Infoeduka.Model
 
         }
 
-        //doavanje kolegija u dictyonary
-        public void AddNewCourseToDictionary(Course newCourse)
+        public void UpdateNotificationToDictionary(Notification updatedNotification)
         {
-            // dodajte novog Course objekta u dictionary
-            coursesDictionary.Add(newCourse.Id, newCourse);
+            //provjeravamo da li obavijest postoji u dictionaryu
+
+            if (notificationDictionary.ContainsKey(updatedNotification.Id))
+            {
+                //dohvaćamo obavijest
+                Notification notification = notificationDictionary[updatedNotification.Id];
+                //postavljamo nove vrijednosti
+                notification.Name = updatedNotification.Name;
+                notification.Description = updatedNotification.Description;
+                notification.DateOfChange = DateTime.Now;
+                notification.ExpirationDate = updatedNotification.ExpirationDate;
+                notification.Creator = updatedNotification.Creator;
+                notification.Course = updatedNotification.Course;
+                //update obavijesti
+                notificationDictionary[updatedNotification.Id] = notification;
+            }
+            else
+            {
+                // ako osoba s ID-om ne postoji u rječniku, izbacite iznimku ili 
+                // napravite neku drugu vrstu manipulacije podacima
+                throw new KeyNotFoundException("Kolegij s ID-om " + updatedNotification.Id + " ne postoji u rječniku.");
+            }
+
         }
 
-        public void SaveDataForPersonsAndCourses(IList<Person> persons, IList<Course> courses)
+
+
+        public void SaveDataForAllInRepo(IList<Person> persons, IList<Course> courses, IList<Notification> notifications)
         {
             try
             {
                 repo.SavePersonData(persons);
                 repo.SaveCourseData(courses);
+                repo.SaveNotificationData(notifications);
             }
             catch (Exception e)
             {
-                MessageBox.Show($"save person and course"+e.Message);
+                CustomMessageBox.Show($"Nije moguće spremanje podataka", "Upozorenje!", MessageBoxButtons.OK);
             }
         }
+
 
         //metaoda koja sprema sve podatke prije zatvaranja aplikacije
         public void SaveAllDataInFile()
@@ -185,12 +266,14 @@ namespace Infoeduka.Model
             {
                 IList<Person> persons = personsDictionary.Values.ToList();
                 IList<Course> courses = coursesDictionary.Values.ToList();
-                SaveDataForPersonsAndCourses(persons, courses);
+                IList<Notification> notifications = notificationDictionary.Values.ToList();
+                SaveDataForAllInRepo(persons, courses, notifications);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                MessageBox.Show($"save all" +e.Message);
+                CustomMessageBox.Show($"Nije moguće spremanje podataka u datoteku", "Upozorenje!", MessageBoxButtons.OK);
             }
         }
     }
 }
+
