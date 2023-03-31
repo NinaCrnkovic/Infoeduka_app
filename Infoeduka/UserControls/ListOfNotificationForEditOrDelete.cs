@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace Infoeduka.UserControls
 {
-    public partial class NotificationPanel : UserControl
+    public partial class ListOfNotificationForEditOrDelete : UserControl
     {
-        public NotificationPanel()
+        public ListOfNotificationForEditOrDelete()
         {
             InitializeComponent();
-        }
-
-        private void LblCreated_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblCreated_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Infoeduka.UserControls
 {
-    public partial class UserControl1 : UserControl
+    public partial class NotificationEditOrDeletePanel : UserControl
     {
-        public UserControl1()
+        public NotificationEditOrDeletePanel()
         {
             InitializeComponent();
         }

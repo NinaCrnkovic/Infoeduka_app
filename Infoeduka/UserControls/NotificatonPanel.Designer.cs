@@ -39,7 +39,7 @@
             // 
             this.lblCreated.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblCreated.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCreated.Location = new System.Drawing.Point(332, 206);
+            this.lblCreated.Location = new System.Drawing.Point(0, 206);
             this.lblCreated.Name = "lblCreated";
             this.lblCreated.Size = new System.Drawing.Size(128, 34);
             this.lblCreated.TabIndex = 1;
@@ -50,7 +50,7 @@
             // 
             this.lblChange.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblChange.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblChange.Location = new System.Drawing.Point(0, 206);
+            this.lblChange.Location = new System.Drawing.Point(327, 206);
             this.lblChange.Name = "lblChange";
             this.lblChange.Size = new System.Drawing.Size(133, 34);
             this.lblChange.TabIndex = 2;
