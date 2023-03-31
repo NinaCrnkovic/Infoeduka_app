@@ -64,15 +64,19 @@ namespace Infoeduka.CustomDesign
 
             label.SetBounds(9, 20, 372, 13);
          
-            button1.SetBounds(210, 72, 85, 30);
-            button2.SetBounds(309, 72, 85, 30);
+            button1.SetBounds(215, 210, 85, 30);
+            button2.SetBounds(304, 210, 85, 30);
+
+           
+
 
             label.AutoSize = true;
+            label.Font = new Font("Arial", 12);
             button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             button2.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
           
-
-            form.ClientSize = new Size(396, 107);
+           
+            form.ClientSize = new Size(400, 250);
             form.Controls.AddRange(new Control[] { label, button1, button2});
             form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
             form.FormBorderStyle = FormBorderStyle.FixedDialog;

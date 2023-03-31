@@ -16,19 +16,19 @@ namespace Infoeduka.UserControls
     public partial class ListOfLecturers : UserControl
     {
         private readonly DataManager _dataManager;
-        private string callingButton;
-        private Panel pnlHolderForOtherPanels;
+        private string _callingButton;
+        private Panel _pnlHolderForOtherPanels;
         public ListOfLecturers(DataManager dataManager, string callingButton)
         {
             _dataManager = dataManager;
-            this.callingButton = callingButton;
+            _callingButton = callingButton;
           
             InitializeComponent();
         }
 
         public ListOfLecturers(DataManager dataManager, string callingButton, Panel holderPanel) : this(dataManager, callingButton)
         {
-            pnlHolderForOtherPanels = holderPanel;
+            _pnlHolderForOtherPanels = holderPanel;
           
         }
 
@@ -39,21 +39,21 @@ namespace Infoeduka.UserControls
             SetListViewProperties();
             ShowData();
             lvLecturers.MouseClick += lvLecturers_MouseClick;
-            //lvLecturers.MouseClick += lvLecturersEdit_MouseClick;
+           
 
         }
 
         private void DefineLabelText()
         {
-            if(callingButton == "btnViewAllLecturers")
+            if(_callingButton == "btnViewAllLecturers")
             {
                 lblTitleForListOfLecturers.Text = "Pregled svih predavača";
             }
-            else if (callingButton == "btnDeleteLecturer")
+            else if (_callingButton == "btnDeleteLecturer")
             {
                 lblTitleForListOfLecturers.Text = "Brisanje predavača";
             }
-            else if (callingButton == "btnEditLecturer")
+            else if (_callingButton == "btnEditLecturer")
             {
                 lblTitleForListOfLecturers.Text = "Uređivanje predavača";
             }
@@ -88,8 +88,8 @@ namespace Infoeduka.UserControls
                     {                    
                         LecturerMainForm formEditLecturer = new(_dataManager, "btnEditLecturer", personEdit);
 
-                        pnlHolderForOtherPanels.Controls.Clear();
-                        pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
+                        _pnlHolderForOtherPanels.Controls.Clear();
+                        _pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     }
                 }
             }
@@ -121,7 +121,7 @@ namespace Infoeduka.UserControls
         private void AddListViewRow(Person person)
         {
             string[] rowData = { };
-            if (callingButton == "btnViewAllLecturers")
+            if (_callingButton == "btnViewAllLecturers")
             {
                 rowData = new string[]
                 {
@@ -132,7 +132,7 @@ namespace Infoeduka.UserControls
                 person.IsAdmin ? "Administrator" : "Predavač"
                 };
             }
-            else if (callingButton == "btnDeleteLecturer")
+            else if (_callingButton == "btnDeleteLecturer")
             {
                 rowData = new string[]
                 {
@@ -145,7 +145,7 @@ namespace Infoeduka.UserControls
                 };
               
             }
-            else if (callingButton == "btnEditLecturer")
+            else if (_callingButton == "btnEditLecturer")
             {
                 rowData = new string[]
                 {
@@ -182,7 +182,7 @@ namespace Infoeduka.UserControls
         //definiramo kako će nam izgledati hederi da stupcima
         private void DefineListViewColumnHeaders()
         {
-            if (callingButton == "btnViewAllLecturers")
+            if (_callingButton == "btnViewAllLecturers")
             {
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 200 });
@@ -190,7 +190,7 @@ namespace Infoeduka.UserControls
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 120 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
             }
-            else if (callingButton == "btnDeleteLecturer")
+            else if (_callingButton == "btnDeleteLecturer")
             {
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });
@@ -199,7 +199,7 @@ namespace Infoeduka.UserControls
                 //lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 250 });
             }
-            else if (callingButton == "btnEditLecturer")
+            else if (_callingButton == "btnEditLecturer")
             {
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });

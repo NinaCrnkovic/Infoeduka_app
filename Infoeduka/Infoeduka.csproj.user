@@ -22,6 +22,9 @@
     <Compile Update="UserControls\ListOfLecturers.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserControls\ListOfNotificationForEditOrDelete.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserControls\ListOfNotifications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -32,6 +35,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserControls\NotificatonPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserControls\NotificationEditOrDeletePanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>

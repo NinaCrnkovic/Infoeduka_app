@@ -26,15 +26,16 @@ namespace Infoeduka.UserControls
             _dataManager = dataManager;
             _callingButton = callingButton;
             _authenticatedPerson = authenticatedPerson;
-            
-
             InitializeComponent();
         }
 
-        public NotificationMainForm(DataManager dataManager, string callingButton, Person authenticatedPerson, Notification notificationEdit) : this (dataManager, callingButton,  authenticatedPerson)
+        public NotificationMainForm(DataManager dataManager, string callingButton, Person authenticatedPerson, Notification notificationEdit) : this(dataManager, callingButton, authenticatedPerson)
         {
             _notificationEdit = notificationEdit;
+
         }
+
+        
 
         //provjera koji gumb ga zove (za add ili edit)
        

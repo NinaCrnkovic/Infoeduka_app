@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitleForCollegeView = new System.Windows.Forms.Label();
             this.lvNotifications = new System.Windows.Forms.ListView();
+            this.lblTitleForCollegeView = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,16 +46,6 @@
             this.panel1.Size = new System.Drawing.Size(982, 517);
             this.panel1.TabIndex = 0;
             // 
-            // lblTitleForCollegeView
-            // 
-            this.lblTitleForCollegeView.AutoSize = true;
-            this.lblTitleForCollegeView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTitleForCollegeView.Location = new System.Drawing.Point(62, 24);
-            this.lblTitleForCollegeView.Name = "lblTitleForCollegeView";
-            this.lblTitleForCollegeView.Size = new System.Drawing.Size(153, 21);
-            this.lblTitleForCollegeView.TabIndex = 3;
-            this.lblTitleForCollegeView.Text = "Pregled svih kolegija";
-            // 
             // lvNotifications
             // 
             this.lvNotifications.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -70,6 +60,16 @@
             this.lvNotifications.UseCompatibleStateImageBehavior = false;
             this.lvNotifications.View = System.Windows.Forms.View.Details;
             // 
+            // lblTitleForCollegeView
+            // 
+            this.lblTitleForCollegeView.AutoSize = true;
+            this.lblTitleForCollegeView.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitleForCollegeView.Location = new System.Drawing.Point(62, 24);
+            this.lblTitleForCollegeView.Name = "lblTitleForCollegeView";
+            this.lblTitleForCollegeView.Size = new System.Drawing.Size(153, 21);
+            this.lblTitleForCollegeView.TabIndex = 3;
+            this.lblTitleForCollegeView.Text = "Pregled svih kolegija";
+            // 
             // ListOfNotificationForEditOrDelete
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -77,6 +77,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ListOfNotificationForEditOrDelete";
             this.Size = new System.Drawing.Size(982, 517);
+            this.Load += new System.EventHandler(this.ListOfNotificationForEditOrDelete_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

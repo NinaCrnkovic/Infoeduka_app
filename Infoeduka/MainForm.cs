@@ -96,12 +96,14 @@ namespace Infoeduka
                     pnlHolderForOtherPanels.Controls.Add(formAddNotification);
                     break;
                 case "btnEditNotification":
-                    //NotificationMainForm formEditNotification = new();
-                    //pnlHolderForOtherPanels.Controls.Clear();
-                    //pnlHolderForOtherPanels.Controls.Add(formEditNotification);
+                    ListOfNotificationForEditOrDelete formEditNotification = new(_dataManager, "btnEditNotification", _authenticatedPerson, pnlHolderForOtherPanels);
+                    pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formEditNotification);
                     break;
                 case "btnDeleteNotification":
+                    ListOfNotificationForEditOrDelete formDeleteNotification = new(_dataManager, "btnDeleteNotification", _authenticatedPerson, pnlHolderForOtherPanels);
                     pnlHolderForOtherPanels.Controls.Clear();
+                    pnlHolderForOtherPanels.Controls.Add(formDeleteNotification); ;
                     break;
                 //Courses
                 case "btnViewAllCourses":
