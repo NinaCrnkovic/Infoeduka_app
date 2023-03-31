@@ -2,3 +2,4 @@
 593652$Najnoviji test$dfdsadsfa$VIS$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:06$31.03.2023. 04:06$08.04.2023. 04:05
 597860$Odgoda$evo odgoda$Matematika$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:42$31.03.2023. 04:42$06.04.2023. 04:42
 602198$Odgoda jave$nema jave$Java$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$31.03.2023. 04:43$31.03.2023. 04:43$07.04.2023. 04:42
+521513$Nadoknada vježbi$Nadoknada vježbi biti će 21.4. u 14 sati, dvorana c12$Programiranje u Javi 2$243184|Sonja|Vresk|sonja@vresk.com|123|False$31.03.2023. 05:28$31.03.2023. 05:28$01.04.2023. 12:00

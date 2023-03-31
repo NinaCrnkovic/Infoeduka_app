@@ -127,6 +127,7 @@ namespace Infoeduka.UserControls
         {
             IDictionary<int, Course> courseDictionary = _dataManager.GetCoursesDictionary();
             List<string> courseNames = new List<string>();
+            ccbCourses.MaxDropDownItems = 4;
 
             if (_authenticatedPerson.IsAdmin)
             {
@@ -145,7 +146,9 @@ namespace Infoeduka.UserControls
 
             if (courseNames.Count == 0)
             {
+                Dispose();
                 CustomMessageBox.Show("Ne možete dodavati obavijesti jer niste predavač niti na jednom kolegiju", "Upozorenje", MessageBoxButtons.OK);
+                
             }
             else
             {
@@ -164,8 +167,10 @@ namespace Infoeduka.UserControls
                     ((TextBox)control).Clear();
                 }
             }
+            dtDate.Value = DateTime.Today;
+            ccbCourses.ResetText();
 
-          
+
 
         }
 

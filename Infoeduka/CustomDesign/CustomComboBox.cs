@@ -19,6 +19,7 @@ namespace Infoeduka.CustomDesign
             BackColor = Color.FromArgb(23, 21, 23);
             ForeColor = Color.WhiteSmoke;
             DropDownStyle = ComboBoxStyle.DropDownList;
+            MaxDropDownItems = 4;
         }
 
         public Color BorderColor

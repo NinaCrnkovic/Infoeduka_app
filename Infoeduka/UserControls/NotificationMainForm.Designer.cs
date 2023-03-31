@@ -111,6 +111,7 @@
             this.ccbCourses.FormattingEnabled = true;
             this.ccbCourses.Location = new System.Drawing.Point(170, 257);
             this.ccbCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ccbCourses.MaxDropDownItems = 4;
             this.ccbCourses.Name = "ccbCourses";
             this.ccbCourses.Size = new System.Drawing.Size(270, 30);
             this.ccbCourses.TabIndex = 22;
@@ -153,7 +154,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(54, 266);
+            this.label2.Location = new System.Drawing.Point(54, 264);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 21);
             this.label2.TabIndex = 9;
@@ -164,7 +165,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(466, 266);
+            this.label1.Location = new System.Drawing.Point(466, 264);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 21);
             this.label1.TabIndex = 6;
