@@ -149,8 +149,33 @@ namespace Infoeduka.Model
 
         public void DeletePersonFromDictionary(int id)
         {
-            personsDictionary.Remove(id);
+            var person = personsDictionary[id];
+            if (person != null)
+            {
+                // provjera da li je person predavač na nekom kolegiju
+                bool isLecturer = false;
+                StringBuilder messageBuilder = new StringBuilder("Nije moguće izbrisati osobu jer je predavač na sljedećim kolegijima:\n");
+                foreach (var course in coursesDictionary.Values)
+                {
+                    if (course.Lecturers.Contains(person))
+                    {
+                        isLecturer = true;
+                        messageBuilder.Append($"{course.Name}\n");
+                    }
+                }
+
+                // ako osoba nije predavač na nekom kolegiju, obriši je iz dictionaryja
+                if (isLecturer)
+                {
+                    CustomMessageBox.Show(messageBuilder.ToString(), "Upozorenje", MessageBoxButtons.OK);
+                }
+                else
+                {
+                    personsDictionary.Remove(id);
+                }
+            }
         }
+
 
         public void DeleteCourseFromDictionary(int id)
         {
