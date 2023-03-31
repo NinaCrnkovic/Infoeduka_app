@@ -10,7 +10,7 @@ namespace Infoeduka.Model
     public class Notification
     {
         private const char DEL = '|';
-        private const string DATEFORMAT = "dd.MM.yyyy";
+        private const string DATEFORMAT = "dd.MM.yyyy. hh:mm";
         public Notification(string name, string description, Course course, Person creator, DateTime expirationDate)
         {
             Id = Utility.GenerateRandomId();
@@ -27,7 +27,7 @@ namespace Infoeduka.Model
         public string Description { get; set; }
         public Course Course { get; set; }
         public Person Creator { get; set; }
-        public DateTime DateOfCreation { get; } = DateTime.Now;
+        public DateTime DateOfCreation { get; set; } = DateTime.Now;
         
         private DateTime _dateOfChange;
 
@@ -45,48 +45,52 @@ namespace Infoeduka.Model
         public DateTime ExpirationDate { get; set; }
 
 
-        public static void ParseToFile(Notification notification, string filePath)
-        {
-            string line = $"{notification.Id}{DEL}{notification.Name}{DEL}{notification.Description}{DEL}{notification.Course.Id}{DEL}{notification.Creator.Id}{DEL}{notification.DateOfCreation.ToString(DATEFORMAT)}{DEL}{notification.DateOfChange.ToString(DATEFORMAT)}{DEL}{notification.ExpirationDate.ToString(DATEFORMAT)}";
-            File.AppendAllLines(filePath, new[] { line });
-        }
+        public string FormatForFile() => $"{Id}{DEL}{Name}{DEL}{Description}{DEL}{Course.FormatForFile}{DEL}{Creator.FormatForFile}{DEL}{DateOfCreation.ToString(DATEFORMAT)}{DEL}{DateOfChange.ToString(DATEFORMAT)}{DEL}{ExpirationDate.ToString(DATEFORMAT)}";
+           
+       
 
 
         public override string ToString()
         {
-            return $"Name: {Name}\nDescription: {Description}\nCourse: {Course}\nCreator: {Creator}\nDate of Creation: {DateOfCreation.ToString(DATEFORMAT)}\nDate of Change: {DateOfChange.ToString(DATEFORMAT)}\nExpiration Date: {ExpirationDate.ToString(DATEFORMAT)}";
+            return $"Name: {Name}\nDescription: {Description}\nCourse: {Course.Name}\nCreator: {Creator}\nDate of Creation: {DateOfCreation.ToString(DATEFORMAT)}\nDate of Change: {DateOfChange.ToString(DATEFORMAT)}\nExpiration Date: {ExpirationDate.ToString(DATEFORMAT)}";
         }
 
-        public static List<Notification> ParseFromFile(string filePath)
+        public static Notification ParseFromFile(string line)
         {
-            List<Notification> notifications = new List<Notification>();
+            string[] fields = line.Split(DEL);
 
-            using (StreamReader sr = new StreamReader(filePath))
-            {
-                string line;
-                while ((line = sr.ReadLine()) != null)
-                {
-                    string[] values = line.Split(DEL);
+            int id = int.Parse(fields[0]);
+            string name = fields[1];
+            string description = fields[2];
+            Course course = Course.ParseFromFile(fields[3]);
+            Person creator = Person.ParseFromFile(fields[4]);
+            DateTime dateOfCreation = DateTime.ParseExact(fields[5], DATEFORMAT, null);
+            DateTime dateOfChange = DateTime.ParseExact(fields[6], DATEFORMAT, null);
+            DateTime expirationDate = DateTime.ParseExact(fields[7], DATEFORMAT, null);
 
-                    string name = values[0];
-                    string description = values[1];
-                    Course course = (Course)Enum.Parse(typeof(Course), values[2]);
-                    string creatorName = values[3];
-                    DateTime dateOfCreation = DateTime.ParseExact(values[4], DATEFORMAT);
-                    DateTime dateOfChange = DateTime.ParseExact(values[5], DATEFORMAT, CultureInfo.InvariantCulture);
-                    DateTime expirationDate = DateTime.ParseExact(values[6], DATEFORMAT, CultureInfo.InvariantCulture);
+            Notification notification = new Notification(name, description, course, creator, expirationDate);
+            notification.Id = id;
+            notification.DateOfCreation = dateOfCreation;
+            notification.DateOfChange = dateOfChange;
 
-                    Person creator = new Person(creatorName);
-                    Notification notification = new Notification(name, description, course, creator, expirationDate);
-                    notification.DateOfCreation = dateOfCreation;
-                    notification.DateOfChange = dateOfChange;
-
-                    notifications.Add(notification);
-                }
-            }
-
-            return notifications;
+            return notification;
         }
 
+        public override bool Equals(object obj)
+        {
+            return obj is Notification notification &&
+                   Id == notification.Id &&
+                   Name == notification.Name &&
+                   Description == notification.Description &&
+                   EqualityComparer<Course>.Default.Equals(Course, notification.Course) &&
+                   EqualityComparer<Person>.Default.Equals(Creator, notification.Creator) &&
+                   DateOfCreation == notification.DateOfCreation &&
+                   _dateOfChange == notification._dateOfChange;
+        }
+
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(Id, Name, Description, Course, Creator, DateOfCreation, _dateOfChange);
+        }
     }
 }

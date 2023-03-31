@@ -12,6 +12,9 @@ namespace Infoeduka.Dal
         public void SavePersonData(IList<Person> persons);
         public void SaveCourseData(IList<Course> courses);
 
+        public void SaveNotificationData(IList<Notification> notifications);
+
+        public IList<Notification> GetAllNotifications();
         public IList<Person> GetPersons();
         public IList<Course> GetCourses();
     }

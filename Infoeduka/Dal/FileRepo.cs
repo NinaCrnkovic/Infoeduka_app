@@ -1,4 +1,5 @@
-﻿using Infoeduka.Model;
+﻿using Infoeduka.CustomDesign;
+using Infoeduka.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,18 +46,12 @@ namespace Infoeduka.Dal
                         
             foreach (string line in data)
             {
-                    try
-                    {
-                        persons.Add(Person.ParseFromFile(line));
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("parser za osobu je puko"+ex.Message);
-                    }
-                                   
+                  
+                persons.Add(Person.ParseFromFile(line));
+    
             }
-
             return persons;
+
         }
 
         public IList<Course> GetCourses()
@@ -72,7 +67,19 @@ namespace Infoeduka.Dal
             return courses;
         }
 
+        public IList<Notification> GetAllNotifications()
+        {
+            IList<Notification> notifications = new List<Notification>();
+            string[] data = File.ReadAllLines(PATH_NOTIFICATIONS);
 
+            foreach (string line in data)
+            {
+
+                notifications.Add(Notification.ParseFromFile(line));
+
+            }
+            return notifications;
+        }
 
 
         public void SavePersonData(IList<Person> persons)
@@ -103,5 +110,19 @@ namespace Infoeduka.Dal
 
 
         }
+        public void SaveNotificationData(IList<Notification> notifications)
+        {
+            List<string> lines = new List<string>();
+
+            foreach (Notification notification in notifications)
+            {
+                lines.Add(notification.FormatForFile());
+            }
+
+            File.WriteAllLines(PATH_NOTIFICATIONS, lines);
+        }
+
+
+      
     }
 }

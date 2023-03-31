@@ -38,7 +38,7 @@ namespace Infoeduka.UserControls
         {
             if (_callingButton == "btnAddNewCourse")
             {
-                ClearForm();
+            
                 ShowDataOnLoad();
             }
             else if (_callingButton == "btnEditCourse")
@@ -270,7 +270,8 @@ namespace Infoeduka.UserControls
                 }
             }
             flpLecturersOnCourse.Controls.Clear();
-
+            flpAllLecturers.Controls.Clear();
+            ShowDataOnLoad();
         }
      
         //-----------------------------Spremanje
