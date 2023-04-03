@@ -332,6 +332,7 @@ namespace Infoeduka.UserControls
                 {
                     _dataManager.UpdateCourseToDictionary(_editCourse);
                     CustomMessageBox.Show("Uspješno spremljeno", "", MessageBoxButtons.OK);
+                  
                     Dispose();
                 }
                 catch (Exception ex)

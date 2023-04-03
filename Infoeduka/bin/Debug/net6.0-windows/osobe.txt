@@ -3,3 +3,4 @@
 347385|Ileana|Kurtovic|ileana@kurtovic.hr|123|False
 243184|Sonja|Vresk|sonja@vresk.hr|123|False
 690230|Maja|Majic|maja@majic.hr|123|True
+655826|Pero|Peric|pero@peric.hr|123456|False

@@ -69,8 +69,19 @@ namespace Infoeduka.UserControls
             var name = tbName.Text;
             var description = tbDescription.Text;
             var course = ccbCourses.SelectedValue.ToString();
+            if (!Utility.IsTextValid(name))
+            {
+                CustomMessageBox.Show("Nije uneseno ispravno ime obavijesti.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Utility.IsTextValid(description))
+            {
+                CustomMessageBox.Show("Nije uneseno ispravan opis obavijesti.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+
             // Provjera je li neki element odabran
-         
+
             Person creator = _authenticatedPerson;
             var expirationDate = dtDate.Value;
 
@@ -180,9 +191,12 @@ namespace Infoeduka.UserControls
 
         }
 
-        private void GbCourse_Enter(object sender, EventArgs e)
+        private void tbDescription_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)Keys.Enter && tbDescription.Multiline)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -118,8 +118,9 @@
             this.Controls.Add(this.lblCreated);
             this.Controls.Add(this.lblLecturer);
             this.Controls.Add(this.lblTitle);
+            this.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "NotificationPanel";
-            this.Padding = new System.Windows.Forms.Padding(30);
             this.Size = new System.Drawing.Size(460, 240);
             this.ResumeLayout(false);
             this.PerformLayout();

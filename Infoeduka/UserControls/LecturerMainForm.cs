@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities;
 
 namespace Infoeduka.UserControls
 {
@@ -41,10 +42,33 @@ namespace Infoeduka.UserControls
             var password = tbPassword.Text;
             var isAdmin = GetChecked();
 
+            if (!Utility.IsTextValid(firstName))
+            {
+                CustomMessageBox.Show("Nije uneseno ime osobe.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Utility.IsTextValid(lastName))
+            {
+                CustomMessageBox.Show("Nije uneseno prezime osobe.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Utility.IsUsernameValid(email))
+            {
+                CustomMessageBox.Show("Nije unesen ispravan e-mail.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+            if (!Utility.IsTextValid(password))
+            {
+                CustomMessageBox.Show("Nije unesen ispravna lozinka.", "Upozorenje", MessageBoxButtons.OK);
+                return;
+            }
+
+
+
             // kreirajte novog Person objekta
-            
-           
-                if (_callingButton == "btnAddNewLecturer")
+
+
+            if (_callingButton == "btnAddNewLecturer")
                 {
                     Person newPerson = new Person(firstName, lastName, email, password, isAdmin);
                     try
@@ -90,6 +114,7 @@ namespace Infoeduka.UserControls
             {
                 return true;
             }
+            
             return false;
 
         }

@@ -68,6 +68,7 @@ namespace Infoeduka.UserControls
             foreach (Notification notification in notificationDictionary.Values)
             {
                 NotificationPanel panel = new NotificationPanel();
+                panel.Margin = new Padding(5);
 
                 // Dohvatite HeaderPanel unutar panela
                 //Control headerPanel = panel.Controls.Find("HeaderPanel", true).FirstOrDefault();

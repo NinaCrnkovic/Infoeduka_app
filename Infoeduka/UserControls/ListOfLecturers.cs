@@ -121,6 +121,8 @@ namespace Infoeduka.UserControls
         private void AddListViewRow(Person person)
         {
             string[] rowData = { };
+            string deleteText = "Izbriši predavača";
+            string editText = "Uredi predavača";
             if (_callingButton == "btnViewAllLecturers")
             {
                 rowData = new string[]
@@ -139,9 +141,7 @@ namespace Infoeduka.UserControls
                 person.FirstName,
                 person.LastName,
                 person.Email,
-                //person.Password,
-                //person.IsAdmin ? "Administrator" : "Predavač",
-                "Izbriši predavača"
+                deleteText
                 };
               
             }
@@ -152,9 +152,7 @@ namespace Infoeduka.UserControls
                 person.FirstName,
                 person.LastName,
                 person.Email,
-                //person.Password,
-                //person.IsAdmin ? "Administrator" : "Predavač",
-                "Uredi predavača"
+                editText
                 };
 
             }
@@ -182,31 +180,29 @@ namespace Infoeduka.UserControls
         //definiramo kako će nam izgledati hederi da stupcima
         private void DefineListViewColumnHeaders()
         {
-            if (_callingButton == "btnViewAllLecturers")
+            switch (_callingButton)
             {
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 200 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 120 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 120 });
+                case "btnViewAllLecturers":
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 200 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 120 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 120 });
+                    break;
+                case "btnDeleteLecturer":
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 230 });
+                    break;
+                case "btnEditLecturer":
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
+                    lvLecturers.Columns.Add(new ColumnHeader { Text = "Uređivanje predavača", Width = 230 });
+                    break;
             }
-            else if (_callingButton == "btnDeleteLecturer")
-            {
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 230 });
-            }
-            else if (_callingButton == "btnEditLecturer")
-            {
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Uređivanje predavača", Width = 230 });
-            }
-
-
-
         }
+
     }
 }

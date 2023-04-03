@@ -118,11 +118,15 @@ namespace Infoeduka.UserControls
             return list;
         }
 
+
+
         private void AddListViewRow(Course course)
         {
             string[] lecturers = course.Lecturers.Select(l => $"{l.FirstName} {l.LastName}").ToArray();
             string[] rowData = { };
-            
+            string deleteText = "Izbriši kolegij";
+            string editText = "Uredi kolegij";
+
             if (_callingButton == "btnViewAllCourses")
             {
                 rowData = new string[]
@@ -141,8 +145,7 @@ namespace Infoeduka.UserControls
                 course.Code,
                 course.Name,
                 course.Ects.ToString(),
-             
-                "Izbriši kolegij"
+                deleteText
                 };
             }
             else if (_callingButton == "btnEditCourse")
@@ -152,8 +155,7 @@ namespace Infoeduka.UserControls
                 course.Code,
                 course.Name,
                 course.Ects.ToString(),
-            
-                "Uredi kolegij"
+                editText
                 };
             }
 
@@ -177,35 +179,32 @@ namespace Infoeduka.UserControls
             lvCourses.MultiSelect = false;
         }
         //definiramo kako će nam izgledati hederi da stupcima
+
         private void DefineListViewColumnHeaders()
         {
+            var columns = new List<ColumnHeader>()
+            {
+                 new ColumnHeader { Text = "Šifra", Width = 80 },
+                 new ColumnHeader { Text = "Naziv", Width = 500 },
+                 new ColumnHeader { Text = "ECTS", Width = 50 }
+            };
+
             if (_callingButton == "btnViewAllCourses")
             {
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 300 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Predavači", Width = 650 });
-
-
+                columns.Add(new ColumnHeader { Text = "Predavači", Width = 650 });
             }
             else if (_callingButton == "btnDeleteCourse")
             {
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 500 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Brisanje kolegija", Width = 228 });
-
+                columns.Add(new ColumnHeader { Text = "Brisanje kolegija", Width = 228 });
             }
             else if (_callingButton == "btnEditCourse")
             {
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Šifra", Width = 80 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 500 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "ECTS", Width = 50 });
-                lvCourses.Columns.Add(new ColumnHeader { Text = "Uređivanje kolegija", Width = 228 });
-
+                columns.Add(new ColumnHeader { Text = "Uređivanje kolegija", Width = 228 });
             }
 
+            lvCourses.Columns.AddRange(columns.ToArray());
         }
+
     }
 
 

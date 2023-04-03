@@ -75,7 +75,6 @@
             this.gbCourse.TabIndex = 5;
             this.gbCourse.TabStop = false;
             this.gbCourse.Text = "Obavijest";
-            this.gbCourse.Enter += new System.EventHandler(this.GbCourse_Enter);
             // 
             // tbDescription
             // 
@@ -89,6 +88,7 @@
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.Size = new System.Drawing.Size(614, 130);
             this.tbDescription.TabIndex = 24;
+            this.tbDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescription_KeyPress);
             // 
             // label4
             // 

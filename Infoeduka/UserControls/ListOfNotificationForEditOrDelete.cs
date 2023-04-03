@@ -81,7 +81,7 @@ namespace Infoeduka.UserControls
                     {
                         NotificationMainForm formEditNotification = new(_dataManager, "btnEditNotification", _authenticatedPerson, notificationEdit);
 
-                        _pnlHolderForOtherPanels.Controls.Clear();
+                        this.SendToBack();
                         _pnlHolderForOtherPanels.Controls.Add(formEditNotification);
                     }
                 }
@@ -120,35 +120,40 @@ namespace Infoeduka.UserControls
 
         private void AddListViewRow(Notification notification)
         {
+            string deleteText = "Izbriši obavijest";
+            string editText = "Uredi obavijest";
             string[] rowData = { };
-           if (_callingButton == "btnDeleteNotification")
+
+            switch (_callingButton)
             {
-                rowData = new string[]
-                {
+                case "btnDeleteNotification":
+                    rowData = new string[]
+                    {
                 notification.Name,
-                notification.Creator.FirstName + " "+ notification.Creator.LastName,
+                $"{notification.Creator.FirstName} {notification.Creator.LastName}",
                 notification.Course,
                 notification.DateOfCreation.ToString(),
-                "Izbriši obavijest"
-                };
+                deleteText
+                    };
+                    break;
 
-            }
-            else if (_callingButton == "btnEditNotification")
-            {
-                rowData = new string[]
-                {
+                case "btnEditNotification":
+                    rowData = new string[]
+                    {
                 notification.Name,
-                notification.Creator.FirstName + " "+ notification.Creator.LastName,
+                $"{notification.Creator.FirstName} {notification.Creator.LastName}",
                 notification.Course,
                 notification.DateOfCreation.ToString(),
-                "Uredi obavijest"
-                };
-
+                editText
+                    };
+                    break;
             }
+
             ListViewItem row = new ListViewItem(rowData);
             row.Tag = notification;
-            // Postavljanje boje teksta za ćeliju sa natpisom "Delete"
-            if (rowData.Contains("Izbriši obavijest") || rowData.Contains("Uredi obavijest"))
+
+            // Set text color for delete/edit column
+            if (rowData.Contains(deleteText) || rowData.Contains(editText))
             {
                 row.UseItemStyleForSubItems = false;
                 row.SubItems[rowData.Length - 1].ForeColor = Color.Red;
@@ -156,7 +161,6 @@ namespace Infoeduka.UserControls
 
             lvNotifications.Items.Add(row);
         }
-
 
 
         //postavljanje view propertisa na listi
@@ -169,24 +173,24 @@ namespace Infoeduka.UserControls
         //definiramo kako će nam izgledati hederi da stupcima
         private void DefineListViewColumnHeaders()
         {
-            if (_callingButton == "btnDeleteNotification")
+            switch (_callingButton)
             {
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 200 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Brisanje obavijesti", Width = 150 });
+                case "btnDeleteNotification":
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 200 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Brisanje obavijesti", Width = 150 });
+                    break;
+                case "btnEditNotification":
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 200 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
+                    lvNotifications.Columns.Add(new ColumnHeader { Text = "Uređivanje obavijesti", Width = 160 });
+                    break;
+            
             }
-            else if (_callingButton == "btnEditNotification")
-            {
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Naziv", Width = 200 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Uređivanje obavijesti", Width = 160 });
-            }
-
-
 
         }
 

@@ -80,7 +80,7 @@
                 // Tekst je prazan ili sadrži samo razmake
                 return false;
             }
-            else if (tekst.Length < 3)
+            else if (tekst.Length < 2)
             {
                 // Tekst je prekratak
                 return false;
