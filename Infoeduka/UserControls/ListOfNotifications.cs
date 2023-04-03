@@ -48,46 +48,9 @@ namespace Infoeduka.UserControls
             IDictionary<int, Notification> notificationDictionary = _dataManager.GetNotificationDictionary();
             // sortiranje obavijesti po datumu od najnovije
             var sortedNotifications = notificationDictionary.Values.OrderByDescending(n => n.DateOfCreation);
+            btnForListOfNotification.Text = "Popis aktualnih obavijesti";
 
-            foreach (Notification notification in notificationDictionary.Values)
-            {
-                //provjerava da li je obavijest istekla, ako je ne prikazuje se
-                if (notification.ExpirationDate <= DateTime.Today)
-                {
-                    continue;
-                }
-                NotificationPanel panel = new NotificationPanel();
-
-                // Dohvatite HeaderPanel unutar panela
-                //Control headerPanel = panel.Controls.Find("HeaderPanel", true).FirstOrDefault();
-
-                // Pronađite labelu lblTitle unutar HeaderPanela
-                Label foundLabel = panel.Controls.Find("lblTitle", true).FirstOrDefault() as Label;
-                foundLabel.Text = notification.Name;
-
-                // Pronađite labelu lblLecturer unutar panela
-                Label lecturerLabel = panel.Controls.Find("lblLecturer", true).FirstOrDefault() as Label;
-                lecturerLabel.Text = $"{notification.Creator.FirstName} {notification.Creator.LastName}";
-
-                // Pronađite labelu lblCreated unutar panela
-                Label createdLabel = panel.Controls.Find("lblCreated", true).FirstOrDefault() as Label;
-                createdLabel.Text = $"Kreirano:\n{notification.DateOfCreation.ToString()}";
-
-                // Pronađite labelu lblChange unutar panela
-                Label changeLabel = panel.Controls.Find("lblChange", true).FirstOrDefault() as Label;
-                if (notification.DateOfChange > notification.DateOfCreation)
-                {
-                    
-                    changeLabel.Text = $"Promijenjeno:\n{notification.DateOfChange.ToString()}";
-                }
-                
-
-                // Pronađite textbox tbDescription unutar panela
-                TextBox descriptionTextBox = panel.Controls.Find("tbDescription", true).FirstOrDefault() as TextBox;
-                descriptionTextBox.Text = notification.Description;
-
-                flpHolderForNotifications.Controls.Add(panel);
-            }
+            LodadLabelsForNotification(notificationDictionary);
         }
 
 
@@ -96,7 +59,12 @@ namespace Infoeduka.UserControls
             IDictionary<int, Notification> notificationDictionary = _dataManager.GetNotificationDictionary();
             // sortiranje obavijesti po datumu od najnovije
             var sortedNotifications = notificationDictionary.Values.OrderByDescending(n => n.DateOfCreation);
+            btnForListOfNotification.Text = "Popis svih obavijesti";
+            LodadLabelsForNotification(notificationDictionary);
+        }
 
+        private void LodadLabelsForNotification(IDictionary<int, Notification> notificationDictionary)
+        {
             foreach (Notification notification in notificationDictionary.Values)
             {
                 NotificationPanel panel = new NotificationPanel();
@@ -105,8 +73,11 @@ namespace Infoeduka.UserControls
                 //Control headerPanel = panel.Controls.Find("HeaderPanel", true).FirstOrDefault();
 
                 // Pronađite labelu lblTitle unutar HeaderPanela
-                Label foundLabel = panel.Controls.Find("lblTitle", true).FirstOrDefault() as Label;
-                foundLabel.Text = notification.Name;
+                Label courseLabel = panel.Controls.Find("lblCourse", true).FirstOrDefault() as Label;
+                courseLabel.Text = notification.Course;
+
+                Label titleLabel = panel.Controls.Find("lblTitle", true).FirstOrDefault() as Label;
+                titleLabel.Text = notification.Name;
 
                 // Pronađite labelu lblLecturer unutar panela
                 Label lecturerLabel = panel.Controls.Find("lblLecturer", true).FirstOrDefault() as Label;
@@ -114,14 +85,18 @@ namespace Infoeduka.UserControls
 
                 // Pronađite labelu lblCreated unutar panela
                 Label createdLabel = panel.Controls.Find("lblCreated", true).FirstOrDefault() as Label;
-                createdLabel.Text = $"Kreirano:\n{notification.DateOfCreation.ToString()}";
+                createdLabel.Text = $"Kreirano:\n{notification.DateOfCreation}";
 
                 // Pronađite labelu lblChange unutar panela
                 Label changeLabel = panel.Controls.Find("lblChange", true).FirstOrDefault() as Label;
                 if (notification.DateOfChange > notification.DateOfCreation)
                 {
 
-                    changeLabel.Text = $"Promijenjeno:\n{notification.DateOfChange.ToString()}";
+                    changeLabel.Text = $"Promijenjeno:\n{notification.DateOfChange}";
+                }
+                else
+                {
+                    changeLabel.Text = changeLabel.Text = $"Promijenjeno:\n{notification.DateOfCreation}";
                 }
 
 
@@ -132,7 +107,5 @@ namespace Infoeduka.UserControls
                 flpHolderForNotifications.Controls.Add(panel);
             }
         }
-
-
     }
 }

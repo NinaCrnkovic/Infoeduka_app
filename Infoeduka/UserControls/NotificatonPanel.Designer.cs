@@ -33,6 +33,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblLecturer = new System.Windows.Forms.Label();
             this.tbDescription = new System.Windows.Forms.TextBox();
+            this.lblCourse = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblCreated
@@ -59,11 +60,12 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.lblTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTitle.Location = new System.Drawing.Point(0, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(200, 34);
+            this.lblTitle.Size = new System.Drawing.Size(460, 30);
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Tag = "lblTitle";
             this.lblTitle.Text = "lblTitle";
@@ -75,7 +77,7 @@
             this.lblLecturer.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblLecturer.Location = new System.Drawing.Point(286, 0);
             this.lblLecturer.Name = "lblLecturer";
-            this.lblLecturer.Size = new System.Drawing.Size(174, 34);
+            this.lblLecturer.Size = new System.Drawing.Size(174, 30);
             this.lblLecturer.TabIndex = 1;
             this.lblLecturer.Text = "Ime prezime";
             this.lblLecturer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -85,19 +87,32 @@
             this.tbDescription.BackColor = System.Drawing.Color.Black;
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbDescription.Location = new System.Drawing.Point(0, 37);
+            this.tbDescription.Location = new System.Drawing.Point(0, 63);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(460, 166);
+            this.tbDescription.Size = new System.Drawing.Size(460, 140);
             this.tbDescription.TabIndex = 3;
             this.tbDescription.Tag = "tbDescription";
             this.tbDescription.Text = "tbDescription";
+            // 
+            // lblCourse
+            // 
+            this.lblCourse.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCourse.Location = new System.Drawing.Point(0, 0);
+            this.lblCourse.Name = "lblCourse";
+            this.lblCourse.Size = new System.Drawing.Size(200, 30);
+            this.lblCourse.TabIndex = 4;
+            this.lblCourse.Tag = "lblTitle";
+            this.lblCourse.Text = "label1";
+            this.lblCourse.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // NotificationPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(35)))), ((int)(((byte)(69)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(32)))), ((int)(((byte)(39)))));
+            this.Controls.Add(this.lblCourse);
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.lblChange);
             this.Controls.Add(this.lblCreated);
@@ -117,5 +132,6 @@
         private Label lblTitle;
         private Label lblLecturer;
         private TextBox tbDescription;
+        private Label lblCourse;
     }
 }

@@ -17,14 +17,6 @@ namespace Infoeduka.UserControls
             InitializeComponent();
         }
 
-        private void LblCreated_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LblCreated_Click_1(object sender, EventArgs e)
-        {
-
-        }
+     
     }
 }

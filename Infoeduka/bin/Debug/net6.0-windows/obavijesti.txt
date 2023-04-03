@@ -1,4 +1,2 @@
-551275$Zadaća Java$Poštovani kolege,
-rok za predaju prve zadaće je do 10.04.2023. u 23:59.$VIS$243184|Sonja|Vresk|sonja@vresk.hr|123|False$31.03.2023. 10:31$31.03.2023. 10:33$13.03.2023. 12:00
-640207$Nadoknada predavanja OS$Poštovani kolega,
-nadoknada predavanja iz OS biti će u utorak, a promjena je već vidljiva u rasporedu.$Operacijski sustavi$243184|Sonja|Vresk|sonja@vresk.hr|123|False$31.03.2023. 10:32$31.03.2023. 10:32$12.04.2023. 12:00
+234385$Test$1233444$Matematika$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$03.04.2023. 09:57$03.04.2023. 09:57$09.04.2023. 12:00
+429017$Tewsf$dfsafasdfafasdf$Matematika$265452|Nina|Crnkovic|nina@crnkovic.hr|123|True$03.04.2023. 09:57$03.04.2023. 10:24$14.04.2023. 12:00
