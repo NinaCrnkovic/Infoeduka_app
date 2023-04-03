@@ -41,8 +41,7 @@ namespace Infoeduka.UserControls
         private void TbEmail_TextChanged(object sender, EventArgs e)
         {
             username = tbEmail.Text;
-            //Utility.IsUsernameValid(username);
-
+        
         }
 
         private void TbPassword_TextChanged(object sender, EventArgs e)

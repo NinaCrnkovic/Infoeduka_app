@@ -48,7 +48,7 @@ namespace Infoeduka.UserControls
             IDictionary<int, Notification> notificationDictionary = _dataManager.GetNotificationDictionary();
             // sortiranje obavijesti po datumu od najnovije
             var sortedNotifications = notificationDictionary.Values.OrderByDescending(n => n.DateOfCreation);
-            btnForListOfNotification.Text = "Popis aktualnih obavijesti";
+            btnForListOfNotification.Text = "Pregled aktualnih obavijesti";
 
             LodadLabelsForNotification(notificationDictionary);
         }
@@ -59,7 +59,7 @@ namespace Infoeduka.UserControls
             IDictionary<int, Notification> notificationDictionary = _dataManager.GetNotificationDictionary();
             // sortiranje obavijesti po datumu od najnovije
             var sortedNotifications = notificationDictionary.Values.OrderByDescending(n => n.DateOfCreation);
-            btnForListOfNotification.Text = "Popis svih obavijesti";
+            btnForListOfNotification.Text = "Pregled svih obavijesti";
             LodadLabelsForNotification(notificationDictionary);
         }
 

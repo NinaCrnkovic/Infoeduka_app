@@ -71,12 +71,12 @@ namespace Infoeduka.UserControls
             var course = ccbCourses.SelectedValue.ToString();
             if (!Utility.IsTextValid(name))
             {
-                CustomMessageBox.Show("Nije uneseno ispravno ime obavijesti.", "Upozorenje", MessageBoxButtons.OK);
+                CustomMessageBox.Show("Nije unesen ispravan naziv obavijesti.", "Upozorenje", MessageBoxButtons.OK);
                 return;
             }
             if (!Utility.IsTextValid(description))
             {
-                CustomMessageBox.Show("Nije uneseno ispravan opis obavijesti.", "Upozorenje", MessageBoxButtons.OK);
+                CustomMessageBox.Show("Nije unesen ispravan opis obavijesti.", "Upozorenje", MessageBoxButtons.OK);
                 return;
             }
 

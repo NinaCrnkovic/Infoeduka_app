@@ -277,7 +277,7 @@ namespace Infoeduka.UserControls
 
             if (!Utility.IsTextValid(name))
             {
-                CustomMessageBox.Show("Nije uneseno ispravno ime kolegija.", "Upozorenje", MessageBoxButtons.OK);
+                CustomMessageBox.Show("Nije unesen ispravan naziv kolegija.", "Upozorenje", MessageBoxButtons.OK);
                 return;
             }
 

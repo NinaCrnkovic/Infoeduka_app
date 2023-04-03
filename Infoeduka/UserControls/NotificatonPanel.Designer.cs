@@ -101,7 +101,7 @@
             this.lblCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblCourse.Location = new System.Drawing.Point(0, 0);
             this.lblCourse.Name = "lblCourse";
-            this.lblCourse.Size = new System.Drawing.Size(200, 30);
+            this.lblCourse.Size = new System.Drawing.Size(280, 30);
             this.lblCourse.TabIndex = 4;
             this.lblCourse.Tag = "lblTitle";
             this.lblCourse.Text = "label1";

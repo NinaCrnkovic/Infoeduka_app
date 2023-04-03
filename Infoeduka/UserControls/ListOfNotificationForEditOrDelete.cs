@@ -47,7 +47,7 @@ namespace Infoeduka.UserControls
             }
             else if (_callingButton == "btnDeleteNotification")
             {
-                lblTitleForCollegeView.Text = "Brisanje predavača";
+                lblTitleForCollegeView.Text = "Brisanje obavijesti";
             }
             
         }

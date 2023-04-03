@@ -75,8 +75,13 @@ namespace Infoeduka.UserControls
 
                         if (result == DialogResult.Yes)
                         {
-                            _dataManager.DeletePersonFromDictionary(person.Id);
-                            lvLecturers.Items.Remove(item);
+                            
+                                _dataManager.DeletePersonFromDictionary(person.Id);
+                                LoadData();
+                            
+                           
+                            
+                            
                         }
                     }
                 }
