@@ -72,5 +72,40 @@
 
             return true;
         }
+
+        public static bool IsTextValid(string tekst)
+        {
+            if (string.IsNullOrWhiteSpace(tekst))
+            {
+                // Tekst je prazan ili sadrži samo razmake
+                return false;
+            }
+            else if (tekst.Length < 3)
+            {
+                // Tekst je prekratak
+                return false;
+            }
+            else
+            {
+                // Tekst je ispravan
+                return true;
+            }
+        }
+
+        public static bool IsEctsValid(string tekst)
+        {
+            if (int.TryParse(tekst, out int broj))
+            {
+                // Tekst je uspješno pretvoren u broj
+                if (broj >= 1 && broj <= 10)
+                {
+                    // Broj je unutar raspona
+                    return true;
+                }
+            }
+            // Tekst nije broj ili nije u zadanom rasponu
+            return false;
+        }
+
     }
 }

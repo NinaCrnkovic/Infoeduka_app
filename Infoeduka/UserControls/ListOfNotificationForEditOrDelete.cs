@@ -129,8 +129,6 @@ namespace Infoeduka.UserControls
                 notification.Creator.FirstName + " "+ notification.Creator.LastName,
                 notification.Course,
                 notification.DateOfCreation.ToString(),
-                //notification.DateOfChange.ToString(),
-                //notification.ExpirationDate.ToString(),
                 "Izbriši obavijest"
                 };
 
@@ -143,8 +141,6 @@ namespace Infoeduka.UserControls
                 notification.Creator.FirstName + " "+ notification.Creator.LastName,
                 notification.Course,
                 notification.DateOfCreation.ToString(),
-                //notification.DateOfChange.ToString(),
-                //notification.ExpirationDate.ToString(),
                 "Uredi obavijest"
                 };
 
@@ -166,7 +162,7 @@ namespace Infoeduka.UserControls
         //postavljanje view propertisa na listi
         private void SetListViewProperties()
         {
-            lvNotifications.GridLines = true;
+            lvNotifications.GridLines = false;
             lvNotifications.FullRowSelect = true;
             lvNotifications.MultiSelect = false;
         }
@@ -179,8 +175,6 @@ namespace Infoeduka.UserControls
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
-                //lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum uređivanja:", Width = 140 });
-                //lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum isteka:", Width = 140 });
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Brisanje obavijesti", Width = 150 });
             }
             else if (_callingButton == "btnEditNotification")
@@ -189,9 +183,7 @@ namespace Infoeduka.UserControls
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Kreirao", Width = 150 });
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Kolegij", Width = 190 });
                 lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum kreiranja:", Width = 140 });
-                //lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum uređivanja:", Width = 140 });
-                //lvNotifications.Columns.Add(new ColumnHeader { Text = "Datum isteka:", Width = 140 });
-                lvNotifications.Columns.Add(new ColumnHeader { Text = "Uređivanje obavijesti", Width = 150 });
+                lvNotifications.Columns.Add(new ColumnHeader { Text = "Uređivanje obavijesti", Width = 160 });
             }
 
 

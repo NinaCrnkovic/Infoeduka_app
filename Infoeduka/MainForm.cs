@@ -27,7 +27,7 @@ namespace Infoeduka
             this.Controls.Add(loginForm);
             loginForm.BringToFront();
             InitializeComponent();
-            SetPanelVisibilityToFalse();
+            SetPanelForDropDownVisibilityToFalse();
         }
         //ponašanje tijekom pokretanja frome
         private void MainForm_Load(object sender, EventArgs e)
@@ -180,7 +180,7 @@ namespace Infoeduka
                     Utility.VisitLink("https://www.tiktok.com/@algebrauniversity");
                     break;
                 case "pbLinkedin":
-                    Utility.VisitLink("https://www.linkedin.com/company/algebra/");
+                    Utility.VisitLink("https://www.linkedin.com/company/28381/admin/");
                     break;
                 case "pbFacebook":
                     Utility.VisitLink("https://web.facebook.com/racunarstvo?_rdc=1&_rdr");
@@ -195,7 +195,7 @@ namespace Infoeduka
         }
         
         //postavljamo visibility na panelima koji glume drop down i ukojima su ostali gumbi na false 
-        private void SetPanelVisibilityToFalse()
+        private void SetPanelForDropDownVisibilityToFalse()
         {
 
             pnlCourseDropDown.Visible = false;
@@ -271,7 +271,8 @@ namespace Infoeduka
             LoginForm loginForm = new LoginForm(_dataManager);
             this.Controls.Add(loginForm);
             loginForm.BringToFront();
-            SetPanelVisibilityToFalse();
+            pnlHolderForOtherPanels.Controls.Clear();
+            SetPanelForDropDownVisibilityToFalse();
         }
 
         private void PictureBox1_Click(object sender, EventArgs e)

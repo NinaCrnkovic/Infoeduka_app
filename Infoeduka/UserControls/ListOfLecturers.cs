@@ -88,7 +88,7 @@ namespace Infoeduka.UserControls
                     {                    
                         LecturerMainForm formEditLecturer = new(_dataManager, "btnEditLecturer", personEdit);
 
-                        _pnlHolderForOtherPanels.Controls.Clear();
+                        this.SendToBack();
                         _pnlHolderForOtherPanels.Controls.Add(formEditLecturer);
                     }
                 }
@@ -175,7 +175,7 @@ namespace Infoeduka.UserControls
         //postavljanje view propertisa na listi
         private void SetListViewProperties()
         {
-            lvLecturers.GridLines = true;
+            lvLecturers.GridLines = false;
             lvLecturers.FullRowSelect = true;
             lvLecturers.MultiSelect = false;
         }
@@ -188,25 +188,21 @@ namespace Infoeduka.UserControls
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 200 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 120 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 120 });
             }
             else if (_callingButton == "btnDeleteLecturer")
             {
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
-                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
-                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 250 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Brisanje predavača", Width = 230 });
             }
             else if (_callingButton == "btnEditLecturer")
             {
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Ime", Width = 150 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 250 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Prezime", Width = 220 });
                 lvLecturers.Columns.Add(new ColumnHeader { Text = "Email", Width = 250 });
-                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Password", Width = 190 });
-                //lvLecturers.Columns.Add(new ColumnHeader { Text = "Tip korisnika", Width = 140 });
-                lvLecturers.Columns.Add(new ColumnHeader { Text = "Uređivanje predavača", Width = 250 });
+                lvLecturers.Columns.Add(new ColumnHeader { Text = "Uređivanje predavača", Width = 230 });
             }
 
 

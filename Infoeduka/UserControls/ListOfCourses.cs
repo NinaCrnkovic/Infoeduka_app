@@ -70,7 +70,7 @@ namespace Infoeduka.UserControls
                         var courseEdit = item.Tag as Course;
                         CoursesMainForm formEditCourse = new(_dataManager, "btnEditCourse", courseEdit);
 
-                        _pnlHolderForOtherPanels.Controls.Clear();
+                        this.SendToBack();
                         
                         _pnlHolderForOtherPanels.Controls.Add(formEditCourse);
                     }
@@ -141,7 +141,7 @@ namespace Infoeduka.UserControls
                 course.Code,
                 course.Name,
                 course.Ects.ToString(),
-                //string.Join(", ", lecturers),
+             
                 "Izbriši kolegij"
                 };
             }
@@ -152,7 +152,7 @@ namespace Infoeduka.UserControls
                 course.Code,
                 course.Name,
                 course.Ects.ToString(),
-                //string.Join(", ", lecturers),
+            
                 "Uredi kolegij"
                 };
             }
@@ -172,7 +172,7 @@ namespace Infoeduka.UserControls
         //postavljanje view propertisa na listi
         private void SetListViewProperties()
         {
-            lvCourses.GridLines = true;
+            lvCourses.GridLines = false;
             lvCourses.FullRowSelect = true;
             lvCourses.MultiSelect = false;
         }

@@ -26,7 +26,7 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show($"load person to dic" +e.Message);
+                MessageBox.Show($"Nije moguće napuniti predavače u riječnik:" +e.Message);
             }
         }
 
@@ -41,7 +41,7 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show($"load courses to dic" + e.Message);
+                MessageBox.Show($"Nije moguće napuniti kolegije u riječnik:" + e.Message);
             }
             return coursesDictionary;
         }
@@ -56,7 +56,7 @@ namespace Infoeduka.Model
             }
             catch (Exception e)
             {
-                MessageBox.Show($"load person to dic" + e.Message);
+                MessageBox.Show($"Nije moguće napuniti obavijesti u riječnik: " + e.Message);
             }
         }
 
@@ -122,7 +122,7 @@ namespace Infoeduka.Model
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show($"fill pers dic" + e.Message);
+                    MessageBox.Show($"fill notification dic" + e.Message);
                 }
             }
         }

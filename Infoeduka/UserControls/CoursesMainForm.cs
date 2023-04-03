@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Utilities;
 
 namespace Infoeduka.UserControls
 {
@@ -269,10 +270,32 @@ namespace Infoeduka.UserControls
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-            var name = tbCourseName.Text;
-            var code = tbCode.Text;
-            var ects = int.Parse(tbEcts.Text);
+            string name= tbCourseName.Text;
+            string code = tbCode.Text;
+            int ects = int.Parse(tbEcts.Text);
             List<Person> lecturers = GetLecturersFromLecturersOnCourse();
+            while (!Utility.IsTextValid(tbCourseName.Text))
+            {
+                CustomMessageBox.Show("Nije uneseno ispravno ime kolegija.", "Upozorenje", MessageBoxButtons.OK);
+            }
+          
+            
+            while (!Utility.IsTextValid(tbCode.Text))
+            {
+                CustomMessageBox.Show("Nije unesena ispravna šifra kolegija (min 3 znaka).", "Upozorenje", MessageBoxButtons.OK);
+            }
+          
+            while (!Utility.IsEctsValid(tbEcts.Text))
+            {
+                CustomMessageBox.Show("Nije unesen ispravan broj ects bodova (1-10).", "Upozorenje", MessageBoxButtons.OK);
+            }
+           while(lecturers is null)
+            {
+                CustomMessageBox.Show("Nije dodan predavač na kolegij. Kolegij mora imati barem jednog predavača.", "Upozorenje", MessageBoxButtons.OK);
+            }
+
+
+           
             if (_callingButton == "btnAddNewCourse")
             {
                
