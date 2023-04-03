@@ -270,32 +270,37 @@ namespace Infoeduka.UserControls
         private void BtnSave_Click(object sender, EventArgs e)
         {
 
-            string name= tbCourseName.Text;
+            string name = tbCourseName.Text;
             string code = tbCode.Text;
-            int ects = int.Parse(tbEcts.Text);
+            int ects;
             List<Person> lecturers = GetLecturersFromLecturersOnCourse();
-            while (!Utility.IsTextValid(tbCourseName.Text))
+
+            if (!Utility.IsTextValid(name))
             {
                 CustomMessageBox.Show("Nije uneseno ispravno ime kolegija.", "Upozorenje", MessageBoxButtons.OK);
+                return;
             }
-          
-            
-            while (!Utility.IsTextValid(tbCode.Text))
+
+            if (!Utility.IsTextValid(code))
             {
                 CustomMessageBox.Show("Nije unesena ispravna šifra kolegija (min 3 znaka).", "Upozorenje", MessageBoxButtons.OK);
+                return;
             }
-          
-            while (!Utility.IsEctsValid(tbEcts.Text))
+
+            if (!int.TryParse(tbEcts.Text, out ects) || !Utility.IsEctsValid(tbEcts.Text))
             {
                 CustomMessageBox.Show("Nije unesen ispravan broj ects bodova (1-10).", "Upozorenje", MessageBoxButtons.OK);
+                return;
             }
-           while(lecturers is null)
+
+            if (lecturers is null || lecturers.Count == 0)
             {
                 CustomMessageBox.Show("Nije dodan predavač na kolegij. Kolegij mora imati barem jednog predavača.", "Upozorenje", MessageBoxButtons.OK);
+                return;
             }
 
 
-           
+
             if (_callingButton == "btnAddNewCourse")
             {
                

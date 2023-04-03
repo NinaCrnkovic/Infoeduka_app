@@ -7,3 +7,4 @@
 904126#Operacijski sustavi#53#5#243184|Sonja|Vresk|sonja@vresk.com|123|False%304584|Doroteja|Kučak|doroteja@kucak.hr|123|False
 881790#Objektno orjentirano programiranje#100#6#265452|Nina|Crnkovic|nina@crnkovic.hr|123|True
 221607##1233#7#304584|Doroteja|Kučak|doroteja@kucak.hr|123|False
+269755#Neki#12356#5#243184|Sonja|Vresk|sonja@vresk.hr|123|False
