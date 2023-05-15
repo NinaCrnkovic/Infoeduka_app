@@ -264,6 +264,14 @@ namespace Infoeduka
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // Kreiranje nove instance glavne forme
+         
+
+            // Zatvaranje trenutne instance glavne forme
+      
+
+            // Pokretanje nove instance glavne forme
+      
             // postavite authenticated person na null kako biste oznaèili da nitko nije prijavljen
             AuthenticatedPerson = null;
             // Ponovo prikažite LoginForm
@@ -273,9 +281,11 @@ namespace Infoeduka
             loginForm.BringToFront();
             pnlHolderForOtherPanels.Controls.Clear();
             SetPanelForDropDownVisibilityToFalse();
+            CallCurrentNotifications();
+            
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
+        private void Logo_Click(object sender, EventArgs e)
         {
             CallCurrentNotifications();
         }

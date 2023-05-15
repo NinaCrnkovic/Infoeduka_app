@@ -86,7 +86,7 @@ namespace Infoeduka.UserControls
             var expirationDate = dtDate.Value;
 
 
-            // kreirajte novog Person objekta
+        
 
 
             if (_callingButton == "btnAddNewNotification")
@@ -170,6 +170,21 @@ namespace Infoeduka.UserControls
             else
             {
                 ccbCourses.DataSource = courseNames;
+                if (_callingButton == "btnEditNotification")
+                {
+                    foreach(var item in ccbCourses.Items)
+                {
+                        var code = item.ToString();
+                        if (code == _notificationEdit.Course)
+                        {
+                            int index = ccbCourses.Items.IndexOf(item);
+                            ccbCourses.SelectedIndex = index;
+                            break;
+                        }
+                    }
+                }
+                
+
             }
         }
 

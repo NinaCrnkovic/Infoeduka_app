@@ -49,8 +49,9 @@
             this.pnlNotifications.Controls.Add(this.gbCourse);
             this.pnlNotifications.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlNotifications.Location = new System.Drawing.Point(0, 0);
+            this.pnlNotifications.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlNotifications.Name = "pnlNotifications";
-            this.pnlNotifications.Size = new System.Drawing.Size(982, 517);
+            this.pnlNotifications.Size = new System.Drawing.Size(1122, 689);
             this.pnlNotifications.TabIndex = 0;
             // 
             // gbCourse
@@ -67,11 +68,9 @@
             this.gbCourse.Controls.Add(this.label3);
             this.gbCourse.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gbCourse.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.gbCourse.Location = new System.Drawing.Point(75, 14);
-            this.gbCourse.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gbCourse.Location = new System.Drawing.Point(86, 19);
             this.gbCourse.Name = "gbCourse";
-            this.gbCourse.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbCourse.Size = new System.Drawing.Size(832, 488);
+            this.gbCourse.Size = new System.Drawing.Size(951, 651);
             this.gbCourse.TabIndex = 5;
             this.gbCourse.TabStop = false;
             this.gbCourse.Text = "Obavijest";
@@ -82,11 +81,10 @@
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbDescription.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbDescription.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbDescription.Location = new System.Drawing.Point(170, 89);
-            this.tbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbDescription.Location = new System.Drawing.Point(194, 119);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
-            this.tbDescription.Size = new System.Drawing.Size(614, 130);
+            this.tbDescription.Size = new System.Drawing.Size(701, 173);
             this.tbDescription.TabIndex = 24;
             this.tbDescription.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDescription_KeyPress);
             // 
@@ -95,9 +93,9 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label4.Location = new System.Drawing.Point(119, 89);
+            this.label4.Location = new System.Drawing.Point(136, 119);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 21);
+            this.label4.Size = new System.Drawing.Size(52, 28);
             this.label4.TabIndex = 23;
             this.label4.Text = "Opis";
             // 
@@ -109,11 +107,10 @@
             this.ccbCourses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ccbCourses.ForeColor = System.Drawing.Color.White;
             this.ccbCourses.FormattingEnabled = true;
-            this.ccbCourses.Location = new System.Drawing.Point(170, 257);
-            this.ccbCourses.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ccbCourses.Location = new System.Drawing.Point(194, 343);
             this.ccbCourses.MaxDropDownItems = 4;
             this.ccbCourses.Name = "ccbCourses";
-            this.ccbCourses.Size = new System.Drawing.Size(270, 30);
+            this.ccbCourses.Size = new System.Drawing.Size(308, 35);
             this.ccbCourses.TabIndex = 22;
             // 
             // dtDate
@@ -124,10 +121,9 @@
             this.dtDate.CalendarTitleBackColor = System.Drawing.Color.Black;
             this.dtDate.CalendarTitleForeColor = System.Drawing.Color.Black;
             this.dtDate.CalendarTrailingForeColor = System.Drawing.Color.Black;
-            this.dtDate.Location = new System.Drawing.Point(591, 258);
-            this.dtDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtDate.Location = new System.Drawing.Point(675, 344);
             this.dtDate.Name = "dtDate";
-            this.dtDate.Size = new System.Drawing.Size(193, 29);
+            this.dtDate.Size = new System.Drawing.Size(220, 34);
             this.dtDate.TabIndex = 21;
             // 
             // btnSave
@@ -139,11 +135,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSave.Location = new System.Drawing.Point(234, 431);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Location = new System.Drawing.Point(267, 575);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Padding = new System.Windows.Forms.Padding(9, 0, 0, 0);
-            this.btnSave.Size = new System.Drawing.Size(342, 34);
+            this.btnSave.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btnSave.Size = new System.Drawing.Size(391, 45);
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Spremi";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -154,9 +149,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(54, 264);
+            this.label2.Location = new System.Drawing.Point(53, 343);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 21);
+            this.label2.Size = new System.Drawing.Size(135, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Naziv kolegija";
             // 
@@ -165,9 +160,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(466, 264);
+            this.label1.Location = new System.Drawing.Point(532, 346);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 21);
+            this.label1.Size = new System.Drawing.Size(126, 28);
             this.label1.TabIndex = 6;
             this.label1.Text = "Datum isteka";
             // 
@@ -175,10 +170,9 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.panel3.Location = new System.Drawing.Point(170, 67);
-            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel3.Location = new System.Drawing.Point(194, 89);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(614, 1);
+            this.panel3.Size = new System.Drawing.Size(702, 1);
             this.panel3.TabIndex = 5;
             // 
             // tbName
@@ -187,10 +181,9 @@
             this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.tbName.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.tbName.Location = new System.Drawing.Point(170, 41);
-            this.tbName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbName.Location = new System.Drawing.Point(194, 55);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(614, 22);
+            this.tbName.Size = new System.Drawing.Size(702, 27);
             this.tbName.TabIndex = 4;
             // 
             // label3
@@ -198,20 +191,21 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(42, 47);
+            this.label3.Location = new System.Drawing.Point(38, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 21);
+            this.label3.Size = new System.Drawing.Size(150, 28);
             this.label3.TabIndex = 3;
             this.label3.Text = "Naziv obavijesti";
             // 
             // NotificationMainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(21)))), ((int)(((byte)(23)))));
             this.Controls.Add(this.pnlNotifications);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "NotificationMainForm";
-            this.Size = new System.Drawing.Size(982, 517);
+            this.Size = new System.Drawing.Size(1122, 689);
             this.Load += new System.EventHandler(this.NotificationMainForm_Load);
             this.pnlNotifications.ResumeLayout(false);
             this.gbCourse.ResumeLayout(false);
