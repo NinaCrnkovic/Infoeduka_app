@@ -77,11 +77,18 @@ namespace Infoeduka.UserControls
                         {
                             
                                 _dataManager.DeletePersonFromDictionary(person.Id);
-                                LoadData();
-                            
-                           
-                            
-                            
+                            CustomMessageBox.Show("Uspješno obrisano!", "Obavijest", MessageBoxButtons.OK);
+                            LoadData();
+                            lvLecturers.Items.Clear(); // Ukloni sve stavke iz ListView kontrole
+                                                       // Dodajte ažurirane stavke
+                            DefineLabelText();
+                            DefineListViewColumnHeaders();
+                            SetListViewProperties();
+                            ShowData();
+                            lvLecturers.MouseClick += lvLecturers_MouseClick;
+
+
+
                         }
                     }
                 }
